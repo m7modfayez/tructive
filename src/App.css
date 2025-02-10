@@ -1,0 +1,153 @@
+#root {
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
+  /* text-align: center; */
+}
+
+.logo {
+  /* height: 6em; */
+  /* padding: 1.5em; */
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* @keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+} */
+
+
+
+.read-the-docs {
+  color: #888;
+}
+
+.dashboard {
+  justify-content: center;
+}
+
+.header {
+  height: 80px;
+  width: 100%;
+  /* background-color: rgb(149, 151, 255); */
+  background: linear-gradient(to bottom, #2f9eff, #fffbfb);
+  background: linear-gradient(to bottom, #91cbff, #fffbfb);
+
+  top: 0;
+  display: flex;
+  align-items: center;
+  position:sticky;
+}
+
+.logo {
+  width:200px;
+  height: 65%;
+  margin-left: 40px;
+}
+
+
+.user {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.userName {
+  margin-right: 30px;
+  font-size: larger;
+  color: black;
+}
+
+.footer {
+  width: 60%;
+  height: 80px;
+  border-radius: 30px 30px 0 0;
+  margin-bottom: 0;
+  background-color: #0081F4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin:  auto;
+  position: fixed;
+}
+
+.footer_icon {
+  margin: 0 5%;
+  cursor: pointer;
+  width: 100px;
+  /* padding: 5px; */
+  border-radius: 10px;
+}
+
+.footer_icon:hover {
+  background-color: rgb(0, 105, 157);
+
+}
+
+.dash-body {
+  /* padding-top: 10px; */
+  margin-top: 40px;
+  /* background-color: #efefef; */
+}
+
+.dash-head {
+  /* justify-content:left; */
+  color: #3D9FEE;
+  margin-left: 40px;
+  top: 60px;
+  position: fixed;
+}
+
+.drivers {
+  display: flex;
+  width: 60%;
+  margin-left: 10px;
+  /* background-color: antiquewhite; */
+  /* background-color: rgb(188, 188, 188); */
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+}
+
+.driver {
+  background-color: #0081F4;
+  width: 25%;
+  height: 90%;
+  margin: 0 2%;
+  padding: 2px;
+  border-radius: 25px;
+}
+.driver h2 {
+  text-align: left;
+  margin: 10px 0 0 15px ;
+  /* top: px; */
+  /* margin-left: 3px; */
+}
+
+.driver h4 {
+  margin-right: 10px;
+  margin-top: 60px;
+  text-align: end;
+}
