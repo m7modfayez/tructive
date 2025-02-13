@@ -1,4 +1,5 @@
 import DriverInfo from "./DriverInfo"
+import DriverTable from "./DriverTable";
 
 function DashboardBody() {
 
@@ -11,6 +12,8 @@ function DashboardBody() {
                 <h1>Company Name</h1>
             </div>
             <DriverInfo />
+            <DriverTable />
+
           </div>
         </>
     )
