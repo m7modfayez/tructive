@@ -133,6 +133,7 @@ function DriverTable() {
     rate:  Math.floor(Math.random() * 51) + 10
  },
     ]
+    
 
     return(
         <>
@@ -170,6 +171,30 @@ function DriverTable() {
             </tbody>
           </table>
           </div>
+
+          {/* <table className="driver-list-table">
+            <thead>
+            <tr>
+              <th>Driver ID</th>
+              <th>Driver Name</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>Email Address</th>
+            </tr>
+            </thead>
+            <tbody>
+                {driversTable.map((driver, index) =>(
+                     <tr key={index}>
+                     <td>{driver.id}</td>
+                     <td>{driver.name}</td>
+                     <td>{driver.vehicleID}</td>
+                     <td>{driver.overSpeed}</td>
+                     <td>{driver.harshAcce}</td>
+                   </tr>
+                ) )  }
+            </tbody>
+          </table>
+           */}
 
         </>
     )

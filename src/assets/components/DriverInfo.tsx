@@ -1,13 +1,19 @@
 import { IoPersonOutline } from "react-icons/io5";
 
 
-function DriverInfo() {
+interface DriverInfoProps {
+    onChildClick: () => void;
+  }
+
+function DriverInfo({onChildClick}: DriverInfoProps) {
+    
+ 
 
     return(
         <>
           <div className="drivers">
 
-            <div className="driver" style={{backgroundColor:'rgb(255, 243, 216)',}}>
+            <div onClick={onChildClick} className="driver tot-drivers">
                 <h2>Total Drivers</h2>
                 <h2>15</h2>
                 <IoPersonOutline size={70} style={{ margin:'20px', float: 'right',}}/>

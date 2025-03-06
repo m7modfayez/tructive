@@ -19,7 +19,9 @@ function Header() {
          </div> */}
 
          </div>
-
+         <div className="dash-head">
+              <h1>Dashboard</h1>
+      </div>
 
 
         </>

@@ -1,24 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import { useState } from 'react'
 import './App.css'
-import Header from './Header'
-import Footer from './Footer'
-import DashboardBody from './DashboardBody'
-import DriverInfo from './DriverInfo'
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from './assets/components/Header'
+import Footer from './assets/components/Footer'
+import DashboardBody from './assets/components/DashboardBody'
+import TotalDrivers from './assets/components/TotalDrivers';
 function App() {
+
 
   return (
     <>
     <div className='dashboard'>
-      <Header />
-      <div className="dash-head">
-                <h1>Dashboard</h1>
-            </div>
-      <DashboardBody />
-      {/* <DriverInfo /> */}
+      
       <Footer />
+      <Router>
+      <Header />
+      <DashboardBody />
+      
+        <Routes>
+          <Route path="/total-drivers" element={<TotalDrivers />} />
+        </Routes>
+      </Router>
     </div>
     </>
   )
