@@ -8,7 +8,7 @@ function DriverList() {
            id: 1,
            vehicleID: 3,
            overSpeed: 10,
-           harshAcce: 10,
+           harshAcce: "mahmoudd@gmail.com",
            harshBreaking: 10,
            driverBehaviour: 10,
            excessiveIdling: 10,
@@ -20,7 +20,7 @@ function DriverList() {
            id: 1,
            vehicleID: 3,
            overSpeed: 10,
-           harshAcce: 10,
+           harshAcce: "mahmoudd@gmail.com",
            harshBreaking: 10,
            driverBehaviour: 10,
            excessiveIdling: 10,
@@ -32,7 +32,7 @@ function DriverList() {
            id: 1,
            vehicleID: 3,
            overSpeed: 10,
-           harshAcce: 10,
+           harshAcce: "mahmoudd@gmail.com",
            harshBreaking: 10,
            driverBehaviour: 10,
            excessiveIdling: 10,
@@ -44,7 +44,7 @@ function DriverList() {
            id: 1,
            vehicleID: 3,
            overSpeed: 10,
-           harshAcce: 10,
+           harshAcce: "mahmoudd@gmail.com",
            harshBreaking: 10,
            driverBehaviour: 10,
            excessiveIdling: 10,
@@ -56,7 +56,7 @@ function DriverList() {
            id: 1,
            vehicleID: 3,
            overSpeed: 10,
-           harshAcce: 10,
+           harshAcce: "mahmoudd@gmail.com",
            harshBreaking: 10,
            driverBehaviour: 10,
            excessiveIdling: 10,
@@ -68,7 +68,7 @@ function DriverList() {
            id: 1,
            vehicleID: 3,
            overSpeed: 10,
-           harshAcce: 10,
+           harshAcce: "mahmoudd@gmail.com",           
            harshBreaking: 10,
            driverBehaviour: 10,
            excessiveIdling: 10,
@@ -79,7 +79,7 @@ function DriverList() {
            id: 1,
            vehicleID: 3,
            overSpeed: 10,
-           harshAcce: 10,
+           harshAcce: "mahmoudd@gmail.com",
            harshBreaking: 10,
            driverBehaviour: 10,
            excessiveIdling: 10,
@@ -91,7 +91,7 @@ function DriverList() {
            id: 1,
            vehicleID: 3,
            overSpeed: 10,
-           harshAcce: 10,
+           harshAcce: "mahmoudd@gmail.com",           
            harshBreaking: 10,
            driverBehaviour: 10,
            excessiveIdling: 10,
@@ -102,7 +102,7 @@ function DriverList() {
            id: 1,
            vehicleID: 3,
            overSpeed: 10,
-           harshAcce: 10,
+           harshAcce: "mahmoudd@gmail.com",
            harshBreaking: 10,
            driverBehaviour: 10,
            excessiveIdling: 10,
@@ -113,7 +113,7 @@ function DriverList() {
            id: 1,
            vehicleID: 3,
            overSpeed: 10,
-           harshAcce: 10,
+           harshAcce: "mahmoudd@gmail.com",
            harshBreaking: 10,
            driverBehaviour: 10,
            excessiveIdling: 10,
@@ -124,7 +124,7 @@ function DriverList() {
            id: 1,
            vehicleID: 3,
            overSpeed: 10,
-           harshAcce: 10,
+           harshAcce: "mahmoudd@gmail.com",
            harshBreaking: 10,
            driverBehaviour: 20,
            excessiveIdling: 40,
@@ -136,7 +136,10 @@ function DriverList() {
     return (
         <>
          
-         <div style={{  width: "80%",padding: "4px", borderRadius:"20px", backgroundColor: "black" , height: "", overflow: "auto", margin: "20px auto"}}>
+         <div className="driver-list-table-div">
+         <form>
+           <input className="driver-search" name="fsrch" id="" placeholder="Search..." />
+           </form>
           <table className="driver-list-table">
             <thead>
             <tr>

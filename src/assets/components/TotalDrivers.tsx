@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoMdClose } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import DriverList from "./DriverList";
 
@@ -15,10 +16,8 @@ function TotalDrivers() {
        <div className="total-drivers">
    
            
-             <div style={{display:"flex",}}>
-               <h1>drivers list</h1>
-               <button onClick={onClose} style={{marginLeft:"80%"}} >Close</button>
-             </div>
+               <button onClick={onClose} className="close-driver-list"> <IoMdClose size={60} color="black" /> </button>
+               <h1 style={{margin: "15px 42%"}}>Drivers List</h1>
                <DriverList />
         </div>
 

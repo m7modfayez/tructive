@@ -12,11 +12,10 @@ function App() {
     <>
     <div className='dashboard'>
       
-      <Footer />
       <Router>
       <Header />
       <DashboardBody />
-      
+      <Footer />
         <Routes>
           <Route path="/total-drivers" element={<TotalDrivers />} />
         </Routes>

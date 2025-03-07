@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import DriverInfo from "./DriverInfo"
 import DriverTable from "./DriverTable";
-import TotalDrivers from './TotalDrivers'
 
 
 function DashboardBody() {
