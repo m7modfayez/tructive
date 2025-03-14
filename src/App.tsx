@@ -1,16 +1,16 @@
 // import { useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from './assets/components/Header'
-import Footer from './assets/components/Footer'
-import DashboardBody from './assets/components/DashboardBody'
 import TotalDrivers from './assets/components/TotalDrivers';
+import HomeApp from './assets/components/home-page-components/Home';
+import Dashboard from './assets/components/Dashboard';
+
 function App() {
 
 
   return (
     <>
-    <div className='dashboard'>
+    {/* <div className='dashboard'>
       
       <Router>
       <Header />
@@ -20,9 +20,20 @@ function App() {
           <Route path="/total-drivers" element={<TotalDrivers />} />
         </Routes>
       </Router>
-    </div>
+    </div> */}
+
+    <Router>
+        <Routes>
+          <Route path='' element={<HomeApp />} />
+          <Route path="/supervisor-dashborad" element={<Dashboard />} >
+            <Route path="total-drivers" element={<TotalDrivers />} />
+          </Route>
+        </Routes>
+    </Router>
+
+    {/* <Dashboard /> */}
     </>
   )
 }
 
-export default App
+export default App;

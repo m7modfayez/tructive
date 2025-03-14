@@ -1,8 +1,15 @@
+
+
 #root {
   /* max-width: 1280px; */
   /* margin: 0 auto; */
   /* padding: 2rem; */
   /* text-align: center; */
+}
+
+
+img{
+  
 }
 
 .logo {
@@ -38,7 +45,7 @@
   justify-content: center;
 }
 
-.header {
+.dashboard-header {
   height: 80px;
   width: 100%;
   /* background-color: rgb(149, 151, 255); */
@@ -137,6 +144,7 @@
   /* background-color: #0081F4; */
   width: 25%;
   height: 90%;
+  box-shadow: 20PX 20px 20px rgba(0, 0, 0, 0.2);
   margin: 0 2%;
   padding: 2px;
   border-radius: 25px;
@@ -204,6 +212,8 @@ td {
   /* z-index: 5; */
   border-radius: 20px;
   /* text-align: center; */
+  box-shadow: 100px 100px 0px 1000px rgba(0, 0, 0, 0.2);
+
   position: fixed;
   top: 50%;
   left: 50%;
@@ -236,6 +246,7 @@ td {
   height: 70%;
   overflow: auto;
   margin: 30px auto;
+  /* background: rgba(69, 69, 69, 0.5); */
 }
 
 .driver-list-table {
@@ -262,7 +273,7 @@ td {
   padding: 10px;
   min-width: 150px;
   width: calc(100% / 4);
-  word-wrap: break-word;
+  /* word-wrap: break-word; */
   max-width: 22%;
 }
 
@@ -275,7 +286,39 @@ td {
   border: #888 1px solid;
   padding-left: 10px;
   color: #201f1f;
-
-
-
 }
+.driver-search:focus {
+  outline: #086dc5 2px solid;
+  border: none;
+  color: #086dc5;
+}
+
+.driver-list-buttons-div {
+  margin: 10px 20px;
+  /* background-color: #888; */
+  float: right;
+}
+
+.driver-list-buttons {
+  width: 120px;
+  cursor: pointer;
+  margin: 5px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  /* color: #086dc5; */
+  font-size:x-large;
+  /* font-size:xx-large; */
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+}
+.driver-list-buttons:hover {
+  background-color: rgb(178, 195, 210);
+  background-color: #086dc5;
+  color: white;
+}
+
+
+
+
+

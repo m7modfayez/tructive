@@ -8,7 +8,7 @@ function DriverList() {
            id: 1,
            vehicleID: 3,
            overSpeed: 10,
-           harshAcce: "mahmoudd@gmail.com",
+           harshAcce: "mahmoud@gmail.com",
            harshBreaking: 10,
            driverBehaviour: 10,
            excessiveIdling: 10,
@@ -135,7 +135,8 @@ function DriverList() {
 
     return (
         <>
-         
+         {/* <div className="modal"> */}
+
          <div className="driver-list-table-div">
          <form>
            <input className="driver-search" name="fsrch" id="" placeholder="Search..." />
@@ -163,7 +164,12 @@ function DriverList() {
             </tbody>
           </table>
           </div>
+          <div className="driver-list-buttons-div">
+            <button className="driver-list-buttons"> <b>Remove</b> </button>
+            <button className="driver-list-buttons"> <b>Add</b> </button>
+          </div>
 
+          {/* </div> */}
         </>
     )
 }

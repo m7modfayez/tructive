@@ -7,7 +7,7 @@ function DashboardBody() {
 
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/total-drivers");
+    navigate("total-drivers");
   }
 
     return(
