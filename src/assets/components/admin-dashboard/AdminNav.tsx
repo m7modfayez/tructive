@@ -7,7 +7,7 @@ import { FaCarAlt } from "react-icons/fa";
 
 
 
-function Footer() {
+function AdminNav() {
   const size = 70;
   const color = "white";
 
@@ -33,4 +33,4 @@ function Footer() {
 
 
 
-export default Footer
+export default AdminNav;

@@ -1,5 +1,6 @@
 // import React from 'react';
-import './HomePage.css'; // Assuming you have a CSS file for styling
+// import './HomePage.css';
+import './HomePage.css';
 import { useNavigate } from 'react-router-dom';
 // import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 
@@ -166,7 +167,7 @@ const HomeApp = () => {
    
   const dashNavigate = useNavigate();
   const loginClick = () => {
-    dashNavigate("/supervisor-dashborad");
+    dashNavigate("/login-page");
   }
 
   return(

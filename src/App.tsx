@@ -3,6 +3,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TotalDrivers from './assets/components/TotalDrivers';
 import HomeApp from './assets/components/home-page-components/Home';
+import LoginPage from './assets/components/login/Login';
 import Dashboard from './assets/components/Dashboard';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     <Router>
         <Routes>
           <Route path='' element={<HomeApp />} />
+          <Route path="/login-page" element={<LoginPage />} />
           <Route path="/supervisor-dashborad" element={<Dashboard />} >
             <Route path="total-drivers" element={<TotalDrivers />} />
           </Route>

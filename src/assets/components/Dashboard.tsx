@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from './Header'
-import Footer from './Footer'
+import NavBar from './NavBar'
 import DashboardBody from './DashboardBody'
 
 
@@ -13,7 +13,7 @@ function Dashboard() {
         <Header />
         <DashboardBody />
         <Outlet />
-        <Footer />
+        <NavBar />
 
         </div>
         </>
