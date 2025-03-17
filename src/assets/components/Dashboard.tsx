@@ -10,7 +10,7 @@ function Dashboard() {
         <>
         <div className='dashboard'>
 
-        <Header />
+        <Header role="Supervisor" />
         <DashboardBody />
         <Outlet />
         <NavBar />

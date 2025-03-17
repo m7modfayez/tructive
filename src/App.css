@@ -123,8 +123,6 @@ img{
 .drivers {
   display: flex;
   width: 60%;
-  margin-left: 10px;
-  /* background-color: antiquewhite; */
   /* background-color: rgb(188, 188, 188); */
   height: 200px;
   align-items: center;
@@ -145,7 +143,7 @@ img{
   width: 25%;
   height: 90%;
   box-shadow: 20PX 20px 20px rgba(0, 0, 0, 0.2);
-  margin: 0 2%;
+  margin: 0 4%;
   padding: 2px;
   border-radius: 25px;
 }
@@ -164,7 +162,7 @@ img{
 }
 
 .table-div{ 
-  margin: 100px auto 0 auto;
+  margin: 80px auto 0 auto;
   /* background-color: #0081F4; */
   width:fit-content;
   /* width: 80%; */
@@ -190,19 +188,21 @@ img{
 thead {
   height: 40px;
   position: sticky;
+  margin-bottom: 3px;
+  /* border-spacing: 0px; */
   top: 0px;
   background-color: white;
 }
 
 th  {
   border-right:  #201f1f 1px solid ;
-  border-spacing: 4px;
-  padding: 0px 10px;
+  /* border-spacing: 4px; */
+  padding: 0px 15px;
   
 }
 td {
   background-color: #D2E7FA;
-  padding: 4px 10px;
+  padding: 12px 10px;
 
   /* color: #c6ffc4; */
   /* color: #ff8567; */

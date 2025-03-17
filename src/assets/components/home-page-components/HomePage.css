@@ -554,12 +554,14 @@ input[type="password"] {
 .companies-table {
     /* background-color: #ccc; */
     /* table-layout: fixed; */
+    font-size: large;
 }
 
 .companies-table th,
 .companies-table td {
-    padding: 0 40px;
+    padding: 0 60px;
 }
+
 .companies-table td{
     padding: 10px;
 }

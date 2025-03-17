@@ -7,7 +7,7 @@ function AdminDashboard() {
 
     return(
         <>
-          <Header />
+          <Header role="Admin" />
           <AdminDashBody />
           <AdminNav />
         </>

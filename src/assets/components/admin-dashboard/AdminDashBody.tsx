@@ -1,5 +1,7 @@
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
+import ComapnyName from "../base-components/CompanyName";
+import CompaniesInfo from "./CompaniesInfo";
 import Table from "../base-components/Table";
 import DriverInfo from "../DriverInfo";
 import BaseButton from "../base-components/BaseButton";
@@ -206,7 +208,15 @@ function AdminDashBody() {
                 <h1>Company Name</h1>
         </div> */}
 
-        <DriverInfo onChildClick={companyHandleOnClick} />
+        {/* company name */}
+        <div style={{ width: "fit-content", margin: "-30px auto 0"}}>
+           <ComapnyName companyName="Johayna" />
+        </div>
+
+        {/* <DriverInfo onChildClick={companyHandleOnClick} /> */}
+        
+        <CompaniesInfo onTotalCompaniesClick={companyHandleOnClick} />
+
         <Table headers={companiesHeaders} data={companiesData} className="companies-table" />
         <div style={{ margin: "10px auto 0px auto", backgroundColor: "", width: "fit-content" }}>
         <BaseButton name="Add Company" className="admin-addCompany-button" baseButtonOnClick={addCompanyOnClick} />

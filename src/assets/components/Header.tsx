@@ -1,7 +1,12 @@
 
 import { GoPerson } from "react-icons/go";
 
-function Header() {
+type HeaderProps = {
+    role: string;
+  };
+  
+
+function Header({role}: HeaderProps ) {
 
     return (
         <>
@@ -21,7 +26,7 @@ function Header() {
 
          </div>
          <div className="dash-head">
-              <h1>Dashboard</h1>
+              <h1> {role} Dashboard</h1>
       </div>
 
 
