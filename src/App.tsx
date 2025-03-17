@@ -5,35 +5,26 @@ import TotalDrivers from './assets/components/TotalDrivers';
 import HomeApp from './assets/components/home-page-components/Home';
 import LoginPage from './assets/components/login/Login';
 import Dashboard from './assets/components/Dashboard';
+import AdminDashboard from './assets/components/admin-dashboard/AdminDashboard';
 
 function App() {
 
 
   return (
     <>
-    {/* <div className='dashboard'>
-      
-      <Router>
-      <Header />
-      <DashboardBody />
-      <Footer />
-        <Routes>
-          <Route path="/total-drivers" element={<TotalDrivers />} />
-        </Routes>
-      </Router>
-    </div> */}
+    
 
     <Router>
         <Routes>
           <Route path='' element={<HomeApp />} />
           <Route path="/login-page" element={<LoginPage />} />
+          <Route path="/admin-dashborad" element={<AdminDashboard />} />
           <Route path="/supervisor-dashborad" element={<Dashboard />} >
             <Route path="total-drivers" element={<TotalDrivers />} />
           </Route>
         </Routes>
     </Router>
 
-    {/* <Dashboard /> */}
     </>
   )
 }

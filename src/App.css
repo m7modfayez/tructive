@@ -164,7 +164,7 @@ img{
 }
 
 .table-div{ 
-  margin: 100px auto;
+  margin: 100px auto 0 auto;
   /* background-color: #0081F4; */
   width:fit-content;
   /* width: 80%; */
