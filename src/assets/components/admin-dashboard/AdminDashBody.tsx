@@ -1,6 +1,6 @@
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
-import ComapnyName from "../base-components/CompanyName";
+// import ComapnyName from "../base-components/CompanyName";
 import CompaniesInfo from "./CompaniesInfo";
 import Table from "../base-components/Table";
 import BaseButton from "../base-components/BaseButton";
