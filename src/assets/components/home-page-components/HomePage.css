@@ -3,13 +3,14 @@
 /* Home page */
 
 /*Font Style*/
+
 @import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 *{
     /* margin: 0; */
     /* padding: 0; */
     /* the line box-sizing makes differences in drivers info in dashboard */
     /* box-sizing: border-box; */
-    box-sizing:content-box;
+    box-sizing:border-box;
     font-family: "K2D", ;
     /* this fon't makes some differencesin the dashboard => "sans-serif" */
     list-style: none;
@@ -24,7 +25,7 @@
     height: 100vh;
     background-size: cover;
     background-position: center;
-    background-image: url(mainPh.jpg);
+    background-image: url("../../../../Home_img/mainPh.jpg");
     background-repeat:no-repeat ;
 }
 header{
@@ -148,6 +149,7 @@ section{
 span{
     color: var(--main-color);
 }
+
 
 /*SECTION Two */
 .description{

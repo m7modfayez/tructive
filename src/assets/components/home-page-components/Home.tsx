@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ onLoginClick }) => (
   
   <header>
     <div className="logo">
-      <img src="images/logo.png" alt="Logo" />
+    <img src="/src/assets/logo.png" alt="Logo" />
     </div>
     <div className="sidieLink">
       <ul>
@@ -34,7 +34,7 @@ const SectionOne = () => (
       <h1><span>Feel</span> Free For Your Fleets, Now You Can Fully Monitor Your Drivers And Manage Them Easily</h1>
     </div>
     <div className="imgOne">
-      <img src="images/image.png" alt="image" />
+      <img src="/Home_img/image.png" alt="image" />
     </div>
   </section>
 );
@@ -49,7 +49,7 @@ const SectionTwo = () => (
         </p>
       </div>
       <div className="imgTwo">
-        <img src="images/pexels-kagan-bastimar-1754822-3325651.jpg" alt="photo" />
+        <img src="/Home_img/pexels-kagan-bastimar-1754822-3325651.jpg" alt="photo" />
       </div>
     </section>
   </>
@@ -60,7 +60,7 @@ const SectionThree = () => (
     <p className="description">“Effective Fleet Management: Driver Tracking & Mobile Experience”</p>
     <section className="secThree">
       <div className="imgThree">
-        <img src="images/istockphoto-859916128-612x612 1.png" alt="" />
+        <img src="/Home_img//istockphoto-859916128-612x612 1.png" alt="" />
       </div>
       <div className="texThree">
         <p>
@@ -93,7 +93,7 @@ const SectionFour = () => (
         </p>
       </div>
       <div className="imgFour">
-        <img src="images/sec.jpg" alt="" />
+        <img src="/Home_img//sec.jpg" alt="" />
       </div>
     </section>
   </>
@@ -111,7 +111,7 @@ const JoinSection = () => (
 const ContactForm = () => (
   <section className="secForm">
     <div className="imgTex">
-      <img src="images/forms.jpg" alt="car" />
+      <img src="/Home_img/forms.jpg" alt="car" />
     </div>
     <div className="form">
       <div className="us"><h3>Contact Us</h3></div>
