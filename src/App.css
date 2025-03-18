@@ -40,6 +40,7 @@
 
 .dashboard {
   justify-content: center;
+  height: 100vh;
 }
 
 .dashboard-header {
