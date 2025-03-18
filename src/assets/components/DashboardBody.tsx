@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DriverInfo from "./DriverInfo"
 import ComapnyName from "./base-components/CompanyName";
 import DriverTable from "./DriverTable";

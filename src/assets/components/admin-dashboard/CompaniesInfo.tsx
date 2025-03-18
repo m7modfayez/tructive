@@ -8,7 +8,6 @@ interface props {
 
 function CompaniesInfo({onTotalCompaniesClick}:props ) {
 
-    const total_icon = <FaTruck size={70} style={{ margin:'20px', float: 'right',}} />;
 
 
     const total_card = {cardName: "Total Companies", number: 10, icon: <FaTruck size={70} style={{ margin:'20px', float: 'right',}} /> }

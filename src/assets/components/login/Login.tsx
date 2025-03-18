@@ -76,6 +76,7 @@ const LoginPage = () => {
 
               <input
                 type="radio"
+                // style={{backgroundColor: "white"}}
                 id="supervisor"
                 name="role"
                 value="supervisor"

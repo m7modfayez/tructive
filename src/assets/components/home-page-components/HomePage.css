@@ -522,6 +522,11 @@ input[type="password"] {
     padding: 5px;
 }
 
+input[type="radio"] {
+    color: #ebdede;
+    background-color: transparent;
+}
+
 .role-selection {
     margin: 15px 0;
     display: flex;
@@ -531,6 +536,9 @@ input[type="password"] {
 
 .role-selection input {
     margin-right: 5px;
+    color: #ccc;
+    background-color: #ccc;
+
 }
 
 .login-button {

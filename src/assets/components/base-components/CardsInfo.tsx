@@ -1,5 +1,3 @@
-import { IconType } from "react-icons";
-import { IoPersonOutline } from "react-icons/io5";
 
 
 interface DriverInfoProps {
