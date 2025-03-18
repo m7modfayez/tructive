@@ -6,6 +6,7 @@ import HomeApp from './assets/components/home-page-components/Home';
 import LoginPage from './assets/components/login/Login';
 import Dashboard from './assets/components/Dashboard';
 import AdminDashboard from './assets/components/admin-dashboard/AdminDashboard';
+import BaseActionsWindow from './assets/components/base-components/BaseActionsWindow';
 
 function App() {
 
@@ -14,15 +15,34 @@ function App() {
     <>
     
 
-    <Router>
+    {/* <Router>
         <Routes>
           <Route path='' element={<HomeApp />} />
           <Route path="/login-page" element={<LoginPage />} />
-          <Route path="/admin-dashborad" element={<AdminDashboard />} />
+          <Route path="/admin-dashborad" element={<AdminDashboard />}>
+            <Route path="add-company" element={<BaseActionsWindow />} />
+          </Route>
           <Route path="/supervisor-dashborad" element={<Dashboard />} >
             <Route path="total-drivers" element={<TotalDrivers />} />
           </Route>
         </Routes>
+    </Router> */}
+
+   <Router>
+      <Routes>
+        <Route path="" element={<HomeApp />} />
+        <Route path="/login-page" element={<LoginPage />} />
+        
+        {/* Admin Dashboard with Nested Route */}
+        <Route path="/admin-dashboard" element={<AdminDashboard />}>
+          <Route path="add-company" element={<BaseActionsWindow />} />
+        </Route>
+
+        {/* Supervisor Dashboard with Nested Route */}
+        <Route path="/supervisor-dashboard" element={<Dashboard />}>
+          <Route path="total-drivers" element={<TotalDrivers />} />
+        </Route>
+      </Routes>
     </Router>
 
     </>

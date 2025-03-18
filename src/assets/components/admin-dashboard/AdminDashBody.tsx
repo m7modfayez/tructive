@@ -3,10 +3,9 @@ import { FaEdit } from "react-icons/fa";
 import ComapnyName from "../base-components/CompanyName";
 import CompaniesInfo from "./CompaniesInfo";
 import Table from "../base-components/Table";
-import DriverInfo from "../DriverInfo";
 import BaseButton from "../base-components/BaseButton";
-
-import DriverTable from "../DriverTable";
+import { useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 
 const companiesHeaders = [ "Company ID", "Company Name", "Total Supervisors" , "Total Drivers", "Contract Date", "Actions"];
@@ -195,8 +194,10 @@ function AdminDashBody() {
 
     }
 
-    const addCompanyOnClick = () => {
+    const navigateAddCompany = useNavigate();
 
+    const addCompanyOnClick = () => {
+      navigateAddCompany("add-company");
     }
 
     return(
@@ -209,9 +210,9 @@ function AdminDashBody() {
         </div> */}
 
         {/* company name */}
-        <div style={{ width: "fit-content", margin: "-30px auto 0"}}>
+        {/* <div style={{ width: "fit-content", margin: "-30px auto 0"}}>
            <ComapnyName companyName="Johayna" />
-        </div>
+        </div> */}
 
         {/* <DriverInfo onChildClick={companyHandleOnClick} /> */}
         
@@ -219,7 +220,9 @@ function AdminDashBody() {
 
         <Table headers={companiesHeaders} data={companiesData} className="companies-table" />
         <div style={{ margin: "10px auto 0px auto", backgroundColor: "", width: "fit-content" }}>
-        <BaseButton name="Add Company" className="admin-addCompany-button" baseButtonOnClick={addCompanyOnClick} />
+        <BaseButton name="Add Company" className="admin-adding-button" baseButtonOnClick={addCompanyOnClick} />
+        <Outlet />
+        
         </div>
         </div>
         {/* <DriverTable /> */}

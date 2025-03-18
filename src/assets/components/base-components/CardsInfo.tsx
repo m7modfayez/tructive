@@ -15,7 +15,7 @@ function CardInfo({totalCard, bestCard, worstCard , onChildClick}: DriverInfoPro
 
     return(
         <>
-          <div className="drivers">
+          <div className="drivers" >
 
             <div onClick={onChildClick} className="driver tot-drivers">
                 <h2>{totalCard.cardName}</h2>

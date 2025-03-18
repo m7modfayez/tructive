@@ -15,10 +15,10 @@ const LoginPage = () => {
     e.preventDefault();
 
     if(role=="admin"){
-        navigate('/admin-dashborad');
+        navigate('/admin-dashboard');
     }
     else if(role=="supervisor") {
-        navigate('/supervisor-dashborad');
+        navigate('/supervisor-dashboard');
     }
 
   };
