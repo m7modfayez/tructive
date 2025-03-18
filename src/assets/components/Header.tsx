@@ -1,5 +1,6 @@
 
 import { GoPerson } from "react-icons/go";
+import logo from "../logo.png";
 
 type HeaderProps = {
     role: string;
@@ -12,7 +13,7 @@ function Header({role}: HeaderProps ) {
         <>
         
          <div className="dashboard-header">
-            <img className="logo" src="src/assets/image.png" />
+            <img className="logo" src={logo} />
             <div className="user">
             <GoPerson size={40} color="black" />
             <p className="userName">UserName</p>
