@@ -112,6 +112,7 @@ header .sidieLink ul li a:hover::before {
     text-align: center;
     height: 90%;
     justify-content: center;
+    margin-bottom: 72px;
 }
 .textMain h1{
     font-size: 32px;
@@ -144,10 +145,12 @@ section{
     width: 460px;
     height: 310px;
     font-size: 48px;
+    margin: auto;
     font-weight: bold;
 }
 span{
     color: var(--main-color);
+    font-weight: 800;
 }
 
 
@@ -168,7 +171,11 @@ span{
     height: 260px;
     color: var(--p-color);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 22px;
+    text-align: center;
+}
+.secTow .texTwo p span {
+    font-weight: 800;
 }
 
 /* make this a normal class for specific imgs not for all imgs */
@@ -273,10 +280,11 @@ textarea {
     padding: 12px 20px;
     margin: 8px 0;
     display: block;
-    border: 1px solid #ccc;
     border-radius: 15px;
     box-sizing: border-box;
     resize: none;
+    outline: none;
+    border: none;
 }
 .sned {
     width: 100%;
@@ -352,7 +360,15 @@ footer .col2 .links .yotube:hover{
 footer .col2 .links .lin:hover{
     color: #0A66C2;
 }
-
+.imgThree img {
+    border-radius: 0;
+}
+img {
+    border-radius: 20px;
+    box-shadow: 20PX 20px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
 /*
 @media only screen and (max-width: 850px){
     .cont{
@@ -514,14 +530,15 @@ label {
 }
 
 input[type="email"],
-input[type="password"] {
-    border: none;
+input[type="password"]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 15px;
+    box-sizing: border-box;
     outline: none;
-    color: #000;
-    background: transparent;
-    flex: 1;
-    font-size: 16px;
-    padding: 5px;
+    border: none;
 }
 
 input[type="radio"] {

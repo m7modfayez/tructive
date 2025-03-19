@@ -10,7 +10,7 @@ type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = ({ onLoginClick }) => (
   
-  <header>
+  <header id='head'>
     <div className="logo">
     <img src="/src/assets/logo.png" alt="Logo" />
     </div>
@@ -26,7 +26,17 @@ const Header: React.FC<HeaderProps> = ({ onLoginClick }) => (
       </div>
     </div>
   </header>
+  
 );
+
+/*  Header animation   */ 
+{
+  const base = document.querySelector("header") as HTMLElement;
+
+window.addEventListener("scroll", function () {
+  base.classList.toggle("sticky", window.scrollY > 0);
+});
+}
 
 const SectionOne = () => (
   <section className="secOne">
@@ -45,7 +55,7 @@ const SectionTwo = () => (
     <section className="secTow">
       <div className="texTwo">
         <p>
-          Revolutionize Fleet Management with Our Cutting-Edge Driver Monitoring System! Take control of your fleet like never before. Our advanced driver behavior tracking system enables supervisors and administrators to effortlessly monitor and optimize driver performance. From smooth acceleration to safe braking and everything in between, our platform offers real-time insights and actionable analytics. Elevate safety, boost efficiency, and maximize the performance of your entire fleet with our powerful solution.
+           <span>Revolutionize Fleet Management with Our Cutting-Edge Driver Monitoring System! </span> Take control of your fleet like never before. Our advanced driver behavior tracking system enables supervisors and administrators to effortlessly monitor and optimize driver performance. From smooth acceleration to safe braking and everything in between, our platform offers real-time insights and actionable analytics. Elevate safety, boost efficiency, and maximize the performance of your entire fleet with our powerful solution.
         </p>
       </div>
       <div className="imgTwo">
@@ -64,13 +74,13 @@ const SectionThree = () => (
       </div>
       <div className="texThree">
         <p>
-          <span><i className="fa-solid fa-car"></i></span> Stay in Control: Track every driver’s journey with detailed trip records and daily performance scores. Our system gives supervisors a full overview of driving behaviors, empowering them to make data-driven decisions to improve safety and efficiency.
+          <span><i className="fa-solid fa-car"></i></span> <span>Stay in Control</span>: Track every driver’s journey with detailed trip records and daily performance scores. Our system gives supervisors a full overview of driving behaviors, empowering them to make data-driven decisions to improve safety and efficiency.
         </p>
         <p>
-          <span><i className="fa-solid fa-phone"></i></span> Effortless Mobile Experience: Drivers can easily log their trips and get immediate feedback through our intuitive mobile app. Supervisors can communicate seamlessly with drivers, ensuring smooth collaboration and enhanced productivity.
+          <span><i className="fa-solid fa-phone"></i></span> <span>Effortless Mobile Experience</span>: Drivers can easily log their trips and get immediate feedback through our intuitive mobile app. Supervisors can communicate seamlessly with drivers, ensuring smooth collaboration and enhanced productivity.
         </p>
         <p>
-          <span><i className="fa-solid fa-earth-americas"></i></span> Comprehensive Web Management: With our easy-to-use web platform, supervisors can manage teams, create accounts, and dive into in-depth reports. Take charge of your fleet’s operations and drive success with streamlined, web-based control.
+          <span><i className="fa-solid fa-earth-americas"></i></span> <span>Comprehensive Web Management</span>: With our easy-to-use web platform, supervisors can manage teams, create accounts, and dive into in-depth reports. Take charge of your fleet’s operations and drive success with streamlined, web-based control.
         </p>
       </div>
     </section>
@@ -83,13 +93,13 @@ const SectionFour = () => (
     <section className="secFour">
       <div className="texFour">
         <p>
-          Diagnose Issues Instantly: Stay ahead of vehicle maintenance with our advanced fault detection system. Identify potential problems in real-time, reducing downtime and preventing costly repairs. Empower your team to act quickly and keep your fleet running smoothly.
+          <span>Diagnose Issues Instantly</span>: Stay ahead of vehicle maintenance with our advanced fault detection system. Identify potential problems in real-time, reducing downtime and preventing costly repairs. Empower your team to act quickly and keep your fleet running smoothly.
         </p>
         <p>
-          Smart Alerts: Our system provides instant notifications when a fault is detected, giving you detailed insights into the issue. From engine warnings to system malfunctions, you’ll always know what’s happening under the hood.
+          <span>Smart Alerts</span>: Our system provides instant notifications when a fault is detected, giving you detailed insights into the issue. From engine warnings to system malfunctions, you’ll always know what’s happening under the hood.
         </p>
         <p>
-          Comprehensive Reporting: Access in-depth reports on vehicle health and performance through our intuitive platform. Plan maintenance schedules, track recurring issues, and ensure your fleet stays in top condition with minimal effort.
+          <span>Comprehensive Reporting</span>: Access in-depth reports on vehicle health and performance through our intuitive platform. Plan maintenance schedules, track recurring issues, and ensure your fleet stays in top condition with minimal effort.
         </p>
       </div>
       <div className="imgFour">
