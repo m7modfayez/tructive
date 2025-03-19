@@ -2,41 +2,47 @@
 // import './HomePage.css';
 import './HomePage.css';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 // import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 
 type HeaderProps = {
   onLoginClick: () => void;
 };
 
-const Header: React.FC<HeaderProps> = ({ onLoginClick }) => (
-  
-  <header id='head'>
-    <div className="logo">
-    <img src="/src/assets/logo.png" alt="Logo" />
-    </div>
-    <div className="sidieLink">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <div className="logBtn">
-        {/* <button onClick={onLoginClick}>Login</button> */}
-        <a  onClick={onLoginClick}><button>Login</button></a>
-      </div>
-    </div>
-  </header>
-  
-);
-
 /*  Header animation   */ 
-{
-  const base = document.querySelector("header") as HTMLElement;
+const Header: React.FC<HeaderProps> = ({ onLoginClick }) => {
+  
+  useEffect(() => {
+    const base = document.querySelector("header") as HTMLElement;
+    if (!base) return;
 
-window.addEventListener("scroll", function () {
-  base.classList.toggle("sticky", window.scrollY > 0);
-});
-}
+    const handleScroll = () => {
+      base.classList.toggle("sticky", window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
+  return (
+    <header id='head'>
+      <div className="logo">
+        <img src="/src/assets/logo.png" alt="Logo" />
+      </div>
+      <div className="sidieLink">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div className="logBtn">
+          <a onClick={onLoginClick}><button>Login</button></a>
+        </div>
+      </div>
+    </header>
+  );
+};
 
 const SectionOne = () => (
   <section className="secOne">
