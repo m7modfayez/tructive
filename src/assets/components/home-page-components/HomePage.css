@@ -5,7 +5,7 @@
 /*Font Style*/
 
 @import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-*{
+.cont *{
     /* margin: 0; */
     /* padding: 0; */
     /* the line box-sizing makes differences in drivers info in dashboard */
@@ -264,7 +264,7 @@ span{
 form{
     width: 100%;
 }
-input[type=text],input[type=email] {
+.cont input[type=text], .cont input[type=email] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -363,7 +363,7 @@ footer .col2 .links .lin:hover{
 .imgThree img {
     border-radius: 0;
 }
-img {
+.cont img {
     border-radius: 20px;
     box-shadow: 20PX 20px 20px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
