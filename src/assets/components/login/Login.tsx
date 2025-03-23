@@ -38,6 +38,8 @@ const LoginPage = () => {
         <div className="login-box">
           <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>
+
+            
             <div className="input-group">
               <i className="fa-solid fa-envelope icon"></i>
               <input
