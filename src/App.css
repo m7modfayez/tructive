@@ -140,7 +140,7 @@
   width: 60vw;
   /* min-width: 60%; */
   max-width: 90vw;
-  background-color: rgb(188, 188, 188);
+  /* background-color: rgb(188, 188, 188); */
   /* height: 200px; */
   /* height: 25%; */
   /* height: 25vh; */
@@ -196,7 +196,7 @@
 
 .table-div{ 
   margin: 80px auto 0;
-  background-color: #0081F4;
+  /* background-color: #0081F4; */
   width:fit-content;
   /* width: 80%; */
   max-width: 90%;
