@@ -20,15 +20,11 @@ function Header({role}: HeaderProps ) {
             {/* <p className="userName">mahmoud</p> */}
             </div>
          </div>
-         <div className="">
-         {/* <div>
-            <h1>hello everybody</h1>
-         </div> */}
 
-         </div>
          <div className="dash-head">
               <h1> {role} Dashboard</h1>
-      </div>
+              {/* <h2>{role}'s Dashboard</h2> */}
+         </div>
 
 
         </>
