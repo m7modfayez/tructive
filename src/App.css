@@ -49,12 +49,13 @@
   height: 80px;
   height: 9vh;
   /* width: 100%; */
-  width: 100vw;
+  width: 99.vw;
   /* background-color: rgb(149, 151, 255); */
   background: linear-gradient(to bottom, #2f9eff, #fffbfb);
   background: linear-gradient(to bottom, #91cbff, #fffbfb);
 
   top: 0;
+  margin-bottom: 40px;
   display: flex;
   align-items: center;
   position:sticky;
@@ -71,12 +72,13 @@
 
 .user {
   margin-left: auto;
+  margin-right: 5px;
   display: flex;
   flex-direction:row;
   /* width: 10%; */
   /* max-width: 15vw; */
   /* padding-left: 20px; */
-  background-color: #D2E7FA;
+  /* background-color: #D2E7FA; */
   align-items: center;
   justify-content: center;
 }
@@ -150,7 +152,7 @@
   max-height: 30vh;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0% auto 0;
   font-size: 1rem;
 }
 
@@ -195,13 +197,17 @@
 }
 
 .table-div{ 
-  margin: 80px auto 0;
+  margin: 50px auto 0;
   /* background-color: #0081F4; */
   width:fit-content;
   /* width: 80%; */
   max-width: 90%;
   overflow: hidden;
   justify-content: center;
+ }
+ .table-div button {
+  background-color: transparent;
+  border: none;
  }
 
 .driver-table {
@@ -446,6 +452,5 @@ td {
   margin: 20% auto 10px;
   border-radius: 40px;
 }
-
 
 

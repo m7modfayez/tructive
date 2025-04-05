@@ -1,10 +1,10 @@
-import Closing from "./Closing";
-import BaseButton from "../base-components/BaseButton";
+import Closing from "../../base-components/Closing";
+import BaseButton from "../../base-components/BaseButton";
 
 
 
 
-function BaseActionsWindow() {
+function AddingCompanyWindow() {
 
     const confirmAddCompany = () =>{
         console.log("company added successfuly..");
@@ -51,4 +51,4 @@ function BaseActionsWindow() {
     )
 }
 
-export default BaseActionsWindow;
+export default AddingCompanyWindow;

@@ -6,7 +6,8 @@ import HomeApp from './assets/components/home-page-components/Home';
 import LoginPage from './assets/components/login/Login';
 import Dashboard from './assets/components/Dashboard';
 import AdminDashboard from './assets/components/admin-dashboard/AdminDashboard';
-import BaseActionsWindow from './assets/components/base-components/BaseActionsWindow';
+import AddingCompanyWindow from './assets/components/admin-dashboard/Admin-Actions/AddingCompanyWindow';
+import EditCompanyWindow from './assets/components/admin-dashboard/Admin-Actions/EditCompany';
 
 function App() {
 
@@ -35,7 +36,8 @@ function App() {
         
         {/* Admin Dashboard with Nested Route */}
         <Route path="/admin-dashboard" element={<AdminDashboard />}>
-          <Route path="add-company" element={<BaseActionsWindow />} />
+          <Route path="add-company" element={<AddingCompanyWindow />} />
+          <Route path= "edit-company/:id" element={<EditCompanyWindow />} />
         </Route>
 
         {/* Supervisor Dashboard with Nested Route */}
