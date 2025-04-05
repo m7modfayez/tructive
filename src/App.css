@@ -253,20 +253,22 @@ td {
 }
 
 .total-drivers {
-  /* z-index: 5; */
   border-radius: 20px;
   /* text-align: center; */
   box-shadow: 100px 100px 0px 1000px rgba(0, 0, 0, 0.2);
-
+  z-index: 10;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 65%;
+  width: 80vw;
   height: 65%;
+  height: 80vh;
   overflow: hidden;
   color: white;
   background-color: #0081F4;
+  overflow: auto;
 }
 
 .close-driver-list {

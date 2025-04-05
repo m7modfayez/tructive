@@ -12,7 +12,7 @@ function TotalDrivers() {
    
            
                <Closing />
-               <h1 style={{margin: "15px 42%"}}>Drivers List</h1>
+               <div style={{margin: "10px auto", width: "fit-content"}} > <h1 style={{margin: "0"}}>Drivers List</h1> </div>
                <DriverList />
         </div>
 
