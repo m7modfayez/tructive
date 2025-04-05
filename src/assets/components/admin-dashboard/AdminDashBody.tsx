@@ -3,7 +3,6 @@ import { FaEdit } from "react-icons/fa";
 // import ComapnyName from "../base-components/CompanyName";
 import CompaniesInfo from "./CompaniesInfo";
 import Table from "../base-components/Table";
-import CompaniesData from "./CompaniesData";
 import BaseButton from "../base-components/BaseButton";
 import { useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
@@ -16,14 +15,6 @@ const deleteIcon = <RiDeleteBin6Fill size={20} style={{ cursor: "pointer", color
 
 // const navigateEditCompany = useNavigate();
 
-const handleEdit = (id: number) => {
-  console.log("Edit company ID:", id);
-  // navigateEditCompany("edit-company");
-};
-
-const handleDelete = (id: number) => {
-  console.log("Delete company ID:", id);
-};
 
 
 // const companiesData = [
@@ -293,19 +284,7 @@ const companies = [
 ];
 
 
-  const companiesData = companies.map((company) => ({
-  "Company ID": company.id,
-  "Company Name": company.name,
-  "Total Supervisors": Math.floor(Math.random() * 10) + 1,
-  "Total Drivers": Math.floor(Math.random() * 50) + 5,
-  "Contract Date": Math.floor(Math.random() * 30) + 1,
-  "Actions": (
-    <>
-      <button onClick={() => handleEdit(company.id)}>{editIcon}</button>
-      <button onClick={() => handleDelete(company.id)}>{deleteIcon}</button>
-    </>
-  ),
-}));
+
 
 
   
@@ -361,7 +340,7 @@ function AdminDashBody() {
         <div style={{ margin: "10px auto 0px auto", backgroundColor: "", width: "fit-content" }}>
         <BaseButton name="Add Company" className="admin-adding-button" baseButtonOnClick={addCompanyOnClick} />
         </div>
-        
+
         <Outlet />
         </div>
         {/* <DriverTable /> */}
