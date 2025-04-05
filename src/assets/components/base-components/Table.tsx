@@ -2,6 +2,7 @@
 type TableProps = {
     headers: string[];
     data: Array<Record<string, any>>;
+    // data: any;
     className?: string;
   };
 
