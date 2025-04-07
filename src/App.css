@@ -49,12 +49,13 @@
   height: 80px;
   height: 9vh;
   /* width: 100%; */
-  width: 100vw;
+  width: 99.vw;
   /* background-color: rgb(149, 151, 255); */
   background: linear-gradient(to bottom, #2f9eff, #fffbfb);
   background: linear-gradient(to bottom, #91cbff, #fffbfb);
 
   top: 0;
+  margin-bottom: 40px;
   display: flex;
   align-items: center;
   position:sticky;
@@ -71,12 +72,13 @@
 
 .user {
   margin-left: auto;
+  margin-right: 5px;
   display: flex;
   flex-direction:row;
   /* width: 10%; */
   /* max-width: 15vw; */
   /* padding-left: 20px; */
-  background-color: #D2E7FA;
+  /* background-color: #D2E7FA; */
   align-items: center;
   justify-content: center;
 }
@@ -120,8 +122,8 @@
 .dash-body {
   /* padding-top: 10px; */
   /* margin-top: 40px; */
-  margin-bottom: 40px;
-  /* background-color: #efefef; */
+  padding-bottom: 7%;
+  /* background-color: #979595; */
 }
 
 .dash-head {
@@ -150,7 +152,7 @@
   max-height: 30vh;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0% auto 0;
   font-size: 1rem;
 }
 
@@ -195,13 +197,17 @@
 }
 
 .table-div{ 
-  margin: 80px auto 0;
+  margin: 50px auto 0;
   /* background-color: #0081F4; */
   width:fit-content;
   /* width: 80%; */
   max-width: 90%;
   overflow: hidden;
   justify-content: center;
+ }
+ .table-div button {
+  background-color: transparent;
+  border: none;
  }
 
 .driver-table {
@@ -247,20 +253,22 @@ td {
 }
 
 .total-drivers {
-  /* z-index: 5; */
   border-radius: 20px;
   /* text-align: center; */
   box-shadow: 100px 100px 0px 1000px rgba(0, 0, 0, 0.2);
-
+  z-index: 10;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 65%;
+  width: 80vw;
   height: 65%;
+  height: 80vh;
   overflow: hidden;
   color: white;
   background-color: #0081F4;
+  overflow: auto;
 }
 
 .close-driver-list {
@@ -356,23 +364,95 @@ td {
   color: white;
 }
 
+.companies-table {
+  /* background-color: #ccc; */
+  /* table-layout: fixed; */
+  font-size: large;
+}
+
+.companies-table th,
+.companies-table td {
+  padding: 0 60px;
+}
+
+.companies-table td{
+  padding: 10px;
+}
+
+.admin-adding-button {
+  font-size: "12px";
+  background-color: #0080ff;
+  color: white;
+  width: 250px;
+  height: 70px;
+  padding: 5px;
+  /* margin: 0 auto; */
+  border-radius: 40px;
+}
+
 .base-actions-window {
   border-radius: 20px;
-  /* text-align: center; */
   /* box-shadow: 100px 100px 0px 1000px rgba(0, 0, 0, 0.2); */
 
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
-  height: 50%;
+  /* width: 60%; */
+  /* height: 60%; */
+  width: 60vw;
+  height: 70vh;
   overflow: hidden;
   color: white;
   background-color: #0081F4;
+  overflow: auto;
 }
 
+.company-form-div {
+  /* margin: 30px 0; */
+  /* width: fit-content; */
+  /* background-color: #b7bdc2; */
+}
 
+.company-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #3D9FEE; */
+}
 
+.form-attr {
+  margin: 10px 10px;
+  /* background-color: #888; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  width: 40%;
+  width: 25vw;
+}
+.form-attr input {
+  width: 95%;
+  background-color: white;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  margin: 0 2%;
+  padding-left: 5px ;
+  color: #000000;
+}
+.form-attr label {
+  margin: 0 2%;
+}
+
+.admin-confirm-adding-button {
+  font-size: "12px";
+  background-color: #ffffff;
+  color: #000000;
+  width: 250px;
+  height: 70px;
+  padding: 5px;
+  margin: 20% auto 10px;
+  border-radius: 40px;
+}
 
 
