@@ -408,11 +408,11 @@ td {
   overflow: auto;
 }
 
-.company-form-div {
-  /* margin: 30px 0; */
-  /* width: fit-content; */
-  /* background-color: #b7bdc2; */
-}
+/* .company-form-div {
+  margin: 30px 0; 
+  width: fit-content;
+  background-color: #b7bdc2;
+} */
 
 .company-form {
   display: flex;

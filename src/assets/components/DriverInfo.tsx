@@ -16,7 +16,7 @@ function DriverInfo({onChildClick}: DriverInfoProps) {
             <div onClick={onChildClick} className="driver tot-drivers">
                 <h2>Total Drivers</h2>
                 {/* <p>click to see</p> */}
-                <h2>15</h2>
+                <h2>3</h2>
                 <IoPersonOutline size={70} style={{ margin:'20px', float: 'right',}}/>
                 {/* <h4>James Wiliams</h4> */}
             </div>

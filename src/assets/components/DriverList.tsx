@@ -179,7 +179,7 @@
 
 
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 interface Driver {
@@ -209,10 +209,14 @@ function DriverList() {
             setError("Failed to load drivers.");
             setLoading(false);
          }
+         
       };
 
       fetchDrivers();
    }, []);
+
+
+
 
    if (loading) {
       return <div>Loading...</div>;
@@ -222,7 +226,7 @@ function DriverList() {
       return <div style={{ color: "red" }}>{error}</div>;
    }
 
-   return (
+   return ( 
       <>
          <div className="driver-list-table-div">
             <form>
