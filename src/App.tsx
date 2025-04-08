@@ -8,6 +8,7 @@ import Dashboard from './assets/components/Dashboard';
 import AdminDashboard from './assets/components/admin-dashboard/AdminDashboard';
 import AddingCompanyWindow from './assets/components/admin-dashboard/Admin-Actions/AddingCompanyWindow';
 import EditCompanyWindow from './assets/components/admin-dashboard/Admin-Actions/EditCompany';
+import BaseFormWindow from './assets/components/base-components/BaseFormWindow';
 
 function App() {
 
@@ -36,7 +37,8 @@ function App() {
         
         {/* Admin Dashboard with Nested Route */}
         <Route path="/admin-dashboard" element={<AdminDashboard />}>
-          <Route path="add-company" element={<AddingCompanyWindow />} />
+          {/* <Route path="add-company" element={<AddingCompanyWindow />} /> */}
+          <Route path="add-company" element={<BaseFormWindow />} /> 
           <Route path= "edit-company/:id" element={<EditCompanyWindow />} />
         </Route>
 
