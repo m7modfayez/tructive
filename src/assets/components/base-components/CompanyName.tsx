@@ -1,13 +1,13 @@
 
 type CompanyProps = {
-    companyName: string;
+    companyName: any;
   };
 
 function ComapnyName({companyName}: CompanyProps) {
 
     return(
         <>
-          <div style={{margin: '0px auto 0px auto', width: "fit-content", color:'#3D9FEE' }}>
+          <div style={{margin: '50px auto 0px ', width: "fit-content", color:'#3D9FEE' }}>
                  <h1>{companyName}</h1>
           </div>
         </>

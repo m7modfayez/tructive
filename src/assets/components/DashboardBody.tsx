@@ -16,9 +16,9 @@ function DashboardBody() {
           <div className="dash-body">
 
 
-            <ComapnyName companyName="Johayna" />
 
             <DriverInfo onChildClick={handleClick} />
+            <ComapnyName companyName="Johayna" /> 
             <DriverTable />
 
 

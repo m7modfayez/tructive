@@ -12,7 +12,7 @@ function BaseButton({name, className, baseButtonOnClick}:ButtonProps) {
     return(
         <>
 
-            <button onClick={buttonOnClick} className= {`driver-list-buttons ${className}`} > <b>{name}</b> </button>
+            <button type="submit" onClick={buttonOnClick} className= {`driver-list-buttons ${className}`} > <b>{name}</b> </button>
         
         </>
     )
