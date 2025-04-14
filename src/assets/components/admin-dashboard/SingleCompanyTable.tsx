@@ -64,7 +64,8 @@ function SingleCompanyTable() {
         
         const handleEdit = (id: number) => {
             console.log("Edit supervisor ID:", id);
-            navigate(`edit-supervisor/${id}`);
+            // navigate(`edit-supervisor/${id}`);
+            navigate(`edit-supervisor/${id}`, { state: supervisors.find(supervisor => supervisor.id === id) });
           };
           
           const handleDelete = (id: number) => {

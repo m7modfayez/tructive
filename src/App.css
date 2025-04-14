@@ -417,18 +417,14 @@ td {
   z-index: 5;
 }
 
-/* .company-form-div {
-  margin: 30px 0; 
-  width: fit-content;
-  background-color: #b7bdc2;
-} */
+
 
 .company-form {
   display: flex;
-  /* background-color: #2f6492; */
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  /* gap: 5px; */
   /* background-color: #3D9FEE; */
 }
 
@@ -438,13 +434,13 @@ td {
   /* justify-content: center; */
   /* align-items: center; */
   width: 40%;
-  width: 25vw;
+  /* width: 25vw; */
 }
 .form-attr input {
   width: 95%;
   background-color: white;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
   margin: 0 2%;
   padding-left: 5px ;
@@ -461,7 +457,7 @@ td {
   width: 250px;
   height: 70px;
   padding: 5px;
-  margin: 20% auto 10px;
+  margin: 10px auto ;
   border-radius: 40px;
 }
 

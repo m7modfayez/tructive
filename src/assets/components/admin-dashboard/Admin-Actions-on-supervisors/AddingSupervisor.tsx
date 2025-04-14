@@ -1,3 +1,4 @@
+import { string } from "yup";
 import BaseFormWindow from "../../base-components/BaseFormWindow";
 
 const addingSupervisorFormAttr = [
@@ -5,13 +6,13 @@ const addingSupervisorFormAttr = [
         label: "Enter First Name",
         inputType: "text",
         placeHolder: "Enter first name",
-        name: "first name",
+        name: "first_name",
     },
     {
         label: "Enter Last Name",
         inputType: "text",
         placeHolder: "Enter last name",
-        name: "last name"
+        name: "last_name"
     },{
         label: "Phone",
         inputType: "text",
@@ -26,23 +27,31 @@ const addingSupervisorFormAttr = [
         label: "Enter email address",
         inputType: "email",
         placeHolder: "Enter email address",
-        name: "email adrress"
+        name: "email_adrress"
     },{
         label: "Password",
         inputType: "password",
         placeHolder: "Crate a password",
         name: "password",
-    },{
+    },
+    {
         label: "Confirm Password",
         inputType: "password",
         placeHolder: "Confirm password",
-        name: "confirm password",
+        name: "confirm_password",
     }
 ];
 
 function AddingSupervisor() {
-    const onAddingClick = () => {
-        console.log("adding supervisor");
+    let formData: {la: string, fi: string};
+
+    const onAddingClick = (data: any) => {
+        console.log("adding supervisor", data);
+        formData = {
+            la: "last",
+            fi: data,
+        };
+        console.log("form data => ", data);
     }
 
     return(
