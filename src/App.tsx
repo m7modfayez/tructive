@@ -8,15 +8,14 @@ import Dashboard from './assets/components/Dashboard';
 import AdminDashboard from './assets/components/admin-dashboard/AdminDashboard';
 import AddingCompanyWindow from './assets/components/admin-dashboard/Admin-Actions/AddingCompanyWindow';
 import EditCompanyWindow from './assets/components/admin-dashboard/Admin-Actions/EditCompany';
-
 function App() {
 
 
   return (
     <>
-    
 
-    {/* <Router>
+
+      {/* <Router>
         <Routes>
           <Route path='' element={<HomeApp />} />
           <Route path="/login-page" element={<LoginPage />} />
@@ -29,23 +28,24 @@ function App() {
         </Routes>
     </Router> */}
 
-   <Router>
-      <Routes>
-        <Route path="" element={<HomeApp />} />
-        <Route path="/login-page" element={<LoginPage />} />
-        
-        {/* Admin Dashboard with Nested Route */}
-        <Route path="/admin-dashboard" element={<AdminDashboard />}>
-          <Route path="add-company" element={<AddingCompanyWindow />} />
-          <Route path= "edit-company/:id" element={<EditCompanyWindow />} />
-        </Route>
+      <Router>
+        <Routes>
+          <Route path="" element={<HomeApp />} />
+          <Route path="/login-page" element={<LoginPage />} />
 
-        {/* Supervisor Dashboard with Nested Route */}
-        <Route path="/supervisor-dashboard" element={<Dashboard />}>
+          {/* Admin Dashboard with Nested Route */}
+          <Route path="/admin-dashboard" element={<AdminDashboard />}>
+            <Route path="add-company" element={<AddingCompanyWindow />} />
+            <Route path="edit-company/:id" element={<EditCompanyWindow />} />
+          </Route>
+
+          {/* Supervisor Dashboard with Nested Route */}
+          <Route path="/supervisor-dashboard" element={<Dashboard />}>
           <Route path="total-drivers" element={<TotalDrivers />} />
         </Route>
-      </Routes>
-    </Router>
+          
+        </Routes>
+      </Router>
 
     </>
   )
