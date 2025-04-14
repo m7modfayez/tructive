@@ -180,7 +180,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = ({ show, handleClose }) =>
         // Add supervisorId to the payload (1 as required)
         const payload = {
             ...formData,
-            supervisorId: 1,
+            userId: "1fe45b33-e3e3-43d2-b9d3-a4b056e95b73",
         };
 
         // Example of API URL, replace with your actual URL later
