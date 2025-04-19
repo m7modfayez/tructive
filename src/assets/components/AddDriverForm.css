@@ -1,0 +1,155 @@
+/* src/components/AddDriverForm.css
+.add-driver-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.add-driver-form-container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0 0 10px #00000055;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-driver-form-container input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.add-driver-form-container button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.add-driver-form-container .close-btn {
+    background-color: #dc3545;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+} */
+
+
+/* .custom-modal-body {
+    background-color: #007bff;
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.custom-form-control {
+    width: 45%;
+    margin-bottom: 1rem;
+}
+
+.custom-button {
+    background-color: white;
+    color: #007bff;
+    font-weight: bold;
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+} */
+
+/* خلفية المودال */
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* جسم المودال */
+.custom-modal-body {
+    background-color: #007bff;
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* عنوان النموذج */
+.modal-title {
+    margin-bottom: 1.5rem;
+}
+
+/* تنظيم الصفوف */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* تنسيق حقول الإدخال */
+.custom-form-control {
+    flex: 0 0 45%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+}
+
+/* لتوسيع حقل البريد الإلكتروني على كامل العرض */
+.full-width {
+    flex: 0 0 100%;
+}
+
+/* ملاحظة كلمة المرور */
+.password-hint {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+/* صف الأزرار */
+.button-row {
+    margin-top: 1.5rem;
+}
+
+/* زر الإنشاء */
+.custom-button {
+    background-color: white;
+    color: #007bff;
+    font-weight: bold;
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+
+/* زر الإغلاق */
+.custom-close-button {
+    margin-top: 1rem;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}

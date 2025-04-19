@@ -181,6 +181,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AddDriverModal from "./AddDriverModal";
 
 interface Driver {
    id: string;
@@ -197,6 +198,7 @@ function DriverList() {
    const [driversList, setDriversList] = useState<Driver[]>([]);
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState<string | null>(null);
+   const [showAddModal, setShowAddModal] = useState(false);
 
    useEffect(() => {
       const fetchDrivers = async () => {
@@ -209,56 +211,61 @@ function DriverList() {
             setError("Failed to load drivers.");
             setLoading(false);
          }
-         
       };
 
       fetchDrivers();
    }, []);
 
+   if (loading) return <div>Loading...</div>;
+   if (error) return <div style={{ color: "red" }}>{error}</div>;
 
-
-
-   if (loading) {
-      return <div>Loading...</div>;
-   }
-
-   if (error) {
-      return <div style={{ color: "red" }}>{error}</div>;
-   }
-
-   return ( 
+   return (
       <>
-         <div className="driver-list-table-div">
-            <form>
-               <input className="driver-search" name="fsrch" placeholder="Search..." />
-            </form>
-            <table className="driver-list-table">
-               <thead>
-                  <tr>
-                     <th>Driver ID</th>
-                     <th>Driver Name</th>
-                     <th>Phone</th>
-                     <th>Address</th>
-                     <th>Email Address</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  {driversList.map((driver) => (
-                     <tr key={driver.id}>
-                        <td>{driver.id}</td>
-                        <td>{driver.fName} {driver.lName}</td>
-                        <td>{driver.phone}</td>
-                        <td>{driver.address}</td>
-                        <td>{driver.email}</td>
-                     </tr>
-                  ))}
-               </tbody>
-            </table>
-         </div>
-         <div className="driver-list-buttons-div">
-            <button className="driver-list-buttons"><b>Remove</b></button>
-            <button className="driver-list-buttons"><b>Add</b></button>
-         </div>
+         {showAddModal ? (
+            <AddDriverModal
+               show={showAddModal}
+               handleClose={() => setShowAddModal(false)}
+            />
+         ) : (
+            <>
+               <div className="driver-list-table-div">
+                  <form>
+                     <input className="driver-search" name="fsrch" placeholder="Search..." />
+                  </form>
+                  <table className="driver-list-table">
+                     <thead>
+                        <tr>
+                           <th>Driver ID</th>
+                           <th>Driver Name</th>
+                           <th>Phone</th>
+                           <th>Address</th>
+                           <th>Email Address</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {driversList.map((driver) => (
+                           <tr key={driver.id}>
+                              <td>{driver.id}</td>
+                              <td>{driver.fName} {driver.lName}</td>
+                              <td>{driver.phone}</td>
+                              <td>{driver.address}</td>
+                              <td>{driver.email}</td>
+                           </tr>
+                        ))}
+                     </tbody>
+                  </table>
+               </div>
+               <div className="driver-list-buttons-div">
+                  <button className="driver-list-buttons"><b>Remove</b></button>
+                  <button
+                     className="driver-list-buttons"
+                     onClick={() => setShowAddModal(true)}
+                  >
+                     <b>Add</b>
+                  </button>
+               </div>
+            </>
+         )}
       </>
    );
 }

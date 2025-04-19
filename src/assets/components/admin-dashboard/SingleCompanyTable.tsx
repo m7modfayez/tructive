@@ -57,7 +57,7 @@ const supervisors = [
 
 function SingleCompanyTable() {
 
-    const {name} = useParams();
+    // const {name} = useParams();
 
     const navigate = useNavigate();
        
