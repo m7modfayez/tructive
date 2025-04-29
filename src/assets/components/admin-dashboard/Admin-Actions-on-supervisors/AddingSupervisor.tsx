@@ -1,4 +1,3 @@
-import { string } from "yup";
 import BaseFormWindow from "../../base-components/BaseFormWindow";
 
 const addingSupervisorFormAttr = [
@@ -43,14 +42,11 @@ const addingSupervisorFormAttr = [
 ];
 
 function AddingSupervisor() {
-    let formData: {la: string, fi: string};
+    
+
 
     const onAddingClick = (data: any) => {
         console.log("adding supervisor", data);
-        formData = {
-            la: "last",
-            fi: data,
-        };
         console.log("form data => ", data);
     }
 
