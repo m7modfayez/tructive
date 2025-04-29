@@ -1,4 +1,3 @@
-import { string } from "yup";
 import BaseFormWindow from "../../base-components/BaseFormWindow";
 
 const addingSupervisorFormAttr = [

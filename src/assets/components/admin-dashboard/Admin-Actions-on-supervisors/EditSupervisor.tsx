@@ -1,4 +1,3 @@
-import { RxValue } from "react-icons/rx";
 import BaseFormWindow from "../../base-components/BaseFormWindow";
 import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";

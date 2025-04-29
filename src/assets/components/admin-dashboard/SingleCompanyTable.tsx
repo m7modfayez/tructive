@@ -1,6 +1,5 @@
 import Table from "../base-components/Table";
 import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 
