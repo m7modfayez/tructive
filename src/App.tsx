@@ -12,6 +12,7 @@ import AllCompaniesData from './assets/components/admin-dashboard/AllCompaniesDa
 import SingleCompanyData from './assets/components/admin-dashboard/SingleCompanyData';
 import AddingSupervisor from './assets/components/admin-dashboard/Admin-Actions-on-supervisors/AddingSupervisor';
 import EditSupervisor from './assets/components/admin-dashboard/Admin-Actions-on-supervisors/EditSupervisor';
+import DeleteDriver from './assets/components/Driver-actions/DeleteDriver';
 
 function App() {
 
@@ -55,6 +56,7 @@ function App() {
         {/* Supervisor Dashboard with Nested Route */}
         <Route path="/supervisor-dashboard" element={<Dashboard />}>
           <Route path="total-drivers" element={<TotalDrivers />} />
+          <Route path="delete-driver" element={<DeleteDriver />} />
         </Route>
       </Routes>
     </Router>

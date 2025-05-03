@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { MdHome } from "react-icons/md";
 import { BiSolidReport } from "react-icons/bi";
 import { IoAddCircleSharp } from "react-icons/io5";
 import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { FaCarAlt } from "react-icons/fa";
-import AddDriverModal from "./AddDriverModal";
+import AddDriverModal from "./Driver-actions/AddDriverModal";
 
 
 
@@ -13,6 +14,11 @@ function NavBar() {
   const [showAddForm, setShowAddForm] = useState(false);
   const size = 70;
   const color = "white";
+
+  const navigate = useNavigate();
+  const showDeleteForm = () => {
+    navigate('delete-driver');
+  }
 
     return (
         <>
@@ -26,7 +32,9 @@ function NavBar() {
             color={color}
             onClick={() => setShowAddForm(true)}
              />
-            <MdDelete className="footer_icon" size={size} color={color} />
+
+            <MdDelete className="footer_icon" size={size} color={color}
+            onClick={showDeleteForm} />
             <FaRegEdit className="footer_icon" size={size} color={color} />
             <FaCarAlt className="footer_icon" size={size} color={color} />
           </div>
