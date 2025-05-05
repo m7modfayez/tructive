@@ -12,26 +12,16 @@ import AllCompaniesData from './assets/components/admin-dashboard/AllCompaniesDa
 import SingleCompanyData from './assets/components/admin-dashboard/SingleCompanyData';
 import AddingSupervisor from './assets/components/admin-dashboard/Admin-Actions-on-supervisors/AddingSupervisor';
 import EditSupervisor from './assets/components/admin-dashboard/Admin-Actions-on-supervisors/EditSupervisor';
+import AddDriverModal from './assets/components/Driver-actions/AddDriverModal';
+import DeleteDriver from './assets/components/Driver-actions/DeleteDriver';
+import SelectDriverById from './assets/components/Driver-actions/SelectDriverById';
+import EditDriverForm from './assets/components/Driver-actions/EditDriverForm';
 
 function App() {
 
 
   return (
     <>
-    
-
-    {/* <Router>
-        <Routes>
-          <Route path='' element={<HomeApp />} />
-          <Route path="/login-page" element={<LoginPage />} />
-          <Route path="/admin-dashborad" element={<AdminDashboard />}>
-            <Route path="add-company" element={<BaseActionsWindow />} />
-          </Route>
-          <Route path="/supervisor-dashborad" element={<Dashboard />} >
-            <Route path="total-drivers" element={<TotalDrivers />} />
-          </Route>
-        </Routes>
-    </Router> */}
 
    <Router>
       <Routes>
@@ -55,6 +45,11 @@ function App() {
         {/* Supervisor Dashboard with Nested Route */}
         <Route path="/supervisor-dashboard" element={<Dashboard />}>
           <Route path="total-drivers" element={<TotalDrivers />} />
+          <Route path="add-driver" element={<AddDriverModal />} />
+          <Route path="delete-driver" element={<DeleteDriver />} />
+          <Route path="edit-driver" element={<SelectDriverById />} >
+            <Route path=":id" element={<EditDriverForm />} />
+          </Route>
         </Route>
       </Routes>
     </Router>
