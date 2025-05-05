@@ -414,7 +414,7 @@ td {
   color: white;
   background-color: #0081F4;
   overflow: auto;
-  z-index: 5;
+  z-index: 9999;
 }
 
 

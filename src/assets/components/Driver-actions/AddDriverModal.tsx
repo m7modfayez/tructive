@@ -1,16 +1,13 @@
-
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import "./AddDriverModal.css";
-
+import Closing from "../base-components/Closing";
 interface AddDriverModalProps {
-    show: boolean;
-    handleClose: () => void;
+    // show: boolean;
+    // handleClose: () => void;
 }
 
-const AddDriverModal: React.FC<AddDriverModalProps> = ({ show, handleClose }) => {
+const AddDriverModal: React.FC<AddDriverModalProps> = () => {
     const [formData, setFormData] = useState({
         fName: '',
         lName: '',
@@ -72,12 +69,13 @@ const AddDriverModal: React.FC<AddDriverModalProps> = ({ show, handleClose }) =>
         }
     };
 
-    if (!show) return null;
+    // if (!show) return null;
 
     return (
         <div className="add-driver-modal-container">
             <div className="add-driver-modal-content">
-                <button className="add-driver-close-btn" onClick={handleClose}>×</button>
+                <Closing />
+                {/* <button className="add-driver-close-btn" onClick={handleClose}>×</button> */}
                 <h2 className="add-driver-title">Create New Driver Account</h2>
 
                 {successMessage && (

@@ -2,7 +2,6 @@ import { useState } from "react";
 import type { JSX } from 'react';
 import Closing from "./Closing";
 import BaseButton from "./BaseButton";
-import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 
 
 type FormAttr = {
@@ -19,8 +18,8 @@ type FormAttr = {
     formHead: string;
     buttonName: string;
     submitForm: (data: Record<string, string>) => void;
-    formValues: Record<string, string>;
-    setFormValues: React.Dispatch<React.SetStateAction<Record<string, string>>>;
+    formValues?: Record<string, string>;
+    setFormValues?: React.Dispatch<React.SetStateAction<Record<string, string>>>;
     messageHtml?: JSX.Element | null;
   };
 
@@ -84,7 +83,6 @@ function BaseFormWindow({formAttr, formValues, formHead, buttonName, submitForm,
 
     return(
         <>
-        
         <div className="base-actions-window">
 
             <Closing />

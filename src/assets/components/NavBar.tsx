@@ -20,6 +20,14 @@ function NavBar() {
     navigate('delete-driver');
   }
 
+  const showAddDriverForm = () => {
+    navigate('add-driver');
+  }
+
+  const showSelectDriverWindow = () => {
+    navigate('edit-driver');
+  }
+
     return (
         <>
           
@@ -30,17 +38,19 @@ function NavBar() {
             className="footer_icon" 
             size={size} 
             color={color}
-            onClick={() => setShowAddForm(true)}
+            onClick={showAddDriverForm}
+            // onClick={() => setShowAddForm(true)}
              />
 
             <MdDelete className="footer_icon" size={size} color={color}
             onClick={showDeleteForm} />
-            <FaRegEdit className="footer_icon" size={size} color={color} />
+            <FaRegEdit className="footer_icon" size={size} color={color}
+             onClick={showSelectDriverWindow} />
             <FaCarAlt className="footer_icon" size={size} color={color} />
           </div>
 
           {/* عرض المودال */}
-          <AddDriverModal show={showAddForm} handleClose={() => setShowAddForm(false)} />
+          {/* <AddDriverModal show={showAddForm} handleClose={() => setShowAddForm(false)} /> */}
 
 
         </>

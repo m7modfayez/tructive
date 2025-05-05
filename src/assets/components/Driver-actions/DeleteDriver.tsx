@@ -19,10 +19,6 @@ function DeleteDriver() {
 
     const [messageHtml, setMessageHtml] = useState<JSX.Element | null>(null);
 
-    // const onAddingClick = (data: any) => {
-    //     console.log("deleting driver:", data.id);
-    // }
-
     const apiUrl = "https://trucktive.runasp.net/api/Drivers";
 
     const onDeleteDriverClick = async (data: any) => {
