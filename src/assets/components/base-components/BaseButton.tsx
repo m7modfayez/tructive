@@ -2,7 +2,7 @@
 type ButtonProps = {
     name: string;
     className?: string; // Made optional
-    baseButtonOnClick?: () => void; // More specific function type
+    baseButtonOnClick?: (data: any) => any; // More specific function type
   }  
 
 function BaseButton({name, className, baseButtonOnClick}:ButtonProps) {

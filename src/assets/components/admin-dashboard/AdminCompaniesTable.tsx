@@ -1,4 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import Table from "../base-components/Table"
@@ -104,7 +107,31 @@ const companies = [
   
 function AdminCompaniesTable() {
 
+   const [driversList, setDriversList] = useState<any>([]);
+     const [loading, setLoading] = useState(true);
+     const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
+
+     useEffect(() => {
+          const fetchDrivers = async () => {
+             try {
+                const response = await axios.get("https://trucktive.runasp.net/api/Companies");
+                setDriversList(response.data);
+                console.log(response.data)
+                setLoading(false);
+             } catch (err) {
+                console.error("Error fetching drivers:", err);
+                setError("Failed to load drivers.");
+                setLoading(false);
+             }
+          };
+    
+          fetchDrivers();
+       }, []);
+    
+       if (loading) return <div>Loading...</div>;
+       if (error) return <div style={{ color: "red" }}>{error}</div>;
+       ///////
 
     const onCompanyClick = (rowData: any) => {
       const companyName = rowData["Company Name"];
@@ -121,7 +148,7 @@ function AdminCompaniesTable() {
         console.log("Delete company ID:", id);
       };
 
-    const companiesData = companies.map((company) => ({
+    const companiesData = driversList.map((company:any) => ({
         "Company ID": company.id,
         "Company Name": company.name,
         "Total Supervisors": Math.floor(Math.random() * 10) + 1,

@@ -29,6 +29,7 @@ const LoginPage = () => {
         const response = await axios.post("https://trucktive.runasp.net/Auth/Login", values);
 
         const { token, role } = response.data;
+        console.log(response.data)
 
         localStorage.setItem("token", token);
 
