@@ -31,6 +31,7 @@ function App() {
 
    <Router>
       <Routes>
+        {/* <Route path='' element={<Massage/>} /> */}
         <Route path="" element={<HomeApp />} />
         <Route path="/login-page" element={<LoginPage />} />
         
