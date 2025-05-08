@@ -22,7 +22,7 @@ function Header({role}: HeaderProps ) {
          </div>
 
          <div className="dash-head">
-              <h1> {role} Dashboard</h1>
+              <h1> {role}</h1>
               {/* <h2>{role}'s Dashboard</h2> */}
          </div>
 

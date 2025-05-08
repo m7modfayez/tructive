@@ -16,6 +16,7 @@ import AddDriverModal from './assets/components/Driver-actions/AddDriverModal';
 import DeleteDriver from './assets/components/Driver-actions/DeleteDriver';
 import SelectDriverById from './assets/components/Driver-actions/SelectDriverById';
 import EditDriverForm from './assets/components/Driver-actions/EditDriverForm';
+import Massage from './assets/components/admin-dashboard/Massage';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
 
    <Router>
       <Routes>
+        <Route path='' element={<Massage/>} />
         <Route path="" element={<HomeApp />} />
         <Route path="/login-page" element={<LoginPage />} />
         
