@@ -30,7 +30,7 @@ const Massage = () => {
                 <td>0115184011</td>
                 <td>ALI@gamil.com</td>
                 <td>
-                  HellO my name is Ali i want to connect with your company{" "}
+                  HellO my name is Ali i want to connect with your company
                 </td>
                 <td>
                   <MdDelete color="red" size={20} />
@@ -43,7 +43,7 @@ const Massage = () => {
                 <td>0115184011</td>
                 <td>ALI@gamil.com</td>
                 <td>
-                  HellO my name is Ali i want to connect with your company{" "}
+                  HellO my name is Ali i want to connect with your company
                 </td>
                 <td>
                   <MdDelete color="red" size={20} />
@@ -56,7 +56,7 @@ const Massage = () => {
                 <td>0115184011</td>
                 <td>ALI@gamil.com</td>
                 <td>
-                  HellO my name is Ali i want to connect with your company{" "}
+                  HellO my name is Ali i want to connect with your company
                 </td>
                 <td>
                   <MdDelete color="red" size={20} />
@@ -69,7 +69,7 @@ const Massage = () => {
                 <td>0115184011</td>
                 <td>ALI@gamil.com</td>
                 <td>
-                  HellO my name is Ali i want to connect with your company{" "}
+                  HellO my name is Ali i want to connect with your company
                 </td>
                 <td>
                   <MdDelete color="red" size={20} />
@@ -82,7 +82,7 @@ const Massage = () => {
                 <td>0115184011</td>
                 <td>ALI@gamil.com</td>
                 <td>
-                  HellO my name is Ali i want to connect with your company{" "}
+                  HellO my name is Ali i want to connect with your 
                 </td>
                 <td>
                   <MdDelete color="red" size={20} />
@@ -93,9 +93,9 @@ const Massage = () => {
                 <td>Ali</td>
                 <td>Mac</td>
                 <td>0115184011</td>
-                <td>ALI@gamil.com</td>
+                <td>ALI@gamil.com</td> 
                 <td>
-                  HellO my name is Ali i want to connect with your company{" "}
+                  HellO my name is Ali i want to connect with your company you can send a massage for my email
                 </td>
                 <td>
                   <MdDelete color="red" size={20} />
