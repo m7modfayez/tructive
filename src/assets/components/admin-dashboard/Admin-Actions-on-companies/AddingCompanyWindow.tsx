@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Closing from "../../base-components/Closing";
 import BaseButton from "../../base-components/BaseButton";
@@ -8,6 +9,7 @@ import BaseButton from "../../base-components/BaseButton";
 
 function AddingCompanyWindow() {
 
+    const navigate = useNavigate();
     const [formData, setFormData] = useState<Record<string, string>>({
         companyName: "",
         companyEmail: "",
@@ -48,8 +50,9 @@ function AddingCompanyWindow() {
             const response = await axios.post(apiUrl, payload);
 
             if (response.status === 200) {
-                setSuccessMessage("Driver has been added successfully!");
+                setSuccessMessage("Company has been added successfully!");
                 setErrorMessage(""); // 
+                setTimeout(() => navigate(-1), 2000 ); 
             } else {
                 // Handle other statuses if necessary
                 setErrorMessage("An error occurred while adding the driver.");
