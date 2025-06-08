@@ -223,8 +223,8 @@ function DriverList() {
       <>
          {showAddModal ? (
             <AddDriverModal
-               show={showAddModal}
-               handleClose={() => setShowAddModal(false)}
+               // show={showAddModal}
+               // handleClose={() => setShowAddModal(false)}
             />
          ) : (
             <>
