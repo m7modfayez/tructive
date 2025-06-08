@@ -1,58 +1,70 @@
-import Closing from "../../base-components/Closing";
-import BaseButton from "../../base-components/BaseButton";
-import { useParams } from "react-router-dom";
 
-
-
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
+import { JSX } from "react";
+import BaseFormWindow from "../../base-components/BaseFormWindow";
+import axios from "axios";
 
 function EditCompanyWindow() {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const location = useLocation();
+  const companyData = location.state;
 
-    const {id} = useParams();
-    const confirmEditingCompany = () =>{
-        console.log("company edited successfuly..", {id});
+  const [messageHtml, setMessageHtml] = useState<JSX.Element | null>(null);
+  
+ 
+  console.log("company data", companyData);
+
+  const [formData, setFormData] = useState<Record<string, string>>({
+    name: String(companyData?.name || ""),
+    email: String(companyData?.email || ""),
+    phone: String(companyData?.phone || ""),
+    address: String(companyData?.address || ""),
+  });
+
+  const formAttr = [
+    { label: "Edit Company Name", inputType: "text", placeHolder: "Enter Company Name..", name: "name" },
+    { label: "Edit Email Address", inputType: "email", placeHolder: "Enter Company Email..", name: "email" },
+    { label: "Edit Phone", inputType: "text", placeHolder: "Enter Company Phone..", name: "phone" },
+    { label: "Edit Address", inputType: "text", placeHolder: "Enter Company Address..", name: "address" },
+  ];
+
+  const onEditClick = async (data: Record<string, string>) => {
+    try {
+      const response = await axios.put(`https://trucktive.runasp.net/api/Companies/${id}`, data);
+       console.log("company updated:", response.data);
+        // Optional: show success message or redirect
+          setMessageHtml(
+          <div style={{ backgroundColor: "#d4edda", padding: "10px", borderRadius: "5px", color: "#155724" }}>
+            ✅ Driver has been updated successfully!
+          </div>
+          );
+                setTimeout(() => navigate(-1), 2000 ); 
+      
+    } catch (error: any) {
+      console.error("Failed to update company:", error);
+       // Optional: show error message
+          setMessageHtml(
+          <div style={{ backgroundColor: "#f8d7da", padding: "10px", borderRadius: "5px", color: "#721c24" }}>
+            ❌ An error occurred while deleting the driver.
+          </div>
+          );
     }
+  };
 
-
-    return(
-        <>
-        
-        <div className="base-actions-window">
-
-            <Closing />
-            <div style={{textAlign:"center", margin:"0 auto", width:"fit-content"}} > <h1>Edit Company {id} </h1> </div> 
-            
-            <div className="company-form-div">
-            <form className="company-form">
-                <div className="form-attr">
-                 <label htmlFor="name">Edit Company Name</label>
-                 <input type="text" id="name" name="companyName" placeholder="Enter Company Name.." />
-                </div>
-
-                <div className="form-attr">
-                 <label htmlFor="email">Edit Email Address</label>
-                 <input type="text" id="email" name="companyEmail" placeholder="Enter Company Email.." />
-                </div>
-
-                <div className="form-attr">
-                 <label htmlFor="phone">Edit Phone</label>
-                 <input type="text" id="phone" name="companyPhone" placeholder="Enter Company Phone.." />
-                </div>
-
-                <div className="form-attr">
-                 <label htmlFor="address">Edit Address</label>
-                 <input type="text" id="address" name="companyAddress" placeholder="Enter Company Address.." />
-                </div>
-
-            </form>
-            </div>
-            <div style={{margin:"10px auto", width:"fit-content"}}>
-            <BaseButton name="Edit Company" className="admin-confirm-adding-button" baseButtonOnClick={confirmEditingCompany} />
-            </div>
-
-        </div>
-        </>
-    )
+  return (
+    <BaseFormWindow
+      formAttr={formAttr}
+      formValues={formData}
+      setFormValues={setFormData}
+      formHead={`Edit Company ${id}`}
+      buttonName="Save Changes"
+      submitForm={onEditClick}
+      messageHtml={messageHtml}
+    />
+  );
 }
 
 export default EditCompanyWindow;

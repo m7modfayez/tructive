@@ -1,6 +1,9 @@
 // import { useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import TotalDrivers from './assets/components/TotalDrivers';
 import HomeApp from './assets/components/home-page-components/Home';
 import LoginPage from './assets/components/login/Login';
@@ -53,6 +56,7 @@ function App() {
         </Route>
       </Routes>
     </Router>
+    <ToastContainer position="bottom-center" />
 
     </>
   )

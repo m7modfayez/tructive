@@ -32,7 +32,7 @@ function SelectDriverById() {
         } catch (error) {
             setDriverData(null);
             // alert("Driver not found");
-            setMessageHtml(<div style={{backgroundColor: "#f8d7da", padding: "10px", borderRadius: "5px", color: "#721c24" }}>Driver not found or error fetching data.</div>);
+            setMessageHtml(<div style={{backgroundColor: "#f8d7da", padding: "10px", borderRadius: "5px", color: "#721c24" }}>  ❌ Driver not found or error fetching data.</div>);
         }
     }
 
