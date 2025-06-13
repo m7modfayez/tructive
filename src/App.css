@@ -259,14 +259,14 @@ td {
   box-shadow: 100px 100px 0px 1000px rgba(0, 0, 0, 0.2);
   z-index: 10;
   position: fixed;
-  top: 50%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 65%;
   width: 80vw;
   height: 65%;
-  height: 80vh;
-  overflow: hidden;
+  height: 95vh;
+  /* overflow: hidden; */
   color: white;
   background-color: #0081F4;
   overflow: auto;
@@ -341,7 +341,7 @@ td {
 }
 
 .driver-list-buttons-div {
-  margin: 10px 20px;
+  margin: 20px 20px;
   /* background-color: #888; */
   float: right;
 }
@@ -409,7 +409,8 @@ td {
   /* width: 60%; */
   /* height: 60%; */
   width: 70vw;
-  height: 90vh;
+  width: 80vw;
+  height: 95vh;
   overflow: hidden;
   color: white;
   background-color: #0081F4;
@@ -420,6 +421,7 @@ td {
 
 
 .company-form {
+  margin-top: 5%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

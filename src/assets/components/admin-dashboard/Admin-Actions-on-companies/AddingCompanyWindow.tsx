@@ -84,12 +84,13 @@ function AddingCompanyWindow() {
             <div style={{textAlign:"center", margin:"0 auto", width:"fit-content"}} > <h1>Add New Company</h1> </div> 
             
             <div className="company-form-div">
-            <form className="company-form">
+            <form className="company-form" onSubmit={confirmAddCompany}>
                 <div className="form-attr">
                  <label htmlFor="name">Company Name</label>
                  <input type="text" id="name" name="companyName" placeholder="Enter Company Name.."
                   value={formData.companyName}
                   onChange={handleChange}
+                  required
                  />
                 </div>
 
@@ -98,24 +99,20 @@ function AddingCompanyWindow() {
                  <input type="text" id="email" name="companyEmail" placeholder="Enter Company Email.." 
                   value={formData.companyEmail}
                   onChange={handleChange}
+                  required
                  />
                 </div>
 
                 <div className="form-attr">
                  <label htmlFor="phone">Phone</label>
-                 <input type="text" id="phone" name="companyPhone" placeholder="Enter Company Phone.." 
+                 <input type="number" id="phone" min="1" name="companyPhone" placeholder="Enter Company Phone.." 
                    value={formData.companyPhone}
                    onChange={handleChange}
+                   required
                  />
                 </div>
 
-                <div className="form-attr">
-                 <label htmlFor="address">Address</label>
-                 <input type="text" id="address" name="companyAddress" placeholder="Enter Company Address.." 
-                  value={formData.companyAddress}
-                  onChange={handleChange}
-                 />
-                </div>
+               
 
                 {successMessage && (
                     <div className="success-message">
@@ -128,11 +125,12 @@ function AddingCompanyWindow() {
                         {errorMessage}
                     </div>
                 )}
+            <div style={{width: "100%", marginTop: "20px", textAlign: "center",}}>
+            <BaseButton name="Add Company" className="admin-confirm-adding-button" baseButtonOnClick={() => {}} />
+            </div>
+            
 
             </form>
-            </div>
-            <div style={{margin:"10px auto", width:"fit-content"}}>
-            <BaseButton name="Add Company" className="admin-confirm-adding-button" baseButtonOnClick={confirmAddCompany} />
             </div>
 
         </div>

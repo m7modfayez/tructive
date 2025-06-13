@@ -101,6 +101,7 @@ function BaseFormWindow({formAttr, formValues, formHead, buttonName, submitForm,
                      value={formData[attr.name] || ""}
                      placeholder={attr.placeHolder}
                      onChange={handleChange} 
+                     required
                      />
                    </div>
                 ) )}

@@ -14,9 +14,10 @@ const addingSupervisorFormAttr = [
         name: "last_name"
     },{
         label: "Phone",
-        inputType: "text",
+        inputType: "number",
         placeHolder: "Enter phone number",
-        name: "phone"
+        name: "phone",
+        min: "-1"
     },{
         label: "Enter the address",
         inputType: "text",
@@ -47,7 +48,14 @@ function AddingSupervisor() {
 
     const onAddingClick = (data: any) => {
         console.log("adding supervisor", data);
-        console.log("form data => ", data);
+        // console.log("form data => ", data);
+        if(data.password != data.confirm_password)
+        {
+            console.log("Password and Confirm Password do not match.")
+        }
+        else{
+            console.log("passwords matches")
+        }
     }
 
     return(

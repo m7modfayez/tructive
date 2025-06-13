@@ -19,6 +19,9 @@ import AddDriverModal from './assets/components/Driver-actions/AddDriverModal';
 import DeleteDriver from './assets/components/Driver-actions/DeleteDriver';
 import SelectDriverById from './assets/components/Driver-actions/SelectDriverById';
 import EditDriverForm from './assets/components/Driver-actions/EditDriverForm';
+import TotalVehicles from './assets/components/Vehicles/TotalVehicles';
+import AddingVehicleWindow from './assets/components/Vehicles/AddVehicle';
+import DeleteVehicle from './assets/components/Vehicles/DeleteVehicle';
 
 function App() {
 
@@ -53,6 +56,12 @@ function App() {
           <Route path="edit-driver" element={<SelectDriverById />} >
             <Route path=":id" element={<EditDriverForm />} />
           </Route>
+          <Route path="vehicles-list" element={<TotalVehicles />}>
+              <Route path="add-vehicle" element={<AddingVehicleWindow />} />
+              <Route path="delete-vehicle" element={<DeleteVehicle />} />
+          </Route>
+          <Route path="add-vehicle" element={<AddingVehicleWindow />} />
+
         </Route>
       </Routes>
     </Router>

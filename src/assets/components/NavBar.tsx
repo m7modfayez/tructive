@@ -28,6 +28,10 @@ function NavBar() {
     navigate('edit-driver');
   }
 
+  const showVehiclesList = () => {
+    navigate('vehicles-list');
+  }
+
     return (
         <>
           
@@ -43,10 +47,14 @@ function NavBar() {
              />
 
             <MdDelete className="footer_icon" size={size} color={color}
-            onClick={showDeleteForm} />
+            onClick={showDeleteForm} 
+            />
             <FaRegEdit className="footer_icon" size={size} color={color}
-             onClick={showSelectDriverWindow} />
-            <FaCarAlt className="footer_icon" size={size} color={color} />
+             onClick={showSelectDriverWindow} 
+             />
+            <FaCarAlt className="footer_icon" size={size} color={color} 
+            onClick={showVehiclesList}
+            />
           </div>
 
           {/* عرض المودال */}

@@ -21,6 +21,8 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
+    const userId = localStorage.getItem("userId");
+
     // Handle form data change
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -37,7 +39,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
         // Add supervisorId to the payload (1 as required)
         const payload = {
             ...formData,
-            userId: "1fe45b33-e3e3-43d2-b9d3-a4b056e95b73",
+            userId
         };
 
         // Example of API URL, replace with your actual URL later
@@ -46,6 +48,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
         try {
             // Make the POST request to the API
             const response = await axios.post(apiUrl, payload);
+            console.log(response.status)
 
             if (response.status === 200) {
                 setSuccessMessage("Driver has been added successfully!");
@@ -98,6 +101,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="fName"
                             value={formData.fName}
                             onChange={handleInputChange}
+                            required
                         />
                         <input
                             type="text"
@@ -105,6 +109,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="lName"
                             value={formData.lName}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <div className="form-row">
@@ -114,6 +119,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="phone"
                             value={formData.phone}
                             onChange={handleInputChange}
+                            required
                         />
                         <input
                             type="text"
@@ -121,6 +127,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="address"
                             value={formData.address}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <div className="form-row full-width">
@@ -130,6 +137,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="email"
                             value={formData.email}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <div className="form-row">
@@ -139,6 +147,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="password"
                             value={formData.password}
                             onChange={handleInputChange}
+                            required
                         />
                         <input
                             type="password"
@@ -146,6 +155,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="confirmPassword"
                             value={formData.confirmPassword}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <button type="submit" className="add-driver-submit-btn">
