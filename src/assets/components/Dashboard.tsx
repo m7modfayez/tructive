@@ -1,16 +1,39 @@
 import { Outlet } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import Header from './Header'
 import NavBar from './NavBar'
 import DashboardBody from './DashboardBody'
+import Closing from "./base-components/Closing";
+import { string } from "yup";
 
 
 function Dashboard() {
+
+    // const supervisor = localStorage.getItem("userId");
+      const [supervisor, setSupervisor] = useState<string>("");
+    
+    
+    useEffect(() => {
+          const fetchDrivers = async () => {
+             try {
+                const response = await axios.get("https://trucktive.runasp.net/api/Supervisors");
+                const supervisorName = response.data[0].fName+" "+response.data[0].lName;
+                setSupervisor(supervisorName);
+               
+             } catch (err) {
+                console.error("Error fetching drivers:", err);
+             }
+          };
+    
+          fetchDrivers();
+       }, []);
 
     return(
         <>
         <div className='dashboard'>
 
-        <Header role="Supervisor" />
+        <Header role="Supervisor" supervisorId={supervisor} />
         <DashboardBody />
         <Outlet />
         <NavBar />

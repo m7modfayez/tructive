@@ -50,7 +50,10 @@ function App() {
 
         {/* Supervisor Dashboard with Nested Route */}
         <Route path="/supervisor-dashboard" element={<Dashboard />}>
-          <Route path="total-drivers" element={<TotalDrivers />} />
+          <Route path="total-drivers" element={<TotalDrivers />}>
+            <Route path="add-driver" element={<AddDriverModal />} />
+            <Route path="delete-driver" element={<DeleteDriver />} />
+          </Route>
           <Route path="add-driver" element={<AddDriverModal />} />
           <Route path="delete-driver" element={<DeleteDriver />} />
           <Route path="edit-driver" element={<SelectDriverById />} >

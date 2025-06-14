@@ -1,11 +1,31 @@
 import { IoPersonOutline } from "react-icons/io5";
+import { useState ,useEffect } from "react";
+import axios from "axios";
 
 
 interface DriverInfoProps {
     onChildClick: () => void;
   }
 
+  
+
 function DriverInfo({onChildClick}: DriverInfoProps) {
+
+  const [driversLength, setDriversLength] = useState(null);
+
+  useEffect(() => {
+      const fetchDrivers = async () => {
+         try {
+            const response = await axios.get("https://trucktive.runasp.net/api/Drivers");
+            setDriversLength(response.data.length);
+           
+         } catch (err) {
+            console.error("Error fetching drivers:", err);
+         }
+      };
+
+      fetchDrivers();
+   }, []);
     
  
 
@@ -16,7 +36,7 @@ function DriverInfo({onChildClick}: DriverInfoProps) {
             <div onClick={onChildClick} className="driver tot-drivers">
                 <h2>Total Drivers</h2>
                 {/* <p>click to see</p> */}
-                <h2>110</h2>
+                <h2>{driversLength}</h2>
                 <IoPersonOutline size={70} style={{ margin:'20px', float: 'right',}}/>
                 {/* <h4>James Wiliams</h4> */}
             </div>

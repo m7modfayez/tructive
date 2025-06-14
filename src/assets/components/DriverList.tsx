@@ -181,6 +181,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface Driver {
    id: string;
@@ -197,6 +198,17 @@ function DriverList() {
    const [driversList, setDriversList] = useState<Driver[]>([]);
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState<string | null>(null);
+   
+   let navigate = useNavigate();
+
+
+   const onAddClick = () => {
+      navigate("add-driver");
+   }
+
+   const onDeleteClick = () => {
+      navigate("delete-driver");
+   }
 
    useEffect(() => {
       const fetchDrivers = async () => {
@@ -248,8 +260,10 @@ function DriverList() {
                   </table>
                </div>
                <div className="driver-list-buttons-div">
-                  <button className="driver-list-buttons"><b>Remove</b></button>
-                  <button className="driver-list-buttons">
+                  <button className="driver-list-buttons" onClick={onDeleteClick}>
+                     <b>Remove</b>
+                  </button>
+                  <button className="driver-list-buttons" onClick={onAddClick}>
                      <b>Add</b>
                   </button>
                </div>

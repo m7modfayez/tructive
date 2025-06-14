@@ -28,13 +28,16 @@ const LoginPage = () => {
 
         const response = await axios.post("https://trucktive.runasp.net/Auth/Login", values);
 
-        const { token, role, id } = response.data;
+        const { token, role, id, firstName } = response.data;
         console.log(response.data)
 
         localStorage.setItem("token", token);
         localStorage.setItem("userId", id);
+        localStorage.setItem("userName", firstName)
+
         console.log("token", token)
         console.log("id", id)
+        console.log("name", firstName) // returns null because the name in the response is empty.
 
         // 🔐 Set token globally for all axios requests
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;

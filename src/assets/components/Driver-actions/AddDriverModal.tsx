@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./AddDriverModal.css";
 import Closing from "../base-components/Closing";
+import { useNavigate } from "react-router-dom";
 interface AddDriverModalProps {
     // show: boolean;
     // handleClose: () => void;
 }
 
 const AddDriverModal: React.FC<AddDriverModalProps> = () => {
+
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         fName: '',
         lName: '',
@@ -46,13 +50,22 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
         const apiUrl = "https://trucktive.runasp.net/api/Drivers";
 
         try {
-            // Make the POST request to the API
+            
+            if(formData.password != formData.confirmPassword)
+            {
+                setErrorMessage("Passwords do not match.");
+                return;
+            }
+
             const response = await axios.post(apiUrl, payload);
             console.log(response.status)
 
             if (response.status === 200) {
                 setSuccessMessage("Driver has been added successfully!");
                 setErrorMessage(""); // Clear any previous error message
+                setTimeout(() => {
+                navigate(-1);
+                }, 2000);
             } else {
                 // Handle other statuses if necessary
                 setErrorMessage("An error occurred while adding the driver.");
