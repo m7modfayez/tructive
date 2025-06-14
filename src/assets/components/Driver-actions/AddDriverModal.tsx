@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./AddDriverModal.css";
 import Closing from "../base-components/Closing";
+import { useNavigate } from "react-router-dom";
 interface AddDriverModalProps {
     // show: boolean;
     // handleClose: () => void;
 }
 
 const AddDriverModal: React.FC<AddDriverModalProps> = () => {
+
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         fName: '',
         lName: '',
@@ -20,6 +24,8 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
 
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+
+    const userId = localStorage.getItem("userId");
 
     // Handle form data change
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,19 +43,29 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
         // Add supervisorId to the payload (1 as required)
         const payload = {
             ...formData,
-            userId: "1fe45b33-e3e3-43d2-b9d3-a4b056e95b73",
+            userId
         };
 
         // Example of API URL, replace with your actual URL later
         const apiUrl = "https://trucktive.runasp.net/api/Drivers";
 
         try {
-            // Make the POST request to the API
+            
+            if(formData.password != formData.confirmPassword)
+            {
+                setErrorMessage("Passwords do not match.");
+                return;
+            }
+
             const response = await axios.post(apiUrl, payload);
+            console.log(response.status)
 
             if (response.status === 200) {
                 setSuccessMessage("Driver has been added successfully!");
                 setErrorMessage(""); // Clear any previous error message
+                setTimeout(() => {
+                navigate(-1);
+                }, 2000);
             } else {
                 // Handle other statuses if necessary
                 setErrorMessage("An error occurred while adding the driver.");
@@ -98,6 +114,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="fName"
                             value={formData.fName}
                             onChange={handleInputChange}
+                            required
                         />
                         <input
                             type="text"
@@ -105,6 +122,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="lName"
                             value={formData.lName}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <div className="form-row">
@@ -114,6 +132,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="phone"
                             value={formData.phone}
                             onChange={handleInputChange}
+                            required
                         />
                         <input
                             type="text"
@@ -121,6 +140,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="address"
                             value={formData.address}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <div className="form-row full-width">
@@ -130,6 +150,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="email"
                             value={formData.email}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <div className="form-row">
@@ -139,6 +160,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="password"
                             value={formData.password}
                             onChange={handleInputChange}
+                            required
                         />
                         <input
                             type="password"
@@ -146,6 +168,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                             name="confirmPassword"
                             value={formData.confirmPassword}
                             onChange={handleInputChange}
+                            required
                         />
                     </div>
                     <button type="submit" className="add-driver-submit-btn">

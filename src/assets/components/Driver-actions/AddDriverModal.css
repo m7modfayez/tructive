@@ -83,12 +83,16 @@
 .success-message {
     background-color: #4CAF50;
     color: white;
+    width: 100%;
+    text-align: center;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 15px;
     font-weight: bold;
     display: flex;
     align-items: center;
+    justify-content: center;
+
 }
 
 .error-message {

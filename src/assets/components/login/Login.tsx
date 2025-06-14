@@ -28,10 +28,19 @@ const LoginPage = () => {
 
         const response = await axios.post("https://trucktive.runasp.net/Auth/Login", values);
 
-        const { token, role } = response.data;
+        const { token, role, id, firstName } = response.data;
         console.log(response.data)
 
         localStorage.setItem("token", token);
+        localStorage.setItem("userId", id);
+        localStorage.setItem("userName", firstName)
+
+        console.log("token", token)
+        console.log("id", id)
+        console.log("name", firstName) // returns null because the name in the response is empty.
+
+        // 🔐 Set token globally for all axios requests
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
         if (role === "Admin") {
           navigate("/admin-dashboard");
@@ -87,7 +96,7 @@ const LoginPage = () => {
               <div className="error-message">{formik.errors.password}</div>
             )}
 
-            <div className="role-selection">
+            {/* <div className="role-selection">
               <input
                 type="radio"
                 id="admin"
@@ -107,7 +116,7 @@ const LoginPage = () => {
                 onChange={formik.handleChange}
               />
               <label htmlFor="supervisor">Supervisor</label>
-            </div>
+            </div> */}
 
             {loginError && <div className="error-message">{loginError}</div>}
 

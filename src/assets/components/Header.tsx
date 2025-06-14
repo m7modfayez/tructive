@@ -3,11 +3,12 @@ import { GoPerson } from "react-icons/go";
 import logo from "../logo.png";
 
 type HeaderProps = {
-    role: string;
+    role: string,
+    supervisorId?: string,
   };
   
 
-function Header({role}: HeaderProps ) {
+function Header({role, supervisorId}: HeaderProps ) {
 
     return (
         <>
@@ -16,7 +17,9 @@ function Header({role}: HeaderProps ) {
             <img className="logo" src={logo} />
             <div className="user">
             <GoPerson size={40} color="black" />
-            <p className="userName">UserName</p>
+            {/* <p className="userName">UserName</p> */}
+            <p className="userName">{supervisorId}</p>
+
             {/* <p className="userName">mahmoud</p> */}
             </div>
          </div>
