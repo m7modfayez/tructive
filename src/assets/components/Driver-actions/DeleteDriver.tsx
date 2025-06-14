@@ -1,5 +1,6 @@
 import BaseFormWindow from "../base-components/BaseFormWindow";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import type { JSX } from 'react';
 
@@ -16,6 +17,7 @@ let deleteDriverFormAttr = [
 function DeleteDriver() {
     
     let formhead = "Delete Driver Account"
+    const navigate = useNavigate();
 
     const [messageHtml, setMessageHtml] = useState<JSX.Element | null>(null);
 
@@ -26,13 +28,17 @@ function DeleteDriver() {
           const response = await axios.delete(`${apiUrl}/${data.id}`);
       
           if (response.status === 200) {
+            setTimeout(() => {
+                navigate(-1);
+                }, 2000);
             setMessageHtml(
               <div style={{ backgroundColor: "#d4edda", padding: "10px", borderRadius: "5px", color: "#155724" }}>
                 ✅ Driver has been deleted successfully!
               </div>
-            
             );
-          } else {
+            
+          } 
+          else {
             setMessageHtml(
               <div style={{ backgroundColor: "#f8d7da", padding: "10px", borderRadius: "5px", color: "#721c24" }}>
                 ❌ An error occurred while deleting the driver.

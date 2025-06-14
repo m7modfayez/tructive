@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import Header from './Header'
 import NavBar from './NavBar'
 import DashboardBody from './DashboardBody'
-import Closing from "./base-components/Closing";
-import { string } from "yup";
 
 
 function Dashboard() {

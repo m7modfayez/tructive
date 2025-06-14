@@ -4,7 +4,7 @@ import logo from "../logo.png";
 
 type HeaderProps = {
     role: string,
-    supervisorId: string,
+    supervisorId?: string,
   };
   
 
