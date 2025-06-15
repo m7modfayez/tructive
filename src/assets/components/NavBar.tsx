@@ -32,12 +32,20 @@ function NavBar() {
     navigate('vehicles-list');
   }
 
+  const ShowReport = () => {
+    navigate('driver-report-selection');
+  }
+
+  
+
     return (
         <>
           
           <div className="footer">
             <MdHome className="footer_icon" size={size} color= {color} />
-            < BiSolidReport className="footer_icon" size={size} color= {color} />
+            < BiSolidReport className="footer_icon" size={size} color= {color}
+              onClick={ShowReport}
+            />
             <IoAddCircleSharp 
             className="footer_icon" 
             size={size} 

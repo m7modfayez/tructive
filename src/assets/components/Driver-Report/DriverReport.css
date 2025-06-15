@@ -1,0 +1,151 @@
+.report-container {
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px 20px;
+  text-align: center;
+  height: calc(100vh - 120px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.header {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.score-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #4caf50;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+.bar-chart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 10px;
+  height: 180px;
+  border-bottom: 2px solid #ccc;
+  position: relative;
+}
+
+.bar {
+  position: relative;
+  width: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 4px 4px 0 0;
+  margin: 0 2px;
+  padding-top: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.bar1 {
+  background: #66cc66;
+  height: 40%;
+}
+.bar2 {
+  background: #ffdb4d;
+  height: 80%;
+}
+.bar3 {
+  background: #ff4d4d;
+  height: 90%;
+}
+.bar4 {
+  background: #e06666;
+  height: 85%;
+}
+.bar5 {
+  background: #4da6ff;
+  height: 50%;
+}
+
+.bar-value {
+  position: absolute;
+  top: 4px;
+  font-size: 12px;
+  color: white;
+}
+
+.bar-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 10px;
+  color: #333;
+  flex-wrap: wrap;
+}
+
+.bar-labels span {
+  width: 18%;
+  text-align: center;
+}
+
+.comment-box {
+  margin-top: 12px;
+  font-style: italic;
+  padding: 10px;
+  background-color: #fafafa;
+  border-left: 4px solid #4caf50;
+  text-align: left;
+  font-size: 13px;
+  color: #222;
+}
+
+.action-buttons {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-details,
+.btn-print {
+  background-color: #007bff;
+  color: white;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-print {
+  background-color: #28a745;
+}
+
+.btn-details:hover {
+  background-color: #0056b3;
+}
+
+.btn-print:hover {
+  background-color: #1e7e34;
+}
