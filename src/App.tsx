@@ -24,9 +24,10 @@ import AddingVehicleWindow from './assets/components/Vehicles/AddVehicle';
 import DeleteVehicle from './assets/components/Vehicles/DeleteVehicle';
 import Messages from './assets/components/admin-dashboard/Messages/Messages';
 import VehicleCondition from './assets/components/Vehicles/VehicleCondition';
+import DriverReportSelection from './assets/components/Driver-Report/DriverReportSelection';
+import DriverReport from './assets/components/Driver-Report/DriverReport';
 
 function App() {
-
 
   return (
     <>
@@ -52,6 +53,11 @@ function App() {
 
         {/* Supervisor Dashboard with Nested Route */}
         <Route path="/supervisor-dashboard" element={<Dashboard />}>
+          <Route path="driver-report-selection" element={<DriverReportSelection />} />
+          <Route path="driver-report-selection/driver-report" element={<DriverReport />} />
+          
+
+        
           <Route path="total-drivers" element={<TotalDrivers />}>
             <Route path="add-driver" element={<AddDriverModal />} />
             <Route path="delete-driver" element={<DeleteDriver />} />

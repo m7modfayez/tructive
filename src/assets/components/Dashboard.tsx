@@ -1,15 +1,19 @@
 import { Outlet } from "react-router-dom";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from './Header'
 import NavBar from './NavBar'
 import DashboardBody from './DashboardBody'
+import DriverReport from "./Driver-Report/DriverReport";
 
 
 function Dashboard() {
 
     // const supervisor = localStorage.getItem("userId");
       const [supervisor, setSupervisor] = useState<string>("");
+
+
     
     
     useEffect(() => {
@@ -27,18 +31,47 @@ function Dashboard() {
           fetchDrivers();
        }, []);
 
-    return(
-        <>
-        <div className='dashboard'>
 
-        <Header role="Supervisor" userName={supervisor} />
-        <DashboardBody />
-        <Outlet />
-        <NavBar />
+       
 
-        </div>
-        </>
-    )
+   //  return(
+   //      <>
+   //      <div className='dashboard'>
+
+   //      <Header role="Supervisor" userName={supervisor} />
+   //      <DashboardBody />
+   //      <Outlet />
+   //      <NavBar />
+
+   //      </div>
+   //      </>
+   //  )
+
+
+
+
+
+
+  const location = useLocation();
+
+  const showSelectionOverlay = location.state?.showDriverReportSelection;
+
+  const hideDashboardBody = location.pathname.includes("driver-report");
+
+  return (
+    <div className='dashboard'>
+      <Header role="Supervisor" />
+      
+      {!hideDashboardBody && <DashboardBody />}
+      
+      {showSelectionOverlay && <DriverReport />}
+      
+      <Outlet />
+      
+      <NavBar />
+    </div>
+  );
 }
+
 
 export default Dashboard;
