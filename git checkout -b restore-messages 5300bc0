@@ -1,0 +1,93 @@
+[33mbeb9d8d[m[33m ([m[1;36mHEAD[m[33m)[m HEAD@{0}: pull --rebase (pick): fixing bugs for netlify before merging
+[33m8b5d688[m HEAD@{1}: pull --rebase (pick): integrating edit and delete company with API
+[33md362be5[m HEAD@{2}: pull --rebase (pick): connecting add and edit company to the api
+[33m5afc24e[m[33m ([m[1;31morigin/masseage[m[33m)[m HEAD@{3}: pull --rebase (start): checkout 5afc24e851d7c3f555894916a3f06936b042ca83
+[33m5300bc0[m[33m ([m[1;32mmasseage[m[33m)[m HEAD@{4}: commit: link messages with api add and delete and get.
+[33m11f549f[m HEAD@{5}: checkout: moving from masseage to masseage
+[33m11f549f[m HEAD@{6}: rebase (finish): returning to refs/heads/masseage
+[33m11f549f[m HEAD@{7}: rebase (pick): edit table
+[33m32f6d97[m HEAD@{8}: rebase (continue): Add messages admin table with delete icon
+[33mb772f18[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mcompany-data-addash[m[33m)[m HEAD@{9}: pull origin main (start): checkout b772f18f811de160b9930e4f2699c86aceab4eaf
+[33m5afc24e[m[33m ([m[1;31morigin/masseage[m[33m)[m HEAD@{10}: checkout: moving from company-data-addash to masseage
+[33mb772f18[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mcompany-data-addash[m[33m)[m HEAD@{11}: pull origin main: Fast-forward
+[33m0e4fc70[m HEAD@{12}: rebase (abort): returning to refs/heads/company-data-addash
+[33m5afc24e[m[33m ([m[1;31morigin/masseage[m[33m)[m HEAD@{13}: checkout: moving from driver-actions to masseage
+[33mc8a2597[m[33m ([m[1;31morigin/driver-actions[m[33m, [m[1;32mdriver-actions[m[33m)[m HEAD@{14}: commit: fixing the bugs
+[33m7833a99[m HEAD@{15}: commit: editing the user name in the header of dash. and edit routes of add and delete driver in the total drivers.
+[33mf2f9f8e[m HEAD@{16}: commit: adding and deleting and get the vehicles.
+[33mcbe4525[m HEAD@{17}: commit: fixing bugs for netlify before merging
+[33m687ac75[m HEAD@{18}: commit: integrating edit and delete company with API
+[33m990038a[m HEAD@{19}: commit: connecting add and edit company to the api
+[33m3a8d66b[m HEAD@{20}: commit: creating edit driver form
+[33mb7f6859[m HEAD@{21}: commit: creating delete driver form. and make access of edit the supervisor values.
+[33m36be502[m HEAD@{22}: commit: correct the declaration
+[33me656e70[m HEAD@{23}: commit: correct the declaration
+[33m135a077[m HEAD@{24}: commit: deleting unused lines
+[33m0d7fe98[m HEAD@{25}: commit: deleting the commented code
+[33mbbb17dc[m[33m ([m[1;31morigin/company-data-addash[m[33m, [m[1;32mmain[m[33m)[m HEAD@{26}: checkout: moving from main to driver-actions
+[33mbbb17dc[m[33m ([m[1;31morigin/company-data-addash[m[33m, [m[1;32mmain[m[33m)[m HEAD@{27}: pull origin main: Fast-forward
+[33mfe16799[m HEAD@{28}: checkout: moving from company-data-addash to main
+[33mbbb17dc[m[33m ([m[1;31morigin/company-data-addash[m[33m, [m[1;32mmain[m[33m)[m HEAD@{29}: checkout: moving from main to company-data-addash
+[33mfe16799[m HEAD@{30}: checkout: moving from company-data-addash to main
+[33mbbb17dc[m[33m ([m[1;31morigin/company-data-addash[m[33m, [m[1;32mmain[m[33m)[m HEAD@{31}: checkout: moving from main to company-data-addash
+[33mfe16799[m HEAD@{32}: checkout: moving from company-data-addash to main
+[33mbbb17dc[m[33m ([m[1;31morigin/company-data-addash[m[33m, [m[1;32mmain[m[33m)[m HEAD@{33}: commit: resolving the conflicts by copying the add driver modal in this branch
+[33m0e4fc70[m HEAD@{34}: checkout: moving from 12bc53e5f64cc4bd299501425610275dcaa4351a to company-data-addash
+[33m12bc53e[m[33m ([m[1;31morigin/test-branch[m[33m)[m HEAD@{35}: pull origin main (start): checkout 12bc53e5f64cc4bd299501425610275dcaa4351a
+[33m0e4fc70[m HEAD@{36}: rebase (abort): returning to refs/heads/company-data-addash
+[33m1104472[m[33m ([m[1;32mtest-branch[m[33m)[m HEAD@{37}: commit: Finish local changes before syncing with main
+[33m7ce60eb[m HEAD@{38}: commit: solving conflict
+[33m0e4fc70[m HEAD@{39}: checkout: moving from company-data-addash to test-branch
+[33m0e4fc70[m HEAD@{40}: checkout: moving from ac89715ec14ae70ca9e62cf9773530b1ef12f993 to company-data-addash
+[33mac89715[m HEAD@{41}: commit: aaa
+[33m12bc53e[m[33m ([m[1;31morigin/test-branch[m[33m)[m HEAD@{42}: pull origin main (start): checkout 12bc53e5f64cc4bd299501425610275dcaa4351a
+[33m0e4fc70[m HEAD@{43}: commit: sending sup data to edit form
+[33m21f59b6[m HEAD@{44}: commit: creating single company table, and actions add edit on supervisor
+[33m48f0c97[m HEAD@{45}: commit: creating base form for multiple using
+[33mfe31db4[m HEAD@{46}: pull origin main: Fast-forward
+[33m0a8167f[m[33m ([m[1;31morigin/driver[m[33m, [m[1;32mdriver[m[33m)[m HEAD@{47}: checkout: moving from driver to company-data-addash
+[33m0a8167f[m[33m ([m[1;31morigin/driver[m[33m, [m[1;32mdriver[m[33m)[m HEAD@{48}: commit: delete unused lines
+[33m9c8461e[m HEAD@{49}: checkout: moving from fayez-branch to driver
+[33m5087d11[m[33m ([m[1;32mfayez-branch[m[33m)[m HEAD@{50}: pull origin main (finish): returning to refs/heads/fayez-branch
+[33m5087d11[m[33m ([m[1;32mfayez-branch[m[33m)[m HEAD@{51}: pull origin main (pick): aa
+[33me490f7d[m HEAD@{52}: pull origin main (start): checkout e490f7d840d4f50ef9b4c5c282214f32e98e55fc
+[33mecbe979[m HEAD@{53}: commit: aa
+[33m72856f4[m[33m ([m[1;31morigin/fayez-branch[m[33m)[m HEAD@{54}: checkout: moving from mohamed-branch to fayez-branch
+[33ma743cf7[m[33m ([m[1;31morigin/mohamed-branch[m[33m, [m[1;32mmohamed-branch[m[33m)[m HEAD@{55}: checkout: moving from fayez-branch to mohamed-branch
+[33m72856f4[m[33m ([m[1;31morigin/fayez-branch[m[33m)[m HEAD@{56}: commit: delete no used lines
+[33md0dbce3[m HEAD@{57}: commit: some editting
+[33m9e60fbb[m HEAD@{58}: commit: creating editing company window with some style changes
+[33mc4786de[m HEAD@{59}: commit: adding company form
+[33md3288fe[m HEAD@{60}: commit: edit sizing for responsive
+[33mf330541[m HEAD@{61}: commit: edit sizing for responsive
+[33m0ba7fb2[m HEAD@{62}: checkout: moving from my-feature-branch to fayez-branch
+[33m0608b93[m[33m ([m[1;31morigin/my-feature-branch[m[33m, [m[1;32mmy-feature-branch[m[33m)[m HEAD@{63}: reset: moving to HEAD
+[33m0608b93[m[33m ([m[1;31morigin/my-feature-branch[m[33m, [m[1;32mmy-feature-branch[m[33m)[m HEAD@{64}: checkout: moving from fayez-branch to my-feature-branch
+[33m0ba7fb2[m HEAD@{65}: commit: customizing homePage style just for it
+[33m2864842[m HEAD@{66}: pull origin main: Fast-forward
+[33mfe16799[m HEAD@{67}: checkout: moving from main to fayez-branch
+[33mfe16799[m HEAD@{68}: commit: edit height
+[33m11e66a6[m HEAD@{69}: commit: adding logo
+[33ma4d6a4e[m HEAD@{70}: commit: changes for deploying
+[33m05c8623[m HEAD@{71}: commit: changes for deploying
+[33m500f338[m HEAD@{72}: commit: editing
+[33mf37f549[m HEAD@{73}: commit: making some base components
+[33m39bb06f[m HEAD@{74}: commit: adding company button to admi dashboard
+[33m04cae10[m HEAD@{75}: commit: adding login page and handle its routes
+[33ma5fb694[m HEAD@{76}: commit: adding home page
+[33m1a2d836[m HEAD@{77}: commit: adding drivers list
+[33m7208833[m HEAD@{78}: rebase (finish): returning to refs/heads/main
+[33m7208833[m HEAD@{79}: rebase (pick): total drivers
+[33m5175884[m HEAD@{80}: rebase (continue): rating table added
+[33ma64de0e[m HEAD@{81}: pull --tags origin main (start): checkout a64de0e9da3183124ac0a4d09a7166a830b068cf
+[33m6ba1898[m HEAD@{82}: checkout: moving from a64de0e9da3183124ac0a4d09a7166a830b068cf to main
+[33ma64de0e[m HEAD@{83}: pull (start): checkout a64de0e9da3183124ac0a4d09a7166a830b068cf
+[33m6ba1898[m HEAD@{84}: reset: moving to HEAD
+[33m6ba1898[m HEAD@{85}: checkout: moving from 9190c1208a2d89c21a724d5d2a8e7e2b16629570 to main
+[33m9190c12[m HEAD@{86}: commit: refactor
+[33ma64de0e[m HEAD@{87}: pull (start): checkout a64de0e9da3183124ac0a4d09a7166a830b068cf
+[33m6ba1898[m HEAD@{88}: commit: total drivers
+[33m96b8613[m HEAD@{89}: commit: rating table added
+[33m4b7d223[m HEAD@{90}: Branch: renamed refs/heads/master to refs/heads/main
+[33m4b7d223[m HEAD@{92}: commit: Merged README and pushed project
+[33m57ba29f[m HEAD@{93}: initial pull

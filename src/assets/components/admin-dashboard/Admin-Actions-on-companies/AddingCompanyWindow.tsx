@@ -96,7 +96,7 @@ function AddingCompanyWindow() {
 
                 <div className="form-attr">
                  <label htmlFor="email">Email Address</label>
-                 <input type="text" id="email" name="companyEmail" placeholder="Enter Company Email.." 
+                 <input type="email" id="email" name="companyEmail" placeholder="Enter Company Email.." 
                   value={formData.companyEmail}
                   onChange={handleChange}
                   required

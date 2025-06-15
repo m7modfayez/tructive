@@ -136,8 +136,11 @@ function AdminCompaniesTable() {
 
     const onCompanyClick = (rowData: any) => {
       const companyName = rowData["Company Name"];
-      navigate(`${companyName}`);
-      console.log("company clicked");
+      const companyID = rowData["Company ID"];
+      navigate(`${companyID}/${companyName}`);
+      console.log("row data", rowData)
+      console.log("company clicked", companyName);
+      console.log("company clicked", companyID);
      }
     
     const handleEdit = (id: any) => {
@@ -151,8 +154,8 @@ function AdminCompaniesTable() {
        try {
          await axios.delete(`https://trucktive.runasp.net/api/Companies/${id}`);
          console.log(`Company with ID ${id} deleted successfully.`);
-         setTimeout(() => window.location.reload(), 1500);
          setTimeout(() => toast.success("Company deleted successfully."), 0 ); 
+         setCompaniesList(companiesList.filter((company: any) => company.id !== id));
        } catch (error) {
          console.error("Error deleting company:", error);
          // optionally show an error message to the user

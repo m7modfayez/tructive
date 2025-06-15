@@ -15,6 +15,8 @@ function VehiclesList() {
    const [vehiclesList, setVehiclesList] = useState<Vehicle[]>([]);
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState<string | null>(null);
+   const [searchId, setSearchId] = useState("")
+   
    
    const navigate = useNavigate();
    
@@ -59,12 +61,16 @@ function VehiclesList() {
       navigate("delete-vehicle");
    }
 
+   const filteredVehicles = vehiclesList.filter((vehicle) =>
+     vehicle.id.toString().includes(searchId)
+   );
+
    return (
       <>
             <>
                <div className="driver-list-table-div">
                   <form>
-                     <input className="driver-search" name="fsrch" placeholder="Search..." />
+                     <input className="driver-search" name="fsrch" placeholder="Search by ID..."  value={searchId} onChange={(e) => setSearchId(e.target.value)} />
                   </form>
                   <table className="driver-list-table">
                      <thead>
@@ -77,7 +83,7 @@ function VehiclesList() {
                         </tr>
                      </thead>
                      <tbody>
-                        {vehiclesList.map((vehicle) => (
+                        {filteredVehicles.map((vehicle) => (
                            <tr key={vehicle.id}>
                               <td>{vehicle.id}</td>
                               <td>{vehicle.brand}</td>

@@ -1,4 +1,5 @@
 import BaseFormWindow from "../../base-components/BaseFormWindow";
+import { useParams } from "react-router-dom";
 
 const addingSupervisorFormAttr = [
     {
@@ -44,10 +45,12 @@ const addingSupervisorFormAttr = [
 
 function AddingSupervisor() {
     
-
+    const {name, companyID} = useParams();
+  
 
     const onAddingClick = (data: any) => {
         console.log("adding supervisor", data);
+        console.log(`adding supervisor to company ${name} which has id: ${companyID} `);
         // console.log("form data => ", data);
         if(data.password != data.confirm_password)
         {

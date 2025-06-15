@@ -198,6 +198,7 @@ function DriverList() {
    const [driversList, setDriversList] = useState<Driver[]>([]);
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState<string | null>(null);
+   const [searchId, setSearchId] = useState("")
    
    let navigate = useNavigate();
 
@@ -229,12 +230,16 @@ function DriverList() {
    if (loading) return <div>Loading...</div>;
    if (error) return <div style={{ color: "red" }}>{error}</div>;
 
+   const filteredDrivers = driversList.filter((driver) =>
+     driver.id.toString().includes(searchId)
+   );
+
    return (
       <>
             <>
                <div className="driver-list-table-div">
                   <form>
-                     <input className="driver-search" name="fsrch" placeholder="Search..." />
+                     <input className="driver-search" name="fsrch" placeholder="Search by ID..." value={searchId} onChange={(e) => setSearchId(e.target.value)} />
                   </form>
                   <table className="driver-list-table">
                      <thead>
@@ -247,16 +252,17 @@ function DriverList() {
                         </tr>
                      </thead>
                      <tbody>
-                        {driversList.map((driver) => (
-                           <tr key={driver.id}>
-                              <td>{driver.id}</td>
-                              <td>{driver.fName} {driver.lName}</td>
-                              <td>{driver.phone}</td>
-                              <td>{driver.address}</td>
-                              <td>{driver.email}</td>
-                           </tr>
-                        ))}
+                       {filteredDrivers.map((driver) => (
+                         <tr key={driver.id}>
+                           <td>{driver.id}</td>
+                           <td>{driver.fName} {driver.lName}</td>
+                           <td>{driver.phone}</td>
+                           <td>{driver.address}</td>
+                           <td>{driver.email}</td>
+                         </tr>
+                       ))}
                      </tbody>
+
                   </table>
                </div>
                <div className="driver-list-buttons-div">

@@ -1,4 +1,4 @@
-
+import { useNavigate } from "react-router-dom";
 
 
 function DriverTable() {
@@ -7,7 +7,7 @@ function DriverTable() {
  {
     name: "mahmoud",
     id: 1,
-    vehicleID: 3,
+    vehicleID: 1,
     overSpeed: 10,
     harshAcce: 10,
     harshBreaking: 10,
@@ -19,7 +19,7 @@ function DriverTable() {
  {
     name: "mahmoud",
     id: 1,
-    vehicleID: 3,
+    vehicleID: 2,
     overSpeed: 10,
     harshAcce: 10,
     harshBreaking: 10,
@@ -134,6 +134,12 @@ function DriverTable() {
  },
     ]
     
+    const navigate = useNavigate();
+
+    const onConditionClick = (vehicleID:number) => {
+      navigate(`vehicle-condition/:${vehicleID}`);
+
+    }
 
     return(
         <>
@@ -164,7 +170,7 @@ function DriverTable() {
                      <td>{driver.harshBreaking}</td>
                      <td>{driver.driverBehaviour}</td>
                      <td>{driver.excessiveIdling}</td>
-                     <td>{driver.vehicleCondition}</td>
+                     <td style={{cursor:"pointer"}} onClick={() => onConditionClick(driversTable[index].vehicleID)} >{driver.vehicleCondition}</td>
                      <td style={{backgroundColor: driver.rate >=80? '#c6ffc9' : driver.rate >=65? "#fffaa4" : '#ffc4c9' }}>{driver.rate}</td>
                    </tr>
                 ) )  }

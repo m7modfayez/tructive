@@ -1,13 +1,11 @@
 
 
-#root {
-  /* max-width: 1280px; */
-  /* margin: 0 auto; */
-  /* padding: 2rem; */
-  /* text-align: center; */
-  overflow-x: hidden;
-  /* overflow-y: hidden; */
-}
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
 
 
 
@@ -43,27 +41,15 @@
 .dashboard {
   justify-content: center;
   height: 100vh;
-  overflow: hidden;
   /* padding-bottom: 5vh; */
   /* font-size: 1rem; */
 }
 
-/* try another style */
-.dashboard {
-  display: flex;
-  flex-direction: column;
-  height: 100vh; /* take full height */
-  overflow: hidden;
-}
-
-
 .dashboard-header {
   height: 80px;
   height: 9vh;
-  flex-shrink: 0;
   /* width: 100%; */
   width: 99.vw;
-  /* width: 99vw; */
   /* background-color: rgb(149, 151, 255); */
   background: linear-gradient(to bottom, #2f9eff, #fffbfb);
   background: linear-gradient(to bottom, #91cbff, #fffbfb);
@@ -136,9 +122,7 @@
 .dash-body {
   /* padding-top: 10px; */
   /* margin-top: 40px; */
-  /* padding-bottom: 7%; */
-  flex-grow: 1;
-  overflow-y: auto;
+  padding-bottom: 7%;
   /* background-color: #979595; */
 }
 
@@ -216,7 +200,7 @@
   margin: 50px auto 0;
   /* background-color: #0081F4; */
   width:fit-content;
-  /* width: 80%; */
+  /* width: 100%; */
   /* font-size: larger; */
   max-width: 90%;
   overflow: hidden;
@@ -275,14 +259,14 @@ td {
   box-shadow: 100px 100px 0px 1000px rgba(0, 0, 0, 0.2);
   z-index: 10;
   position: fixed;
-  top: 52%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 65%;
   width: 80vw;
   height: 65%;
-  height: 95vh;
-  /* overflow: hidden; */
+  height: 90vh;
+  overflow: hidden;
   color: white;
   background-color: #0081F4;
   overflow: auto;
@@ -306,8 +290,7 @@ td {
   padding-right: 10px;
   border-radius:20px;
   background-color: rgb(255, 255, 255);
-  height: 70%;
-  overflow: auto;
+  height: 70%;  overflow: auto;
   margin: 30px auto;
   /* background: rgba(69, 69, 69, 0.5); */
 }
@@ -357,7 +340,7 @@ td {
 }
 
 .driver-list-buttons-div {
-  margin: 20px 20px;
+  margin: 10px 20px;
   /* background-color: #888; */
   float: right;
 }
@@ -425,19 +408,17 @@ td {
   /* width: 60%; */
   /* height: 60%; */
   width: 70vw;
-  width: 80vw;
-  height: 95vh;
+  height: 90vh;
   overflow: hidden;
   color: white;
   background-color: #0081F4;
   overflow: auto;
-  z-index: 9999;
+  z-index: 5;
 }
 
 
 
 .company-form {
-  margin-top: 5%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -480,17 +461,3 @@ td {
 }
 
 
-@media (max-width: 768px) {
-  .driver {
-    width: 80%;
-    margin: 10px auto;
-  }
-
-  .form-attr {
-    width: 90%;
-  }
-
-  .footer_icon {
-    width: 60px;
-  }
-}

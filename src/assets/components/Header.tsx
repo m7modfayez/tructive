@@ -4,11 +4,11 @@ import logo from "../logo.png";
 
 type HeaderProps = {
     role: string,
-    supervisorId?: string,
+    userName?: string,
   };
   
 
-function Header({role, supervisorId}: HeaderProps ) {
+function Header({role, userName}: HeaderProps ) {
 
     return (
         <>
@@ -18,7 +18,7 @@ function Header({role, supervisorId}: HeaderProps ) {
             <div className="user">
             <GoPerson size={40} color="black" />
             {/* <p className="userName">UserName</p> */}
-            <p className="userName">{supervisorId}</p>
+            <p className="userName">{userName}</p>
 
             {/* <p className="userName">mahmoud</p> */}
             </div>
