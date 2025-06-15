@@ -60,7 +60,7 @@ function Dashboard() {
 
   return (
     <div className='dashboard'>
-      <Header role="Supervisor" />
+      <Header role="Supervisor" userName={supervisor} />
       
       {!hideDashboardBody && <DashboardBody />}
       
