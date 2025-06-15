@@ -31,7 +31,7 @@ function Dashboard() {
         <>
         <div className='dashboard'>
 
-        <Header role="Supervisor" supervisorId={supervisor} />
+        <Header role="Supervisor" userName={supervisor} />
         <DashboardBody />
         <Outlet />
         <NavBar />

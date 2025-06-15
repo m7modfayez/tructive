@@ -2,7 +2,7 @@
 
 interface DriverInfoProps {
     onChildClick: () => void,
-    totalCard: {cardName: string, number: number, icon: any},
+    totalCard: {cardName: string, number: any, icon: any},
     bestCard: {cardName: string, number: number, name: string},
     worstCard: {cardName: string, number: number, name: string},
   }

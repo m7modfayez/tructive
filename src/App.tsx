@@ -22,6 +22,8 @@ import EditDriverForm from './assets/components/Driver-actions/EditDriverForm';
 import TotalVehicles from './assets/components/Vehicles/TotalVehicles';
 import AddingVehicleWindow from './assets/components/Vehicles/AddVehicle';
 import DeleteVehicle from './assets/components/Vehicles/DeleteVehicle';
+import Messages from './assets/components/admin-dashboard/Messages/Messages';
+import VehicleCondition from './assets/components/Vehicles/VehicleCondition';
 
 function App() {
 
@@ -31,16 +33,13 @@ function App() {
 
    <Router>
       <Routes>
-        {/* <Route path='' element={<Massage/>} /> */}
         <Route path="" element={<HomeApp />} />
         <Route path="/login-page" element={<LoginPage />} />
         
         {/* Admin Dashboard with Nested Route */}
         <Route path="/admin-dashboard" element={<AdminDashboard />}>
-          {/* <Route path="add-company" element={<BaseFormWindow />} />  */}
           <Route path="" element={<AllCompaniesData />} />
-
-          <Route path=":name" element={<SingleCompanyData />} >
+          <Route path= ":companyID/:name" element={<SingleCompanyData />} >
             <Route path='adding-supervisor' element={<AddingSupervisor />} />
             <Route path='edit-supervisor/:id' element={<EditSupervisor />} />
           </Route>
@@ -48,6 +47,8 @@ function App() {
           <Route path="add-company" element={<AddingCompanyWindow />} />
           <Route path= "edit-company/:id" element={<EditCompanyWindow />} />
         </Route>
+
+        <Route path="/messages" element={<Messages />} />
 
         {/* Supervisor Dashboard with Nested Route */}
         <Route path="/supervisor-dashboard" element={<Dashboard />}>
@@ -60,6 +61,7 @@ function App() {
           <Route path="edit-driver" element={<SelectDriverById />} >
             <Route path=":id" element={<EditDriverForm />} />
           </Route>
+          <Route path="vehicle-condition/:vehicleID" element={<VehicleCondition />} />
           <Route path="vehicles-list" element={<TotalVehicles />}>
               <Route path="add-vehicle" element={<AddingVehicleWindow />} />
               <Route path="delete-vehicle" element={<DeleteVehicle />} />

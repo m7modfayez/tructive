@@ -22,3 +22,12 @@ td {
   overflow-y: auto;
   max-height: 425px;
 }
+
+table button {
+  background-color: transparent;
+  border: none;
+}
+table button:hover {
+  cursor: pointer;
+  background-color: #fbfbff;
+}

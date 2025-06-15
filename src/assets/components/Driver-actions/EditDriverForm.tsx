@@ -45,11 +45,11 @@ function EditDriverForm() {
               fName: data["first name"],
               lName: data["last name"],
               phone: data.phone,
-              address: data.address
+              address: data.address,
+              email: data["email address"]
           });
   
           console.log("Driver updated:", response.data);
-          // Optional: show success message or redirect
           setMessageHtml(
           <div style={{ backgroundColor: "#d4edda", padding: "10px", borderRadius: "5px", color: "#155724" }}>
             ✅ Driver has been updated successfully!
@@ -57,7 +57,6 @@ function EditDriverForm() {
           );
       } catch (error) {
           console.error("Error updating driver:", error);
-          // Optional: show error message
           setMessageHtml(
           <div style={{ backgroundColor: "#f8d7da", padding: "10px", borderRadius: "5px", color: "#721c24" }}>
             ❌ An error occurred while deleting the driver.

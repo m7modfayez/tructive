@@ -7,11 +7,11 @@ import { useParams } from "react-router-dom";
 
 function SingleCompanyData() {
 
-    const {name} = useParams();
+    const {name, companyID} = useParams();
    const navigate = useNavigate();
 
     const addSupervisorOnclick = () => {
-        console.log("adding supervisor");
+        console.log(`adding supervisor`);
         navigate(`adding-supervisor`);
     }
 

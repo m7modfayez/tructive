@@ -28,7 +28,6 @@ function EditCompanyWindow() {
     { label: "Edit Company Name", inputType: "text", placeHolder: "Enter Company Name..", name: "name" },
     { label: "Edit Email Address", inputType: "email", placeHolder: "Enter Company Email..", name: "email" },
     { label: "Edit Phone", inputType: "text", placeHolder: "Enter Company Phone..", name: "phone" },
-    { label: "Edit Address", inputType: "text", placeHolder: "Enter Company Address..", name: "address" },
   ];
 
   const onEditClick = async (data: Record<string, string>) => {

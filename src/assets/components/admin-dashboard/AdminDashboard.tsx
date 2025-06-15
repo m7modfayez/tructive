@@ -16,7 +16,7 @@ function AdminDashboard() {
     return(
         <>
         <div>
-          <Header role="Admin" />
+          <Header role="Admin" userName="Admin" />
           {/* <AdminDashBody /> */}
           <div className="dash-body">
 
