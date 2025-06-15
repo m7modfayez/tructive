@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 function SingleCompanyData() {
 
     const {name, companyID} = useParams();
+    console.log(companyID);
    const navigate = useNavigate();
 
     const addSupervisorOnclick = () => {
