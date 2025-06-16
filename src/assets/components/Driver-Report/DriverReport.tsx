@@ -1,12 +1,21 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './DriverReport.css';
+import { useLocation } from 'react-router-dom';
 
 const DriverReport: React.FC = () => {
+
+  const location = useLocation();
+  const {reportDate, driverId} = location.state || {};
+
+  console.log(reportDate, driverId);
+
   const navigate = useNavigate();
 
   const handleBack = () => {
     navigate('/supervisor-dashboard');
+    console.log(reportDate, driverId);
+
   };
 
   return (
@@ -17,8 +26,9 @@ const DriverReport: React.FC = () => {
           &times;
         </button>
         <h2>Company Name</h2>
-        <p>Mohamed Gamal</p>
+        <p>Mohamed Gamal {driverId} </p>
         <p>Cairo, Egypt</p>
+        {/* <p>{reportDate}</p> */}
         <p>+20 (010) 14571</p>
       </div>
 
@@ -57,8 +67,8 @@ const DriverReport: React.FC = () => {
       </div>
 
       <div className="action-buttons">
-        <button className="btn-details">Details</button>
-        <button className="btn-print">Print</button>
+        {/* <button className="btn-details">Details</button> */}
+        <button className="btn-print" onClick={() => {window.print()}} >Print</button>
       </div>
     </div>
   );

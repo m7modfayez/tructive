@@ -122,7 +122,7 @@ function AdminCompaniesTable() {
                 setLoading(false);
              } catch (err) {
                 console.error("Error fetching drivers:", err);
-                setError("Failed to load drivers.");
+                setError("Failed to load companies.");
                 setLoading(false);
              }
           };
@@ -130,8 +130,8 @@ function AdminCompaniesTable() {
           fetchCompanies();
        }, []);
     
-       if (loading) return <div>Loading...</div>;
-       if (error) return <div style={{ color: "red" }}>{error}</div>;
+       if (loading) return <div style={{ marginTop:"20px" }}>Loading...</div>;
+       if (error) return <div style={{ color: "red", marginTop:"20px" }}>{error}</div>;
        ///////
 
     const onCompanyClick = (rowData: any) => {
@@ -168,6 +168,7 @@ function AdminCompaniesTable() {
         "Company Name": company.name,
         "Phone": company.phone,
         "email": company.email,
+        // "Total Supervisors": company.super,
         "Total Supervisors": Math.floor(Math.random() * 10) + 1,
         "Total Drivers": Math.floor(Math.random() * 50) + 5,
         "Contract Date": Math.floor(Math.random() * 30) + 1,

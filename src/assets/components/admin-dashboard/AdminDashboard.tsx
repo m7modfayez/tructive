@@ -10,7 +10,7 @@ function AdminDashboard() {
 
   const navigate = useNavigate();
   const companyHandleOnClick = () => {
-    navigate('')
+    navigate('/admin-dashboard')
   }
 
     return(

@@ -97,7 +97,7 @@ function AddingVehicleWindow() {
           <div className="form-attr">
             <label htmlFor="year">Model Year</label>
             <input
-              type="text"
+              type="number"
               id="year"
               name="year"
               placeholder="Enter Model Year..."

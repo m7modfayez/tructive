@@ -127,7 +127,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                     </div>
                     <div className="form-row">
                         <input
-                            type="text"
+                            type="number"
                             placeholder="Phone"
                             name="phone"
                             value={formData.phone}

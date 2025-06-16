@@ -32,9 +32,14 @@ function NavBar() {
     navigate('vehicles-list');
   }
 
+  const Home = () => {
+    navigate('/supervisor-dashboard');
+  }
+
   const ShowReport = () => {
     navigate('driver-report-selection');
   }
+
 
   
 
@@ -42,7 +47,9 @@ function NavBar() {
         <>
           
           <div className="footer">
-            <MdHome className="footer_icon" size={size} color= {color} />
+            <MdHome className="footer_icon" size={size} color= {color}
+              onClick={Home}
+            />
             < BiSolidReport className="footer_icon" size={size} color= {color}
               onClick={ShowReport}
             />

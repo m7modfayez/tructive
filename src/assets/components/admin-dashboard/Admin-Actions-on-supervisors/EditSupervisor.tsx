@@ -10,12 +10,13 @@ function EditSupervisor() {
 
     const location = useLocation();
     const supervisorData = location.state;
+    const {name ,companyID} = useParams();
 
     const [formData, setFormData] = useState<Record<string, string>>({
-        "first name": String(supervisorData.name || ""),
-        "last name": "",
+        "first name": String(supervisorData.Fname || ""),
+        "last name": String(supervisorData.Lname || ""),
         phone: String(supervisorData.phone || ""),
-        address: "",
+        address: String(supervisorData.address || ""),
         "email adrress": String(supervisorData.email || ""),
         password: "",
         "confirm password": ""
@@ -35,6 +36,8 @@ function EditSupervisor() {
     console.log(supervisorData);
 
     const onEditClick = (data: any) => {
+        console.log("company ID", companyID);
+        console.log("company Name", name);
         console.log("save changes", data);
     }
     const {id} = useParams();
