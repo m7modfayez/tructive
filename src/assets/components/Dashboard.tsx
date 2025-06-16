@@ -8,28 +8,29 @@ import DashboardBody from './DashboardBody'
 
 function Dashboard() {
 
-    const supervisorID = localStorage.getItem("userId");
+    const supervisorID = localStorage.getItem("SupervisorId");
+    const companyId = localStorage.getItem("companyId");
     const [supervisor, setSupervisor] = useState<string>("");
 
-    console.log("user", supervisorID);
+    console.log("supervisorID", supervisorID);
+    console.log("company", companyId);
     
     
-    useEffect(() => {
-          const fetchDrivers = async () => {
-             try {
-                const response = await axios.get("https://trucktive.runasp.net/api/Supervisors");
-                const supervisorName = response.data[0].fName+" "+response.data[0].lName;
-                setSupervisor(supervisorName);
-               
-             } catch (err) {
-                console.error("Error fetching drivers:", err);
-             }
-          };
-    
-          fetchDrivers();
-       }, []);
+   useEffect(() => {
+    const fetchDrivers = async () => {
+    try {
+      const response = await axios.get(`https://trucktive.runasp.net/api/Supervisors/${supervisorID}?companyId=${companyId}`);
+      const supervisorName = response.data.fName + " " + response.data.lName;
+      setSupervisor(supervisorName);
+    } catch (err) {
+      console.error("Error fetching supervisor:", err);
+    }
+   };
 
-       
+  fetchDrivers();
+}, []);
+
+
 
     return(
         <>

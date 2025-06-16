@@ -169,9 +169,9 @@ function AdminCompaniesTable() {
         "Phone": company.phone,
         "email": company.email,
         // "Total Supervisors": company.super,
-        "Total Supervisors": Math.floor(Math.random() * 10) + 1,
-        "Total Drivers": Math.floor(Math.random() * 50) + 5,
-        "Contract Date": Math.floor(Math.random() * 30) + 1,
+        "Total Supervisors": company.supervisorsCount,
+        "Total Drivers": company.driversCount,
+        "Contract Date": company.contractDate,
         "Actions": (
           <div onClick={(e) => e.stopPropagation()} >
             <button onClick={() => handleEdit(company.id)}>{editIcon}</button>

@@ -9,6 +9,7 @@ import BaseButton from "../../base-components/BaseButton";
 
 function AddingCompanyWindow() {
 
+    const userId = localStorage.getItem("userId");
     const navigate = useNavigate();
     const [formData, setFormData] = useState<Record<string, string>>({
         companyName: "",
@@ -35,7 +36,7 @@ function AddingCompanyWindow() {
         e.preventDefault();
 
         const payload = {
-           userId: "f5f27fe4-15bd-43ba-b354-21854286bfa1",
+           userId: userId,
            name: formData.companyName,
            phone: formData.companyPhone,
            email: formData.companyEmail,
@@ -54,21 +55,18 @@ function AddingCompanyWindow() {
                 setErrorMessage(""); // 
                 setTimeout(() => navigate(-1), 2000 ); 
             } else {
-                // Handle other statuses if necessary
-                setErrorMessage("An error occurred while adding the driver.");
+                setErrorMessage("An error occurred while adding the company.");
                 setSuccessMessage(""); // 
             }
         } catch (error: any) {
             if (error.response) {
-                // If the error has a response, log the response data
                 console.error("API Error:", error.response.data);
-                setErrorMessage(error.response.data?.message || "An error occurred while adding the driver.");
+                setErrorMessage(error.response.data?.message || "An error occurred while adding the company.");
             } else {
-                // If there's no response, log the error message
                 console.error("Error:", error.message);
                 setErrorMessage("An unexpected error occurred.");
             }
-            setSuccessMessage(""); // Clear success message if there's an error
+            setSuccessMessage(""); 
         }
 
     }
