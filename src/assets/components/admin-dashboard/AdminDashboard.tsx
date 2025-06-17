@@ -10,12 +10,12 @@ function AdminDashboard() {
 
   const navigate = useNavigate();
   const companyHandleOnClick = () => {
-    navigate('')
+    navigate('/admin-dashboard')
   }
 
     return(
         <>
-        <div>
+        <div className='dashboard'>
           <Header role="Admin" userName="Admin" />
           {/* <AdminDashBody /> */}
           <div className="dash-body">

@@ -25,7 +25,9 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
-    const userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem("userId"); 
+    const companyId = localStorage.getItem("companyId"); 
+
 
     // Handle form data change
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,10 +42,14 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
+        console.log("companyId", companyId)
+        console.log("userId", userId)
+
         // Add supervisorId to the payload (1 as required)
         const payload = {
+            userId: userId,
+            companyId: companyId,
             ...formData,
-            userId
         };
 
         // Example of API URL, replace with your actual URL later
@@ -127,7 +133,7 @@ const AddDriverModal: React.FC<AddDriverModalProps> = () => {
                     </div>
                     <div className="form-row">
                         <input
-                            type="text"
+                            type="number"
                             placeholder="Phone"
                             name="phone"
                             value={formData.phone}

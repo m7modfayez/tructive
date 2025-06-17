@@ -13,10 +13,13 @@ function DriverInfo({onChildClick}: DriverInfoProps) {
 
   const [driversLength, setDriversLength] = useState(null);
 
+  const companyId = localStorage.getItem("companyId");
+
+
   useEffect(() => {
       const fetchDrivers = async () => {
          try {
-            const response = await axios.get("https://trucktive.runasp.net/api/Drivers");
+            const response = await axios.get(`https://trucktive.runasp.net/api/Drivers?companyId=${companyId}`);
             setDriversLength(response.data.length);
            
          } catch (err) {

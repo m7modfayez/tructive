@@ -6,6 +6,8 @@ import BaseButton from "../base-components/BaseButton";
 
 function AddingVehicleWindow() {
   const navigate = useNavigate();
+  const companyId = localStorage.getItem("companyId");
+
 
   const [formData, setFormData] = useState({
     brand: "",
@@ -29,7 +31,8 @@ function AddingVehicleWindow() {
     const userId = localStorage.getItem("userId"); // if stored in login
     const payload = {
       userId,
-      ...formData
+      ...formData,
+      companyId: companyId,
     };
 
     try {
@@ -97,7 +100,7 @@ function AddingVehicleWindow() {
           <div className="form-attr">
             <label htmlFor="year">Model Year</label>
             <input
-              type="text"
+              type="number"
               id="year"
               name="year"
               placeholder="Enter Model Year..."

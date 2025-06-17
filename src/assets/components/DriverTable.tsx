@@ -147,13 +147,13 @@ function DriverTable() {
           <table className="driver-table">
             <thead>
             <tr>
-              <th>Driver Name</th>
               <th>Driver ID</th>
+              <th>Driver Name</th>
               <th>Vehicle ID</th>
               <th>Over Speed</th>
               <th>Harsh Acceleration</th>
               <th>Harsh Breaking</th>
-              <th>Driver Behaviour</th>
+              {/* <th>Driver Behaviour</th> */}
               <th>Excessive Idling</th>
               <th>Vehicle Condition</th>
               <th>Rate</th>
@@ -162,13 +162,13 @@ function DriverTable() {
             <tbody>
                 {driversTable.map((driver, index) =>(
                      <tr key={index}>
-                     <td>{driver.name}</td>
                      <td>{driver.id}</td>
+                     <td>{driver.name}</td>
                      <td>{driver.vehicleID}</td>
                      <td>{driver.overSpeed}</td>
                      <td>{driver.harshAcce}</td>
                      <td>{driver.harshBreaking}</td>
-                     <td>{driver.driverBehaviour}</td>
+                     {/* <td>{driver.driverBehaviour}</td> */}
                      <td>{driver.excessiveIdling}</td>
                      <td style={{cursor:"pointer"}} onClick={() => onConditionClick(driversTable[index].vehicleID)} >{driver.vehicleCondition}</td>
                      <td style={{backgroundColor: driver.rate >=80? '#c6ffc9' : driver.rate >=65? "#fffaa4" : '#ffc4c9' }}>{driver.rate}</td>

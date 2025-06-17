@@ -122,7 +122,7 @@ function AdminCompaniesTable() {
                 setLoading(false);
              } catch (err) {
                 console.error("Error fetching drivers:", err);
-                setError("Failed to load drivers.");
+                setError("Failed to load companies.");
                 setLoading(false);
              }
           };
@@ -130,8 +130,8 @@ function AdminCompaniesTable() {
           fetchCompanies();
        }, []);
     
-       if (loading) return <div>Loading...</div>;
-       if (error) return <div style={{ color: "red" }}>{error}</div>;
+       if (loading) return <div style={{ marginTop:"20px" }}>Loading...</div>;
+       if (error) return <div style={{ color: "red", marginTop:"20px" }}>{error}</div>;
        ///////
 
     const onCompanyClick = (rowData: any) => {
@@ -150,6 +150,8 @@ function AdminCompaniesTable() {
     };
 
     const handleDelete = async (id: number) => {
+       const confirmDelete = window.confirm("Are you sure you want to delete this company?");
+       if (!confirmDelete) return;
        console.log("Delete company ID:", id);
        try {
          await axios.delete(`https://trucktive.runasp.net/api/Companies/${id}`);
@@ -159,7 +161,7 @@ function AdminCompaniesTable() {
        } catch (error) {
          console.error("Error deleting company:", error);
          // optionally show an error message to the user
-         toast.error("there is error when deleting company")
+         toast.error("Failed to delete the company")
        }
     };
 
@@ -168,9 +170,10 @@ function AdminCompaniesTable() {
         "Company Name": company.name,
         "Phone": company.phone,
         "email": company.email,
-        "Total Supervisors": Math.floor(Math.random() * 10) + 1,
-        "Total Drivers": Math.floor(Math.random() * 50) + 5,
-        "Contract Date": Math.floor(Math.random() * 30) + 1,
+        // "Total Supervisors": company.super,
+        "Total Supervisors": company.supervisorsCount,
+        "Total Drivers": company.driversCount,
+        "Contract Date": company.contractDate,
         "Actions": (
           <div onClick={(e) => e.stopPropagation()} >
             <button onClick={() => handleEdit(company.id)}>{editIcon}</button>

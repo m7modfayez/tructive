@@ -48,12 +48,24 @@ const Messages = () => {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div style={{ color: "red" }}>{error}</div>;
+  if (loading) return 
+  <>
+   <Header role="Messages" userName="Admin" />
+   <div>Loading...</div>;
+    <AdminNav />
+  </>
+
+  if (error) return
+  <>
+   <Header role="Messages" userName="Admin" />
+    <div style={{ color: "red" }}>{error}</div>;
+    <AdminNav />
+  </>
 
   return (
     <>
-      <Header role="Messages" />
+      <Header role="Messages" userName="Admin" />
+
       <div className="con" style={{ marginTop: "70px" }}>
         <div className="Massages">
           <table>
