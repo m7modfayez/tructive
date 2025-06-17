@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { JSX } from "react";
 import axios from "axios";
 import BaseFormWindow from "../../base-components/BaseFormWindow";
 import { useLocation, useParams } from "react-router-dom";
@@ -9,6 +10,8 @@ function EditSupervisor() {
   const { id, companyID } = useParams();
   const userId = localStorage.getItem("userId");
   const navigate = useNavigate();
+
+  const [messageHtml, setMessageHtml] = useState<JSX.Element | null>(null);
 
 
   const [formData, setFormData] = useState<Record<string, string>>({
@@ -49,11 +52,21 @@ function EditSupervisor() {
 
     try {
       await axios.put(`https://trucktive.runasp.net/api/Supervisors/${id}`, payload);
-      alert("Supervisor updated successfully ✅");
+      // alert("Supervisor updated successfully ✅");
       navigate(-1);
+       setMessageHtml(
+        <div style={{ backgroundColor: "#d4edda", padding: 10, borderRadius: 5, color: "#155724" }}>
+          ✅ Supervisor has been updated successfully!
+        </div>
+      );
     } catch (err) {
       console.error(err);
-      alert("Failed to update supervisor ❌");
+      // alert("Failed to update supervisor ❌");
+      setMessageHtml(
+        <div style={{ backgroundColor: "#f8d7da", padding: 10, borderRadius: 5, color: "#721c24" }}>
+          ❌ An error occurred while updating the Supervisor.
+        </div>
+      );
     }
   };
 
@@ -65,6 +78,7 @@ function EditSupervisor() {
       formHead={`Edit Supervisor ${id}`}
       buttonName="Save Changes"
       submitForm={onEditClick}
+        messageHtml={messageHtml}
     />
   );
 }

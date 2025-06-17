@@ -8,7 +8,13 @@
   text-align: center;
 }
 
-
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+}
 
 .logo {
   /* height: 6em; */
@@ -42,13 +48,14 @@
 .dashboard {
   justify-content: center;
   height: 100vh;
+  overflow-y: auto;
   /* padding-bottom: 5vh; */
   /* font-size: 1rem; */
 }
 
 .dashboard-header {
   height: 80px;
-  height: 9vh;
+  height: 8vh;
   /* width: 100%; */
   /* width: 99.vw; */
   /* background-color: rgb(149, 151, 255); */
@@ -309,7 +316,7 @@ td {
     /* width: fit-content; */
     /* width: auto; */
     overflow-y:auto;
-    overflow-x:hidden;
+    overflow-x: auto;
     border-spacing: 5px;
     text-align: center;
     display:block;

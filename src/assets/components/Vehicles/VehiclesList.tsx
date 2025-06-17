@@ -9,6 +9,7 @@ interface Vehicle {
    model: string;
    year: number;
    supervisorName: string
+   companyId: number,
 }
 
 function VehiclesList() {
@@ -25,7 +26,7 @@ function VehiclesList() {
     const fetchVehicles = async () => {
       try {
         const token = localStorage.getItem("token");
-        const userId = localStorage.getItem("userId"); // or hardcoded if not stored yet
+        const userId = localStorage.getItem("userId");
 
         console.log("userId:", userId);
         console.log("token:", token);
@@ -79,7 +80,7 @@ function VehiclesList() {
                            <th>Vehicle manufacturer</th>
                            <th>Vehicle Model</th>
                            <th>Vehicle Year</th>
-                           <th>Supervisor</th>
+                           <th>CompanyId</th>
                         </tr>
                      </thead>
                      <tbody>
@@ -89,7 +90,7 @@ function VehiclesList() {
                               <td>{vehicle.brand}</td>
                               <td>{vehicle.model}</td>
                               <td>{vehicle.year}</td>
-                              <td>{vehicle.supervisorName}</td>
+                              <td>{vehicle.companyId}</td>
                            </tr>
                         ))}
                      </tbody>

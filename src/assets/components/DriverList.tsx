@@ -192,14 +192,16 @@ interface Driver {
    email: string;
    password: string;
    supervisorId: number;
+   rate: number,
 }
 
 function DriverList() {
    const [driversList, setDriversList] = useState<Driver[]>([]);
    const [loading, setLoading] = useState(true);
    const [error, setError] = useState<string | null>(null);
-   const [searchId, setSearchId] = useState("")
-   
+   const [searchId, setSearchId] = useState("");
+
+    const companyId = localStorage.getItem("companyId");
    let navigate = useNavigate();
 
 
@@ -214,7 +216,7 @@ function DriverList() {
    useEffect(() => {
       const fetchDrivers = async () => {
          try {
-            const response = await axios.get("https://trucktive.runasp.net/api/Drivers");
+            const response = await axios.get(`https://trucktive.runasp.net/api/Drivers?companyId=${companyId}`);
             setDriversList(response.data);
             setLoading(false);
          } catch (err) {
@@ -247,7 +249,8 @@ function DriverList() {
                            <th>Driver ID</th>
                            <th>Driver Name</th>
                            <th>Phone</th>
-                           <th>Address</th>
+                           {/* <th>Address</th> */}
+                           <th>Rate</th>
                            <th>Email Address</th>
                         </tr>
                      </thead>
@@ -257,7 +260,8 @@ function DriverList() {
                            <td>{driver.id}</td>
                            <td>{driver.fName} {driver.lName}</td>
                            <td>{driver.phone}</td>
-                           <td>{driver.address}</td>
+                           {/* <td>{driver.address}</td> */}
+                           <td>{driver.rate}</td>
                            <td>{driver.email}</td>
                          </tr>
                        ))}

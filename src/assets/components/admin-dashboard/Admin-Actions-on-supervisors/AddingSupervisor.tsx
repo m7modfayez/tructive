@@ -1,5 +1,7 @@
 // import React from "react";
 import BaseFormWindow from "../../base-components/BaseFormWindow";
+import { useState } from "react";
+import { JSX } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -53,6 +55,9 @@ function AddingSupervisor() {
   const { companyID } = useParams();
   const userId = localStorage.getItem("userId");
 
+    const [messageHtml, setMessageHtml] = useState<JSX.Element | null>(null);
+  
+
   const onAddingClick = async (data: any) => {
     if (data.password !== data.confirm_password) {
       console.error("❌ Password and Confirm Password do not match.");
@@ -75,8 +80,18 @@ function AddingSupervisor() {
     try {
       const response = await axios.post("https://trucktive.runasp.net/api/Supervisors", payload);
       console.log("✅ Supervisor added successfully:", response.data);
+       setMessageHtml(
+        <div style={{ backgroundColor: "#d4edda", padding: 10, borderRadius: 5, color: "#155724" }}>
+          ✅ Supervisor has been added successfully!
+        </div>
+      );
     } catch (error) {
       console.error("❌ Failed to add supervisor:", error);
+      setMessageHtml(
+        <div style={{ backgroundColor: "#f8d7da", padding: 10, borderRadius: 5, color: "#721c24" }}>
+          ❌ An error occurred while adding the Supervisor.
+        </div>
+      );
     }
   };
 
@@ -87,6 +102,7 @@ function AddingSupervisor() {
         formHead="Add New Supervisor"
         buttonName="Add Supervisor"
         submitForm={onAddingClick}
+        messageHtml={messageHtml}
       />
     </>
   );

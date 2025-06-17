@@ -1,5 +1,6 @@
 import  { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 import Table from "../base-components/Table";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
@@ -79,10 +80,12 @@ function SingleCompanyTable() {
     try {
       axios.delete(`https://trucktive.runasp.net/api/Supervisors/${id}`);
       setSupervisors((prev) => prev.filter((sup) => sup.id !== id));
-      alert("Supervisor deleted successfully ✅");
+      // alert("Supervisor deleted successfully ✅");
+      setTimeout(() => toast.success("Supervisor deleted successfully "), 0 ); 
     } catch (err) {
       console.error("Delete error:", err);
-      alert("Failed to delete supervisor ❌");
+      // alert("Failed to delete supervisor ❌");
+      setTimeout(() => toast.success("Failed to delete the supervisor "), 0 ); 
     }
 
   };

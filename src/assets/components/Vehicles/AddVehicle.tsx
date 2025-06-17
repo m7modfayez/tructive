@@ -6,6 +6,8 @@ import BaseButton from "../base-components/BaseButton";
 
 function AddingVehicleWindow() {
   const navigate = useNavigate();
+  const companyId = localStorage.getItem("companyId");
+
 
   const [formData, setFormData] = useState({
     brand: "",
@@ -29,7 +31,8 @@ function AddingVehicleWindow() {
     const userId = localStorage.getItem("userId"); // if stored in login
     const payload = {
       userId,
-      ...formData
+      ...formData,
+      companyId: companyId,
     };
 
     try {

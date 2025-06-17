@@ -150,6 +150,8 @@ function AdminCompaniesTable() {
     };
 
     const handleDelete = async (id: number) => {
+       const confirmDelete = window.confirm("Are you sure you want to delete this company?");
+       if (!confirmDelete) return;
        console.log("Delete company ID:", id);
        try {
          await axios.delete(`https://trucktive.runasp.net/api/Companies/${id}`);
@@ -159,7 +161,7 @@ function AdminCompaniesTable() {
        } catch (error) {
          console.error("Error deleting company:", error);
          // optionally show an error message to the user
-         toast.error("there is error when deleting company")
+         toast.error("Failed to delete the company")
        }
     };
 
