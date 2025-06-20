@@ -51,14 +51,27 @@ function EditSupervisor() {
     };
 
     try {
-      await axios.put(`https://trucktive.runasp.net/api/Supervisors/${id}`, payload);
+      const response = await axios.put(`https://trucktive.runasp.net/api/Supervisors/${id}`, payload);
       // alert("Supervisor updated successfully ✅");
-      navigate(-1);
-       setMessageHtml(
-        <div style={{ backgroundColor: "#d4edda", padding: 10, borderRadius: 5, color: "#155724" }}>
-          ✅ Supervisor has been updated successfully!
+      if(response.status === 200)
+      {
+          setMessageHtml(
+           <div style={{ backgroundColor: "#d4edda", padding: 10, borderRadius: 5, color: "#155724" }}>
+             ✅ Supervisor has been updated successfully!
+           </div>
+          );
+          setTimeout(() => navigate(-1) , 2000 );
+      }
+
+      else {
+      // alert("Failed to update supervisor ❌");
+        setMessageHtml(
+        <div style={{ backgroundColor: "#f8d7da", padding: 10, borderRadius: 5, color: "#721c24" }}>
+          ❌ An error occurred while updating the Supervisor.
         </div>
-      );
+        );        
+      }
+
     } catch (err) {
       console.error(err);
       // alert("Failed to update supervisor ❌");

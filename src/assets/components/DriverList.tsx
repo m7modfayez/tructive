@@ -201,7 +201,7 @@ function DriverList() {
    const [error, setError] = useState<string | null>(null);
    const [searchId, setSearchId] = useState("");
 
-    const companyId = localStorage.getItem("companyId");
+   const companyId = localStorage.getItem("companyId");
    let navigate = useNavigate();
 
 

@@ -8,12 +8,16 @@
   text-align: center;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  width: 100%;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* margin: 0; */
+  /* padding: 0; */
+  /* overflow-x: hidden; */
+  /* overflow-y: hidden; */
+  /* width: 100%; */
 }
 
 .logo {
@@ -47,8 +51,8 @@ html, body {
 
 .dashboard {
   justify-content: center;
-  height: 100vh;
-  overflow-y: auto;
+  height: 90vh;
+  /* overflow-y: hidden; */
   /* padding-bottom: 5vh; */
   /* font-size: 1rem; */
 }
@@ -149,7 +153,8 @@ html, body {
   /* width: 60%; */
   width: 60vw;
   /* min-width: 60%; */
-  max-width: 90vw;
+  max-width: 100%;
+  flex-wrap: wrap;
   /* background-color: rgb(188, 188, 188); */
   /* height: 200px; */
   /* height: 25%; */

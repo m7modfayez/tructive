@@ -7,29 +7,66 @@ interface props {
     onTotalCompaniesClick:  () => void;
 }
 
+function CompaniesInfo({ onTotalCompaniesClick }: props) {
+  const [companiesLength, setCompaniesLength] = useState(null);
+  let [mostDriversCompany, setMostDriversCompany] = useState<any>(null);
+  let [leastDriversCompany, setLeastDriversCompany] = useState<any>(null);
 
-function CompaniesInfo({onTotalCompaniesClick}:props ) {
 
+  useEffect(() => {
+    const fetchCompanies = async () => {
+      try {
+        const response = await axios.get("https://trucktive.runasp.net/api/Companies");
+        const companies = response.data;
+        setCompaniesLength(companies.length);
 
-    const [companiesLength, setCompaniesLength] = useState(null);
-    
-      useEffect(() => {
-          const fetchDrivers = async () => {
-             try {
-                const response = await axios.get("https://trucktive.runasp.net/api/Companies");
-                setCompaniesLength(response.data.length);
-               
-             } catch (err) {
-                console.error("Error fetching companies:", err);
-             }
-          };
-    
-          fetchDrivers();
-       }, []);
+        let maxDriversCompany = companies[0];
+        for (let company of companies) {
+          if (company.driversCount > maxDriversCompany.driversCount) {
+            maxDriversCompany = company;
+          }
+        }
 
-    const total_card = {cardName: "Total Companies", number: companiesLength, icon: <FaTruck size={70} style={{ margin:'20px', float: 'right',}} /> }
-    const best_card = {cardName: "Most Active Company", number: 88, name: "Banda" }
-    const worst_card = {cardName: "Least Active Company", number: 5, name: "Johayna" }
+         let leastDriversCompany = companies[0];
+        for (let company of companies) {
+          if (company.driversCount < leastDriversCompany.driversCount) {
+            leastDriversCompany = company
+          }
+        }
+
+        console.log("most" ,maxDriversCompany)
+        setMostDriversCompany(maxDriversCompany);
+        setLeastDriversCompany(leastDriversCompany);
+
+      } catch (err) {
+        console.error("Error fetching companies:", err);
+      }
+    };
+
+    fetchCompanies();
+  }, []);
+
+//   const singleCompanyLength = mostDriversCompany.driversCount;
+//   const singleLeastCompanyLength = leastDriversCompany.driversCount;
+  
+  
+
+  const total_card = {
+    cardName: "Total Companies",
+    number: companiesLength,
+    icon: <FaTruck size={70} style={{ margin: '20px', float: 'right' }} />
+  };
+
+  const best_card = {
+    cardName: "Most Drivers Company",
+    number: mostDriversCompany?.driversCount,
+    name: mostDriversCompany?.name
+  };
+
+    const worst_card = {
+      cardName: "Least Active Company",
+      number: leastDriversCompany?.driversCount, 
+      name: leastDriversCompany?.name }
 
     
         
