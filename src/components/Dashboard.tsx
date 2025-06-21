@@ -44,31 +44,6 @@ function Dashboard() {
         </div>
         </>
     )
-
-
-
-
-
-
-//   const location = useLocation();
-
-// const showSelectionOverlay = location.state?.showDriverReportSelection;
-// const hideDashboardBody = location.pathname === "/supervisor-dashboard/driver-report";
-
-// return (
-//   <div className='dashboard'>
-//     <Header role="Supervisor" userName={supervisor} />
-
-//     {!hideDashboardBody && <DashboardBody />}
-
-//     {showSelectionOverlay && <DriverReport />}
-
-//     <Outlet />
-
-//     <NavBar />
-//   </div>
-// );
-
 }
 
 

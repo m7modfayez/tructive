@@ -1,48 +1,5 @@
-/* 
-.report-container {
-  font-family: Arial, sans-serif;
-  max-width: 400px;
-  margin: auto;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 16px 20px;
-  text-align: center;
-  height: calc(100vh - 120px);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-}
 
-.header {
-  position: relative;
-  margin-bottom: 10px;
-}
 
-.score-badge {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #4caf50;
-  color: white;
-  padding: 6px 10px;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
-.close-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: transparent;
-  border: none;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #333;
-} */
 
 .report-container {
   position: fixed;

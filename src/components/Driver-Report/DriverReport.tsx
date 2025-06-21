@@ -21,12 +21,12 @@ const DriverReport: React.FC = () => {
   return (
     <div className="report-container">
       <div className="header">
-        <div className="score-badge">96%</div>
+        <div className="score-badge">60%</div>
         <button className="close-button" onClick={handleBack}>
           &times;
         </button>
         <h2>Company Name</h2>
-        <p>Mohamed Gamal {driverId} </p>
+        <p>Mahmoud Ali {driverId} </p>
         <p>Cairo, Egypt</p>
         {/* <p>{reportDate}</p> */}
         <p>+20 (010) 14571</p>
@@ -42,9 +42,9 @@ const DriverReport: React.FC = () => {
         <div className="bar bar3">
           <span className="bar-value">80%</span>
         </div>
-        <div className="bar bar4">
+        {/* <div className="bar bar4">
           <span className="bar-value">75%</span>
-        </div>
+        </div> */}
         <div className="bar bar5">
           <span className="bar-value">50%</span>
         </div>
@@ -52,9 +52,9 @@ const DriverReport: React.FC = () => {
 
       <div className="bar-labels">
         <span>Excessive Idling</span>
-        <span>Harsh Cornering</span>
+        <span>Harsh Braking</span>
         <span>Harsh Acceleration</span>
-        <span>Harsh Deceleration</span>
+        {/* <span>Harsh Deceleration</span> */}
         <span>Over Speed</span>
       </div>
 

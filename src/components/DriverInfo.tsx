@@ -47,14 +47,14 @@ function DriverInfo({onChildClick}: DriverInfoProps) {
             <div className="driver" style={{backgroundColor:'rgb(183, 255, 189)',}}>
                 <h2>Best Driver</h2>
                 <h2>95%</h2>
-                <h4>James Wiliams</h4>
+                <h4>Kareem Ashraf	</h4>
 
             </div>
 
             <div className="driver" style={{backgroundColor:'rgb(255, 203, 203)',}}>
                 <h2>Worst Driver</h2>
                 <h2>50%</h2>
-                <h4>Emily Davis</h4>
+                <h4>Ahmed Yomni</h4>
 
             </div>
 

@@ -12,8 +12,11 @@ function VehicleCondition() {
         <h1>Car Problem ID {vehicleID} </h1>
       </div>
 
-      <div style={{textAlign:"center", margin:"100px auto 0",padding:"10px 60px" }}>
-      <h3>Car has some problems. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta temporibus voluptas exercitationem pariatur, esse cumque ipsum quas quasi voluptate est atque saepe ipsa debitis dolorem eveniet nihil repellat totam accusantium.</h3>
+      <div style={{textAlign:"center", margin:"100px auto 0",padding:"10px 80px" }}>
+      <h3> There is a fuel injection process problem.
+         This means the engine may not be receiving the correct amount of fuel,
+          which could result in poor performance or potential stalling.
+      </h3>
       </div>
 
     </div>

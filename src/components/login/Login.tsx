@@ -34,14 +34,16 @@ const LoginPage = () => {
         localStorage.setItem("token", token);
         localStorage.setItem("userId", id);
         localStorage.setItem("userName", firstName)
-        localStorage.setItem("companyId", response.data.profileData.companyId);
-        localStorage.setItem("SupervisorId", response.data.profileData.id);
+        if (role === "Supervisor"){
+           localStorage.setItem("companyId", response.data.profileData.companyId); 
+           localStorage.setItem("SupervisorId", response.data.profileData.id);
+        }
  
-        const i = response.data.profileData.id;
+        // const i = response.data.profileData.id;
         console.log("token", token)
         console.log("id", id)
         console.log("name", firstName)
-        console.log("superID", i)
+        // console.log("superID", i);
 
         // 🔐 Set token globally for all axios requests
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
