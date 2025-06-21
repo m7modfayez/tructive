@@ -84,6 +84,8 @@ function AddingSupervisor() {
       companyId: Number(companyID),
     };
 
+    console.log(payload);
+
     try {
       const response = await axios.post("https://trucktive.runasp.net/api/Supervisors", payload);
       console.log("✅ Supervisor added successfully:", response.data);

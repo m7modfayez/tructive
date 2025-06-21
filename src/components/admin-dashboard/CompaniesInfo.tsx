@@ -46,9 +46,7 @@ function CompaniesInfo({ onTotalCompaniesClick }: props) {
     fetchCompanies();
   }, []);
 
-//   const singleCompanyLength = mostDriversCompany.driversCount;
-//   const singleLeastCompanyLength = leastDriversCompany.driversCount;
-  
+
   
 
   const total_card = {

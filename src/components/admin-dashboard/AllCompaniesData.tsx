@@ -1,6 +1,5 @@
 import BaseButton from "../base-components/BaseButton";
 import { useNavigate } from "react-router-dom";
-// import { Outlet } from "react-router-dom";
 import AdminCompaniesTable from "./AdminCompaniesTable";
 // import SingleCompanyTable from "./SingleCompanyTable";
 

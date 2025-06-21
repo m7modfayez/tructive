@@ -25,11 +25,6 @@ function AdminNav() {
             <MdHome className="footer_icon" size={size} color= {color} onClick={onHomeeClick} />
             <BiSolidMessageRounded className="footer_icon" size={size} color= {color} onClick={onMessageClick} />
 
-            {/* < BiSolidReport className="footer_icon" size={size} color= {color} /> */}
-            {/* <IoAddCircleSharp className="footer_icon" size={size} color={color} /> */}
-            {/* <MdDelete className="footer_icon" size={size} color={color} /> */}
-            {/* <FaRegEdit className="footer_icon" size={size} color={color} /> */}
-            {/* <FaCarAlt className="footer_icon" size={size} color={color} /> */}
 
           </div>
 

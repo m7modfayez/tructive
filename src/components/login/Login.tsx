@@ -34,8 +34,10 @@ const LoginPage = () => {
         localStorage.setItem("token", token);
         localStorage.setItem("userId", id);
         localStorage.setItem("userName", firstName)
-        // localStorage.setItem("companyId", response.data.profileData.companyId); 
-        // localStorage.setItem("SupervisorId", response.data.profileData.id);
+        if (role === "Supervisor"){
+           localStorage.setItem("companyId", response.data.profileData.companyId); 
+           localStorage.setItem("SupervisorId", response.data.profileData.id);
+        }
  
         // const i = response.data.profileData.id;
         console.log("token", token)

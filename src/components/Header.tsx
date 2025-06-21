@@ -1,6 +1,6 @@
 
 import { GoPerson } from "react-icons/go";
-import logo from "../logo.png";
+import logo from "./logo.png";
 
 type HeaderProps = {
     role: string,
