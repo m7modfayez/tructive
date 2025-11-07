@@ -1,12 +1,16 @@
 
 import { GoPerson } from "react-icons/go";
-import logo from "./logo.png";
+import logo from "../assets/image.png";
+// import logo from "../assets/logo.png";
 
 type HeaderProps = {
     role: string,
     userName?: string,
   };
   
+  // Test Credentials:
+  // "email": "mahmoud@alsarh",
+  //   "password": "Mahmoud@2003"
 
 function Header({role, userName}: HeaderProps ) {
 
