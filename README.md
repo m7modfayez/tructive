@@ -1,4 +1,4 @@
-# Trucktive – Fleet Management Dashboard
+# Tructive – Fleet Management Dashboard
 
 A fleet management dashboard built with React and TypeScript that visualizes vehicle data collected from OBD-II devices installed in vehicles, helping monitor fleet performance and driver behavior.
 
