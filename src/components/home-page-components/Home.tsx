@@ -4,6 +4,13 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import logo from '../../assets/logo.png';
+import imageOne from '../../assets/home/image.png';
+import imageTwo from '../../assets/home/pexels-kagan-bastimar-1754822-3325651.jpg';
+import imageThree from '../../assets/home/istockphoto-859916128-612x612 1.png';
+import imageFour from '../../assets/home/sec.jpg';
+import formImage from '../../assets/home/forms.jpg';
+import mainBackground from '../../assets/home/mainPh.jpg';
 
 type HeaderProps = {
   onLoginClick: () => void;
@@ -25,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({ onLoginClick }) => {
   return (
     <header id='head'>
       <div className="logo">
-        <img src="/src/assets/logo.png" alt="Logo" />
+        <img src={logo} alt="Logo" />
       </div>
       <div className="sidieLink">
         <ul>
@@ -47,7 +54,7 @@ const SectionOne = () => (
       <h1><span>Feel</span> Free For Your Fleets, Now You Can Fully Monitor Your Drivers And Manage Them Easily</h1>
     </div>
     <div className="imgOne">
-      <img src="/Home_img/image.png" alt="image" />
+      <img src={imageOne} alt="image" />
     </div>
   </section>
 );
@@ -63,7 +70,7 @@ const SectionTwo = () => (
         </p>
       </div>
       <div className="imgTwo">
-        <img src="/Home_img/pexels-kagan-bastimar-1754822-3325651.jpg" alt="photo" />
+        <img src={imageTwo} alt="photo" />
       </div>
     </section>
   </>
@@ -74,7 +81,7 @@ const SectionThree = () => (
     <p className="description">“Effective Fleet Management: Driver Tracking & Mobile Experience”</p>
     <section className="secThree">
       <div className="imgThree">
-        <img src="/Home_img//istockphoto-859916128-612x612 1.png" alt="" />
+        <img src={imageThree} alt="" />
       </div>
       <div className="texThree">
         <p>
@@ -107,7 +114,7 @@ const SectionFour = () => (
         </p>
       </div>
       <div className="imgFour">
-        <img src="/Home_img//sec.jpg" alt="" />
+        <img src={imageFour} alt="" />
       </div>
     </section>
   </>
@@ -155,7 +162,7 @@ const ContactForm = () => {
   return (
     <section className="secForm">
       <div className="imgTex">
-        <img src="/Home_img/forms.jpg" alt="car" />
+        <img src={formImage} alt="car" />
       </div>
       <div className="form">
         <div className="us"><h3>Contact Us</h3></div>
@@ -218,7 +225,7 @@ const HomeApp = () => {
   const loginClick = () => dashNavigate("/login-page");
 
   return (
-    <div className="cont">
+    <div className="cont" style={{ backgroundImage: `url(${mainBackground})` }}>
       <ToastContainer />
       <Header onLoginClick={loginClick} />
       <div className="textMain">

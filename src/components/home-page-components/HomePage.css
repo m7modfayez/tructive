@@ -26,8 +26,7 @@
     height: 100vh;
     background-size: cover;
     background-position: center;
-    background-image: url("../../../../Home_img/mainPh.jpg");
-    background-repeat:no-repeat ;
+    background-repeat: no-repeat;
 }
 header{
     display: flex;
@@ -440,7 +439,7 @@ footer .col2 .links .lin:hover{
    top: 315.45px;
    /* margin: auto; */
    
-   background: url(image.png);
+   /* Background image removed - now imported in component */
 
 }
 
