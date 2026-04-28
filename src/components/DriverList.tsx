@@ -1,140 +1,8 @@
-
-   //  const driversList = [
-   //      {
-   //         name: "mahmoud",
-   //         id: 1,
-   //         vehicleID: 3,
-   //         overSpeed: 10,
-   //         harshAcce: "mahmoud@gmail.com",
-   //         harshBreaking: 10,
-   //         driverBehaviour: 10,
-   //         excessiveIdling: 10,
-   //         vehicleCondition: "Good",
-   //         rate: 70
-   //      },
-   //      {
-   //         name: "mahmoud",
-   //         id: 1,
-   //         vehicleID: 3,
-   //         overSpeed: 10,
-   //         harshAcce: "mahmoudd@gmail.com",
-   //         harshBreaking: 10,
-   //         driverBehaviour: 10,
-   //         excessiveIdling: 10,
-   //         vehicleCondition: "Good",
-   //         rate: 77
-   //      },
-   //      {
-   //         name: "mahmoud",
-   //         id: 1,
-   //         vehicleID: 3,
-   //         overSpeed: 10,
-   //         harshAcce: "mahmoudd@gmail.com",
-   //         harshBreaking: 10,
-   //         driverBehaviour: 10,
-   //         excessiveIdling: 10,
-   //         vehicleCondition: "Good",
-   //         rate: 84
-   //      },
-   //      {
-   //         name: "mahmoud",
-   //         id: 1,
-   //         vehicleID: 3,
-   //         overSpeed: 10,
-   //         harshAcce: "mahmoudd@gmail.com",
-   //         harshBreaking: 10,
-   //         driverBehaviour: 10,
-   //         excessiveIdling: 10,
-   //         vehicleCondition: "Good",
-   //         rate: 90
-   //      },
-   //      {
-   //         name: "mahmoud",
-   //         id: 1,
-   //         vehicleID: 3,
-   //         overSpeed: 10,
-   //         harshAcce: "mahmoudd@gmail.com",
-   //         harshBreaking: 10,
-   //         driverBehaviour: 10,
-   //         excessiveIdling: 10,
-   //         vehicleCondition: "Good",
-   //         rate:  Math.floor(Math.random() * 51) + 50
-   //      },
-   //      {
-   //         name: "mahmoud",
-   //         id: 1,
-   //         vehicleID: 3,
-   //         overSpeed: 10,
-   //         harshAcce: "mahmoudd@gmail.com",           
-   //         harshBreaking: 10,
-   //         driverBehaviour: 10,
-   //         excessiveIdling: 10,
-   //         vehicleCondition: "Good",
-   //         rate:  Math.floor(Math.random() * 51) + 50
-   //      },{
-   //         name: "mahmoud",
-   //         id: 1,
-   //         vehicleID: 3,
-   //         overSpeed: 10,
-   //         harshAcce: "mahmoudd@gmail.com",
-   //         harshBreaking: 10,
-   //         driverBehaviour: 10,
-   //         excessiveIdling: 10,
-   //         vehicleCondition: "Good",
-   //         rate:  Math.floor(Math.random() * 51) + 50
-   //      },
-   //      {
-   //         name: "mahmoud",
-   //         id: 1,
-   //         vehicleID: 3,
-   //         overSpeed: 10,
-   //         harshAcce: "mahmoudd@gmail.com",           
-   //         harshBreaking: 10,
-   //         driverBehaviour: 10,
-   //         excessiveIdling: 10,
-   //         vehicleCondition: "Good",
-   //         rate:  Math.floor(Math.random() * 51) + 50
-   //      },{
-   //         name: "mahmoud",
-   //         id: 1,
-   //         vehicleID: 3,
-   //         overSpeed: 10,
-   //         harshAcce: "mahmoudd@gmail.com",
-   //         harshBreaking: 10,
-   //         driverBehaviour: 10,
-   //         excessiveIdling: 10,
-   //         vehicleCondition: "Good",
-   //         rate:  Math.floor(Math.random() * 51) + 50
-   //      },{
-   //         name: "mahmoud",
-   //         id: 1,
-   //         vehicleID: 3,
-   //         overSpeed: 10,
-   //         harshAcce: "mahmoudd@gmail.com",
-   //         harshBreaking: 10,
-   //         driverBehaviour: 10,
-   //         excessiveIdling: 10,
-   //         vehicleCondition: "Good",
-   //         rate:  Math.floor(Math.random() * 51) + 50
-   //      },{
-   //         name: "mahmoud",
-   //         id: 1,
-   //         vehicleID: 3,
-   //         overSpeed: 10,
-   //         harshAcce: "mahmoudd@gmail.com",
-   //         harshBreaking: 10,
-   //         driverBehaviour: 20,
-   //         excessiveIdling: 40,
-   //         vehicleCondition: "Good",
-   //         rate:  Math.floor(Math.random() * 51) + 10
-   //      },
-   //         ]
-
-
-
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { driverAPI } from "../services/api";
+import { getLocalStorageItem, handleError } from "../utils/helpers";
+import { STORAGE_KEYS } from "../utils/constants";
 
 interface Driver {
    id: string;
@@ -154,9 +22,8 @@ function DriverList() {
    const [error, setError] = useState<string | null>(null);
    const [searchId, setSearchId] = useState("");
 
-   const companyId = localStorage.getItem("companyId");
+   const companyId = getLocalStorageItem(STORAGE_KEYS.COMPANY_ID);
    let navigate = useNavigate();
-
 
    const onAddClick = () => {
       navigate("add-driver");
@@ -168,19 +35,25 @@ function DriverList() {
 
    useEffect(() => {
       const fetchDrivers = async () => {
+         if (!companyId) {
+            setError("Company ID not found.");
+            setLoading(false);
+            return;
+         }
+
          try {
-            const response = await axios.get(`https://trucktive.runasp.net/api/Drivers?companyId=${companyId}`);
+            const response = await driverAPI.getDrivers(companyId);
             setDriversList(response.data);
             setLoading(false);
          } catch (err) {
             console.error("Error fetching drivers:", err);
-            setError("Failed to load drivers.");
+            setError(handleError(err, "Failed to load drivers."));
             setLoading(false);
          }
       };
 
       fetchDrivers();
-   }, []);
+   }, [companyId]);
 
    if (loading) return <div>Loading...</div>;
    if (error) return <div style={{ color: "red" }}>{error}</div>;

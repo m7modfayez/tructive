@@ -1,7 +1,8 @@
 
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { vehicleAPI } from "../../services/api";
+import { getLocalStorageItem, handleError } from "../../utils/helpers";
 
 interface Vehicle {
    id: number;
@@ -24,25 +25,21 @@ function VehiclesList() {
 
     useEffect(() => {
     const fetchVehicles = async () => {
+      const companyId = getLocalStorageItem("companyId");
+      
+      if (!companyId) {
+        setError("Company ID not found.");
+        setLoading(false);
+        return;
+      }
+
       try {
-        const token = localStorage.getItem("token");
-        const userId = localStorage.getItem("userId");
-
-        console.log("userId:", userId);
-        console.log("token:", token);
-
-        const response = await axios.get(`https://trucktive.runasp.net/api/Vehicles/company/${userId}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
+        const response = await vehicleAPI.getVehicles(companyId);
         setVehiclesList(response.data);
-        console.log(vehiclesList)
         setLoading(false);
       } catch (err) {
         console.error("Error fetching vehicles:", err);
-        setError("Failed to load vehicles.");
+        setError(handleError(err, "Failed to load vehicles."));
         setLoading(false);
       }
     };

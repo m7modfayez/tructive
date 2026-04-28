@@ -1,5 +1,3 @@
-
-
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +7,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
   const [loginError, setLoginError] = useState("");
 
   const formik = useFormik({

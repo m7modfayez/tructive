@@ -1,34 +1,32 @@
 import { Outlet } from "react-router-dom";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from './Header'
 import NavBar from './NavBar'
 import DashboardBody from './DashboardBody'
-
+import { supervisorAPI } from '../services/api';
+import { getLocalStorageItem, formatFullName, handleError } from '../utils/helpers';
+import { STORAGE_KEYS } from '../utils/constants';
 
 function Dashboard() {
-
-    const supervisorID = localStorage.getItem("SupervisorId");
-    const companyId = localStorage.getItem("companyId");
+    const supervisorID = getLocalStorageItem(STORAGE_KEYS.SUPERVISOR_ID);
+    const companyId = getLocalStorageItem(STORAGE_KEYS.COMPANY_ID);
     const [supervisor, setSupervisor] = useState<string>("");
-
-    console.log("supervisorID", supervisorID);
-    console.log("company", companyId);
-    
     
    useEffect(() => {
-    const fetchDrivers = async () => {
-    try {
-      const response = await axios.get(`https://trucktive.runasp.net/api/Supervisors/${supervisorID}?companyId=${companyId}`);
-      const supervisorName = response.data.fName + " " + response.data.lName;
-      setSupervisor(supervisorName);
-    } catch (err) {
-      console.error("Error fetching supervisor:", err);
-    }
-   };
+    const fetchSupervisor = async () => {
+      if (!supervisorID || !companyId) return;
+      
+      try {
+        const response = await supervisorAPI.getSupervisor(supervisorID, companyId);
+        const supervisorName = formatFullName(response.data.fName, response.data.lName);
+        setSupervisor(supervisorName);
+      } catch (err) {
+        console.error("Error fetching supervisor:", handleError(err));
+      }
+    };
 
-  fetchDrivers();
-}, []);
+    fetchSupervisor();
+  }, [supervisorID, companyId]);
 
 
 
