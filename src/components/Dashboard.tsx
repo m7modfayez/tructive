@@ -31,16 +31,14 @@ function Dashboard() {
 
 
     return(
-        <>
         <div className='dashboard'>
-
-        <Header role="Supervisor" userName={supervisor} />
-        <DashboardBody />
-        <Outlet />
-        <NavBar />
-
+            <Header role="Supervisor" userName={supervisor} />
+            <div className="dash-body">
+                <DashboardBody />
+                <Outlet />
+            </div>
+            <NavBar />
         </div>
-        </>
     )
 }
 

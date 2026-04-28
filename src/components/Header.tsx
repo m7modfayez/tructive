@@ -9,19 +9,21 @@ type HeaderProps = {
 
 function Header({ role, userName }: HeaderProps) {
     return (
-        <>
-            <div className="dashboard-header">
-                <img className="logo" src={logo} alt="Trucktive Logo" />
-                <div className="user">
-                    <GoPerson size={40} color="black" />
-                    <p className="userName">{userName}</p>
+        <header className="dashboard-header">
+            <div className="dashboard-brand">
+                <img className="dashboard-logo" src={logo} alt="Trucktive Logo" />
+                <div>
+                    <h1 className="dashboard-title">{role} Dashboard</h1>
+                    <p className="dashboard-subtitle">Manage your fleet with ease</p>
                 </div>
             </div>
-
-            <div className="dash-head">
-                <h1>{role} Dashboard</h1>
+            <div className="dashboard-user">
+                <div className="avatar">
+                    <GoPerson size={20} />
+                </div>
+                <span>{userName}</span>
             </div>
-        </>
+        </header>
     );
 }
 

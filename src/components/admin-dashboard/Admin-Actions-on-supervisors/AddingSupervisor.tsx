@@ -87,23 +87,34 @@ function AddingSupervisor() {
     console.log(payload);
 
     try {
+      console.log("Adding supervisor with payload:", payload);
       const response = await axios.post("https://trucktive.runasp.net/api/Supervisors", payload);
       console.log("✅ Supervisor added successfully:", response.data);
-      if(response.status === 200)
+      
+      if(response.status === 200 || response.status === 201)
       {
         setMessageHtml(
           <div style={{ backgroundColor: "#d4edda", padding: 10, borderRadius: 5, color: "#155724" }}>
             ✅ Supervisor has been added successfully!
           </div>
         );
-        setTimeout(() => navigate(-1) , 2000 );
-        setTimeout(() => window.location.reload(), 3000); 
-     }
-    } catch (error) {
-      console.error("❌ Failed to add supervisor:", error);
+        setTimeout(() => {
+          navigate(-1);
+        }, 2000);
+      }
+      else {
+        setMessageHtml(
+        <div style={{ backgroundColor: "#f8d7da", padding: 10, borderRadius: 5, color: "#721c24" }}>
+          ❌ Failed to add supervisor. Status: {response.status}
+        </div>
+        );
+      }
+    } catch (error: any) {
+      console.error("Error adding supervisor:", error);
+      const errorMessage = error.response?.data?.message || error.message || "Failed to add supervisor";
       setMessageHtml(
         <div style={{ backgroundColor: "#f8d7da", padding: 10, borderRadius: 5, color: "#721c24" }}>
-          ❌ An error occurred while adding the Supervisor.
+          ❌ {errorMessage}
         </div>
       );
     }

@@ -1,7 +1,5 @@
 import { useState } from "react";
 import type { JSX } from 'react';
-import Closing from "./Closing";
-import BaseButton from "./BaseButton";
 
 
 type FormAttr = {
@@ -82,49 +80,62 @@ function BaseFormWindow({formAttr, formValues, formHead, buttonName, submitForm,
       };
 
     return(
-        <>
-        <div className="base-actions-window">
-
-            <Closing />
-            <div style={{textAlign:"center", margin:"0 auto", width:"fit-content"}}> <h1>{formHead}</h1> </div> 
-            
-            <div className="company-form-div">
-            <form className="company-form" onSubmit={handleSubmit}>
-                {formAttr.map((attr) => (
-                    <div className="form-attr" key={attr.name}>
-                    <label htmlFor="name">{attr.label}</label>
-                    <input
-                     type={attr.inputType}
-                     min={attr.min}
-                     id= {attr.name} 
-                     name= {attr.name}
-                     value={formData[attr.name] || ""}
-                     placeholder={attr.placeHolder}
-                     onChange={handleChange} 
-                     required
-                     />
-                   </div>
-                ) )}
-                
-                
-               {/* here is success and error message. */}
-                <div style={{width:"90%",}}>
-                {messageHtml && <div style={{ marginTop: "10px" }}>{messageHtml}</div>}
+        <div className="modal-overlay">
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h2 className="modal-title">{formHead}</h2>
+                    <button className="modal-close" onClick={() => window.history.back()}>
+                        ×
+                    </button>
                 </div>
-
-            <div style={{width: "100%", marginTop: "20px", textAlign: "center",}}>
-                <BaseButton name={buttonName} className="admin-confirm-adding-button" />
+                
+                <div className="modal-body">
+                    <form onSubmit={handleSubmit} className="form-layout">
+                        <div className="form-grid-2">
+                            {formAttr.map((attr) => (
+                                <div className="form-group" key={attr.name}>
+                                    <label htmlFor={attr.name} className="form-label">{attr.label}</label>
+                                    <input
+                                        type={attr.inputType}
+                                        min={attr.min}
+                                        id={attr.name}
+                                        name={attr.name}
+                                        value={formData[attr.name] || ""}
+                                        placeholder={attr.placeHolder}
+                                        onChange={handleChange}
+                                        className="form-input"
+                                        required
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                        
+                        {/* Success and error messages */}
+                        {messageHtml && (
+                            <div className="mt-4">
+                                {messageHtml}
+                            </div>
+                        )}
+                        
+                        <div className="form-actions">
+                            <button 
+                                type="button" 
+                                className="btn btn-secondary"
+                                onClick={() => window.history.back()}
+                            >
+                                Cancel
+                            </button>
+                            <button 
+                                type="submit" 
+                                className="btn btn-primary"
+                            >
+                                {buttonName}
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-
-            </form>
-            </div>
-            <div style={{margin:"10px auto", width:"fit-content"}}>
-            {/* <BaseButton name={buttonName} className="admin-confirm-adding-button" /> */}
-            </div>
-
         </div>
-        </>
     )
 }
 

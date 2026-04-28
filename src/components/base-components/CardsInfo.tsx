@@ -12,34 +12,34 @@ function CardInfo({totalCard, bestCard, worstCard , onChildClick}: DriverInfoPro
  
 
     return(
-        <>
-          <div className="drivers" >
-
-            <div onClick={onChildClick} className="driver tot-drivers">
-                <h2>{totalCard.cardName}</h2>
-                {/* <p>click to see</p> */}
-                <h2>{totalCard.number}</h2>
-                {totalCard.icon}
-                {/* < totalCard.icon size={70} style={{ margin:'20px', float: 'right',}} /> */}
-                {/* <IoPersonOutline size={70} style={{ margin:'20px', float: 'right',}} /> */}
+        <div className="stats-grid">
+            <div onClick={onChildClick} className="stats-card">
+                <div className="stats-header">
+                    <span className="stats-title">{totalCard.cardName}</span>
+                    <div className="stats-icon">{totalCard.icon}</div>
+                </div>
+                <div className="stats-value">{totalCard.number || 0}</div>
+                <div className="stats-description">Total companies in system</div>
             </div>
 
-            <div className="driver" style={{backgroundColor:'rgb(183, 255, 189)',}}>
-                <h2>{bestCard.cardName}</h2>
-                <h2>{bestCard.number}</h2>
-                <h4>{bestCard.name}</h4>
-
+            <div onClick={onChildClick} className="stats-card">
+                <div className="stats-header">
+                    <span className="stats-title">{bestCard.cardName}</span>
+                    <div className="stats-icon">📈</div>
+                </div>
+                <div className="stats-value">{bestCard.number || 0}</div>
+                <div className="stats-description">{bestCard.name || 'N/A'}</div>
             </div>
 
-            <div className="driver" style={{backgroundColor:'rgb(255, 203, 203)',}}>
-                <h2>{worstCard.cardName}</h2>
-                <h2>{worstCard.number}</h2>
-                <h4>{worstCard.name}</h4>
-
+            <div onClick={onChildClick} className="stats-card">
+                <div className="stats-header">
+                    <span className="stats-title">{worstCard.cardName}</span>
+                    <div className="stats-icon">📉</div>
+                </div>
+                <div className="stats-value">{worstCard.number || 0}</div>
+                <div className="stats-description">{worstCard.name || 'N/A'}</div>
             </div>
-
-          </div>
-        </>
+        </div>
     )
 }
 

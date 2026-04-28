@@ -1,0 +1,281 @@
+/* ===================================
+   APP STYLES - Application Specific Styles
+   =================================== */
+
+/* Logo Styles */
+.logo {
+  will-change: filter;
+  transition: filter 300ms;
+  width: 150px;
+  height: auto;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+/* Dashboard Specific Styles */
+.dashboard {
+  justify-content: center;
+  height: 90vh;
+}
+
+.dashboard-header {
+  height: 60px;
+  background: linear-gradient(to bottom, #91cbff, #fffbfb);
+  top: 0;
+  margin-bottom: var(--spacing-4);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  padding: 0 var(--spacing-4);
+  flex-shrink: 0;
+}
+
+/* User Profile in Header */
+.user {
+  margin-left: auto;
+  margin-right: var(--spacing-1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.userName {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-gray-700);
+}
+
+/* Dashboard Headings */
+.dash-head {
+  text-align: center;
+  margin-bottom: var(--spacing-8);
+}
+
+.dash-head h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  color: var(--color-gray-700);
+}
+
+/* Stats Cards - Original Layout Preserved */
+.drivers {
+  display: flex;
+  width: 60vw;
+  gap: var(--spacing-4);
+  margin: var(--spacing-8) auto;
+}
+
+.driver {
+  width: 25%;
+  min-width: 100px;
+  min-height: 90%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-base);
+  cursor: pointer;
+}
+
+.driver:hover {
+  transform: translateY(-2px);
+}
+
+.driver.tot-drivers {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.driver h2 {
+  text-align: left;
+  margin: var(--spacing-2) 0 0 var(--spacing-4);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+.driver h4 {
+  margin-right: var(--spacing-2);
+  margin-top: 25%;
+  font-size: var(--font-size-sm);
+  opacity: 0.9;
+}
+
+/* Table Container */
+.table-div {
+  margin: var(--spacing-12) auto 0;
+  width: fit-content;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.table-div button {
+  background-color: transparent;
+  border: none;
+}
+
+/* Driver Table Styles */
+.driver-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-white);
+}
+
+.driver-table th,
+.driver-table td {
+  padding: var(--spacing-3);
+  text-align: left;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.driver-table th {
+  background: var(--color-gray-50);
+  font-weight: 600;
+  color: var(--color-gray-700);
+}
+
+.driver-table tbody tr:hover {
+  background: var(--color-gray-50);
+}
+
+/* Driver List Specific */
+.driver-list-table-div {
+  width: 95%;
+  padding-right: var(--spacing-2);
+  border-radius: var(--radius-xl);
+  margin: var(--spacing-4) auto;
+}
+
+.driver-list-table {
+  background-color: var(--color-white);
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.driver-list-table th,
+.driver-list-table td {
+  padding: var(--spacing-3);
+  min-width: 150px;
+  width: calc(100% / 4);
+  max-width: 22%;
+}
+
+.driver-list-table th {
+  background: var(--color-gray-50);
+  font-weight: 600;
+  color: var(--color-gray-700);
+}
+
+.driver-list-table tbody tr:hover {
+  background: var(--color-gray-50);
+}
+
+/* Search Input */
+.driver-search {
+  margin: var(--spacing-4);
+  border-radius: var(--radius-lg);
+  height: 25px;
+  border: 1px solid var(--color-gray-200);
+  padding-left: var(--spacing-2);
+  color: var(--color-gray-700);
+  transition: var(--transition-base);
+}
+
+.driver-search:focus {
+  outline: 2px solid var(--color-primary);
+  border: none;
+  color: var(--color-primary);
+}
+
+/* Driver List Buttons */
+.driver-list-buttons-div {
+  margin: var(--spacing-2) var(--spacing-4);
+  display: flex;
+  gap: var(--spacing-3);
+  justify-content: center;
+}
+
+.driver-list-buttons {
+  width: 120px;
+  cursor: pointer;
+  margin: var(--spacing-1);
+  padding: var(--spacing-3);
+  border-radius: var(--radius-lg);
+  height: 40px;
+  background: var(--color-gray-100);
+  color: var(--color-gray-700);
+  font-weight: 500;
+  transition: var(--transition-base);
+}
+
+.driver-list-buttons:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.driver-list-buttons:active {
+  transform: translateY(1px);
+}
+
+/* Page Headers */
+.page-header {
+  background: linear-gradient(to bottom, #2f9eff, #fffbfb);
+  padding: var(--spacing-8) var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  color: var(--color-gray-700);
+  margin-bottom: var(--spacing-2);
+}
+
+.page-header p {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-500);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .drivers {
+    width: 80vw;
+  }
+  
+  .driver {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .drivers {
+    flex-direction: column;
+    width: 90vw;
+    gap: var(--spacing-3);
+  }
+  
+  .driver {
+    width: 100%;
+    min-height: 80px;
+  }
+  
+  .dashboard-header {
+    padding: 0 var(--spacing-4);
+  }
+  
+  .user {
+    margin-right: var(--spacing-2);
+  }
+  
+  .driver-list-table-div {
+    width: 98%;
+  }
+}

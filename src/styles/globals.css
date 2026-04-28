@@ -206,6 +206,15 @@ body {
   transform: translateY(1px);
 }
 
+
+/* Dashboard improvements */
+.dash-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 /* Responsive utilities */
 @media (min-width: 768px) {
   .dashboard {
@@ -214,6 +223,7 @@ body {
   
   .dash-body {
     padding: 30px;
+    gap: 20px;
   }
   
   .driver-list-table-div {
@@ -224,6 +234,7 @@ body {
 @media (min-width: 1024px) {
   .dash-body {
     padding: 40px;
+    gap: 24px;
   }
   
   .driver-list-table-div {

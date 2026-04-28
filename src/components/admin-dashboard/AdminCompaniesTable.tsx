@@ -9,8 +9,13 @@ import Table from "../base-components/Table"
 
 const companiesHeaders = [ "Company ID", "Company Name", "Phone", "email", "Total Supervisors" , "Total Drivers", "Contract Date", "Actions"];
 
-const editIcon = <FaEdit size={20} style={{ cursor: "pointer", color: "#008ae6d6", margin: "0 15px" }}  />
-const deleteIcon = <RiDeleteBin6Fill size={20} style={{ cursor: "pointer", color: "#ff0505d6", margin: "0 15px" }} />
+const EditIcon = () => (
+  <FaEdit size={18} className="edit-icon" />
+);
+
+const DeleteIcon = () => (
+  <RiDeleteBin6Fill size={18} className="delete-icon" />
+);
 
 // const companies = [
 //     {
@@ -116,13 +121,16 @@ function AdminCompaniesTable() {
      useEffect(() => {
           const fetchCompanies = async () => {
              try {
+                console.log("Fetching companies...");
                 const response = await axios.get("https://trucktive.runasp.net/api/Companies");
+                console.log("Companies response:", response.data);
                 setCompaniesList(response.data);
-                console.log(response.data)
+                setError(null);
                 setLoading(false);
-             } catch (err) {
-                console.error("Error fetching drivers:", err);
-                setError("Failed to load companies.");
+             } catch (err: any) {
+                console.error("Error fetching companies:", err);
+                const errorMessage = err.response?.data?.message || err.message || "Failed to fetch companies";
+                setError(errorMessage);
                 setLoading(false);
              }
           };
@@ -134,14 +142,16 @@ function AdminCompaniesTable() {
        if (error) return <div style={{ color: "red", marginTop:"20px" }}>{error}</div>;
        ///////
 
-    const onCompanyClick = (rowData: any) => {
-      const companyName = rowData["Company Name"];
-      const companyID = rowData["Company ID"];
-      navigate(`${companyID}/${companyName}`);
-      console.log("row data", rowData)
-      console.log("company clicked", companyName);
-      console.log("company clicked", companyID);
-     }
+    const onCompanyClick = (row: any) => {
+        // Get the hidden company object from the row data
+        const company = row._company;
+        if (company) {
+            // Navigate to company details page with company data
+            navigate(`${company.id}/${company.name}`, { 
+                state: company 
+            });
+        }
+    };
     
     const handleEdit = (id: any) => {
         console.log("Edit company ID:", id);
@@ -150,43 +160,114 @@ function AdminCompaniesTable() {
     };
 
     const handleDelete = async (id: number) => {
-       const confirmDelete = window.confirm("Are you sure you want to delete this company?");
-       if (!confirmDelete) return;
-       console.log("Delete company ID:", id);
+       console.log("Delete function called with ID:", id);
+       console.log("Current companiesList:", companiesList);
+       
+       const company = companiesList.find((c: any) => c.id === id);
+       if (!company) {
+         console.log("Company not found for ID:", id);
+         toast.error("Company not found");
+         return;
+       }
+       
+       console.log("Company found:", company);
+       const confirmDelete = window.confirm(`Are you sure you want to delete "${company.name}"? This action cannot be undone.`);
+       console.log("User confirmation:", confirmDelete);
+       
+       if (!confirmDelete) {
+         console.log("User cancelled delete");
+         return;
+       }
+       
+       console.log("Proceeding with delete for company ID:", id);
        try {
-         await axios.delete(`https://trucktive.runasp.net/api/Companies/${id}`);
-         console.log(`Company with ID ${id} deleted successfully.`);
-         setTimeout(() => toast.success("Company deleted successfully."), 0 ); 
-         setCompaniesList(companiesList.filter((company: any) => company.id !== id));
-       } catch (error) {
+         const response = await axios.delete(`https://trucktive.runasp.net/api/Companies/${id}`);
+         console.log("Delete response:", response);
+         
+         // Update local state
+         setCompaniesList((prevCompanies: any[]) => {
+           const newList = prevCompanies.filter((company: any) => company.id !== id);
+           console.log("New companies list:", newList);
+           return newList;
+         });
+         
+         // Show success message
+         toast.success(`Company "${company.name}" deleted successfully!`);
+       } catch (error: any) {
          console.error("Error deleting company:", error);
-         // optionally show an error message to the user
-         toast.error("Failed to delete the company")
+         
+         // Show specific error message
+         const errorMessage = error.response?.data?.message || error.message || "Failed to delete the company";
+         toast.error(errorMessage);
        }
     };
 
-    const companiesData = companiesList.map((company:any) => ({
-        "Company ID": company.id,
-        "Company Name": company.name,
-        "Phone": company.phone,
-        "email": company.email,
-        // "Total Supervisors": company.super,
-        "Total Supervisors": company.supervisorsCount,
-        "Total Drivers": company.driversCount,
-        "Contract Date": company.contractDate,
-        "Actions": (
-          <div onClick={(e) => e.stopPropagation()} >
-            <button onClick={() => handleEdit(company.id)}>{editIcon}</button>
-            <button onClick={() => handleDelete(company.id)}>{deleteIcon}</button>
+    const companiesData = companiesList.map((company:any) => {
+        const actions = (
+          <div className="table-actions" onClick={(e) => e.stopPropagation()} >
+            <button 
+              onClick={() => handleEdit(company.id)} 
+              className="btn btn-sm btn-outline"
+              title="Edit Company"
+            >
+              <span style={{ fontSize: '14px' }}><EditIcon /></span>
+            </button>
+            <button 
+              onClick={() => handleDelete(company.id)} 
+              className="btn btn-sm btn-danger"
+              title="Delete Company"
+            >
+              <span style={{ fontSize: '14px' }}><DeleteIcon /></span>
+            </button>
           </div>
-        ),
-      }));
+        );
+        
+        return {
+            "Company ID": company.id,
+            "Company Name": company.name,
+            "Phone": company.phone,
+            "email": company.email,
+            "Total Supervisors": company.supervisorsCount,
+            "Total Drivers": company.driversCount,
+            "Contract Date": company.contractDate,
+            "Actions": actions,
+            // Add company object for click handling
+            _company: company
+        };
+    });
 
 
     return(
-        <>
-         <Table headers={companiesHeaders} data={companiesData} className="companies-table" onRowClick={onCompanyClick} />
-        </>
+        <div className="page-content">
+            <div className="table-header">
+                <h2 className="table-title">Companies Management</h2>
+                <div className="table-actions">
+                    <button 
+                        className="btn btn-primary"
+                        onClick={() => navigate('add-company')}
+                    >
+                        + Add Company
+                    </button>
+                </div>
+            </div>
+            
+            {loading ? (
+                <div className="loading">
+                    <div className="spinner"></div>
+                    <span>Loading companies...</span>
+                </div>
+            ) : error ? (
+                <div className="alert alert-danger">{error}</div>
+            ) : (
+                <div className="table-container">
+                    <Table 
+                        headers={companiesHeaders} 
+                        data={companiesData} 
+                        onRowClick={onCompanyClick} 
+                    />
+                </div>
+            )}
+        </div>
     )
 }
 export default AdminCompaniesTable;

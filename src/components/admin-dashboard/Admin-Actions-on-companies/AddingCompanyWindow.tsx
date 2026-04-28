@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Closing from "../../base-components/Closing";
-import BaseButton from "../../base-components/BaseButton";
 
 
 
@@ -27,6 +25,7 @@ function AddingCompanyWindow() {
 
         const [successMessage, setSuccessMessage] = useState("");
         const [errorMessage, setErrorMessage] = useState("");
+        const [isLoading, setIsLoading] = useState(false);
         
 
     const confirmAddCompany = async (e: React.FormEvent) =>{
@@ -34,6 +33,9 @@ function AddingCompanyWindow() {
         console.log(formData);
 
         e.preventDefault();
+        setIsLoading(true);
+        setErrorMessage("");
+        setSuccessMessage("");
 
         const payload = {
            userId: userId,
@@ -47,26 +49,28 @@ function AddingCompanyWindow() {
 
         try {
             // Make the POST request to the API
-            console.log("Payload:", payload);
+            console.log("Adding company with payload:", payload);
             const response = await axios.post(apiUrl, payload);
+            console.log("Company added response:", response.data);
 
-            if (response.status === 200) {
-                setSuccessMessage("Company has been added successfully!");
-                setErrorMessage(""); // 
-                setTimeout(() => navigate(-1), 2000 ); 
-            } else {
-                setErrorMessage("An error occurred while adding the company.");
-                setSuccessMessage(""); // 
-            }
+            const { id } = response.data;
+            console.log("Company added with ID:", id);
+            setSuccessMessage("Company added successfully!");
+            setTimeout(() => {
+                navigate('/admin-dashboard');
+            }, 2000);
         } catch (error: any) {
+            console.error("Error adding company:", error);
             if (error.response) {
                 console.error("API Error:", error.response.data);
                 setErrorMessage(error.response.data?.message || "An error occurred while adding the company.");
             } else {
-                console.error("Error:", error.message);
-                setErrorMessage("An unexpected error occurred.");
+                console.error("Network Error:", error.message);
+                setErrorMessage("Network error. Please check your connection and try again.");
             }
             setSuccessMessage(""); 
+        } finally {
+            setIsLoading(false);
         }
 
     }
@@ -74,65 +78,106 @@ function AddingCompanyWindow() {
    
 
     return(
-        <>
-        
-        <div className="base-actions-window">
-
-            <Closing />
-            <div style={{textAlign:"center", margin:"0 auto", width:"fit-content"}} > <h1>Add New Company</h1> </div> 
-            
-            <div className="company-form-div">
-            <form className="company-form" onSubmit={confirmAddCompany}>
-                <div className="form-attr">
-                 <label htmlFor="name">Company Name</label>
-                 <input type="text" id="name" name="companyName" placeholder="Enter Company Name.."
-                  value={formData.companyName}
-                  onChange={handleChange}
-                  required
-                 />
+        <div className="modal-overlay">
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h2 className="modal-title">Add New Company</h2>
+                    <button className="modal-close" onClick={() => navigate('/admin-dashboard')}>
+                        ×
+                    </button>
                 </div>
+                
+                <div className="modal-body">
+                    <form onSubmit={confirmAddCompany} className="form-layout">
+                        <div className="form-grid-2">
+                            <div className="form-group">
+                                <label htmlFor="companyName" className="form-label">Company Name</label>
+                                <input 
+                                    type="text" 
+                                    id="companyName" 
+                                    name="companyName" 
+                                    placeholder="Enter company name"
+                                    value={formData.companyName}
+                                    onChange={handleChange}
+                                    className="form-input"
+                                    required
+                                />
+                            </div>
 
-                <div className="form-attr">
-                 <label htmlFor="email">Email Address</label>
-                 <input type="email" id="email" name="companyEmail" placeholder="Enter Company Email.." 
-                  value={formData.companyEmail}
-                  onChange={handleChange}
-                  required
-                 />
+                            <div className="form-group">
+                                <label htmlFor="companyEmail" className="form-label">Email Address</label>
+                                <input 
+                                    type="email" 
+                                    id="companyEmail" 
+                                    name="companyEmail" 
+                                    placeholder="Enter company email"
+                                    value={formData.companyEmail}
+                                    onChange={handleChange}
+                                    className="form-input"
+                                    required
+                                />
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="companyPhone" className="form-label">Phone Number</label>
+                                <input 
+                                    type="tel" 
+                                    id="companyPhone" 
+                                    name="companyPhone" 
+                                    placeholder="Enter company phone"
+                                    value={formData.companyPhone}
+                                    onChange={handleChange}
+                                    className="form-input"
+                                    required
+                                />
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="companyAddress" className="form-label">Address</label>
+                                <input 
+                                    type="text" 
+                                    id="companyAddress" 
+                                    name="companyAddress" 
+                                    placeholder="Enter company address"
+                                    value={formData.companyAddress}
+                                    onChange={handleChange}
+                                    className="form-input"
+                                />
+                            </div>
+                        </div>
+
+                        {successMessage && (
+                            <div className="alert alert-success">
+                                {successMessage}
+                            </div>
+                        )}
+
+                        {errorMessage && (
+                            <div className="alert alert-danger">
+                                {errorMessage}
+                            </div>
+                        )}
+                        
+                        <div className="form-actions">
+                            <button 
+                                type="button" 
+                                className="btn btn-secondary"
+                                onClick={() => navigate('/admin-dashboard')}
+                            >
+                                Cancel
+                            </button>
+                            <button 
+                                type="submit" 
+                                className="btn btn-primary"
+                                disabled={isLoading}
+                            >
+                                {isLoading ? 'Adding...' : 'Add Company'}
+                            </button>
+                        </div>
+                    </form>
                 </div>
-
-                <div className="form-attr">
-                 <label htmlFor="phone">Phone</label>
-                 <input type="number" id="phone" min="1" name="companyPhone" placeholder="Enter Company Phone.." 
-                   value={formData.companyPhone}
-                   onChange={handleChange}
-                   required
-                 />
-                </div>
-
-               
-
-                {successMessage && (
-                    <div className="success-message">
-                        {successMessage}
-                    </div>
-                )}
-
-                {errorMessage && (
-                    <div className="error-message">
-                        {errorMessage}
-                    </div>
-                )}
-            <div style={{width: "100%", marginTop: "20px", textAlign: "center",}}>
-            <BaseButton name="Add Company" className="admin-confirm-adding-button" baseButtonOnClick={() => {}} />
             </div>
-            
-
-            </form>
-            </div>
-
         </div>
-        </>
     )
 }
 

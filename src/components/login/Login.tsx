@@ -5,10 +5,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useState } from "react";
+import logo from "/logo.png";
 
 const LoginPage = () => {
   const navigate = useNavigate(); 
   const [loginError, setLoginError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Handle demo login
+  const handleDemoLogin = async () => {
+    const demoCredentials = {
+      email: "admin_trucktiveegypt@trucktive.com",
+      password: "P@ssw0rd"
+    };
+    
+    // Set form values to demo credentials
+    await formik.setValues({
+      email: demoCredentials.email,
+      password: demoCredentials.password,
+      role: "admin"
+    });
+    
+    // Trigger form submission
+    formik.handleSubmit();
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -23,11 +43,12 @@ const LoginPage = () => {
     onSubmit: async (values) => {
       try {
         setLoginError("");
+        setIsLoading(true);
 
-        const response = await axios.post("https://trucktive.runasp.net/Auth/Login", values);
+        const response = await axios.post(`https://trucktive.runasp.net/Auth/Login`, values);
 
         const { token, role, id, firstName } = response.data;
-        console.log(response.data)
+        console.log("Login response:", response.data);
 
         localStorage.setItem("token", token);
         localStorage.setItem("userId", id);
@@ -36,98 +57,97 @@ const LoginPage = () => {
            localStorage.setItem("companyId", response.data.profileData.companyId); 
            localStorage.setItem("SupervisorId", response.data.profileData.id);
         }
- 
-        // const i = response.data.profileData.id;
-        console.log("token", token)
-        console.log("id", id)
-        console.log("name", firstName)
-        // console.log("superID", i);
-
-        // 🔐 Set token globally for all axios requests
-        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
         if (role === "Admin") {
           navigate("/admin-dashboard");
         } else if (role === "Supervisor") {
           navigate("/supervisor-dashboard");
         } else {
-          navigate("/login-page");
+          navigate("/");
         }
       } catch (error) {
         console.error("Login error:", error);
-
         setLoginError(" Invalid email or password. Please try again. ");
-
-
+      } finally {
+        setIsLoading(false);
       }
     },
   });
 
   return (
-    <div className="container">
-      <div className="left-section">
-        <h1>Tructive</h1>
-      </div>
-      <div className="right-section">
-        <h2 className="login-title">Login</h2>
-        <div className="login-box">
-          <form onSubmit={formik.handleSubmit}>
-            <label htmlFor="email">Email</label>
-            <div className="input-group">
-              <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: "10px" }} />
-              <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                {...formik.getFieldProps("email")}
-              />
-            </div>
+    <div className="login-page">
+      <div className="login-card">
+        <img src={logo} alt="Trucktive" className="login-logo" />
+        
+        <form onSubmit={formik.handleSubmit} className="login-form">
+          <div className="login-header">
+            <h1 className="login-title">Welcome Back</h1>
+            <p className="login-subtitle">Sign in to your account</p>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">
+              <FontAwesomeIcon icon={faEnvelope} />
+              Email Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className={`form-input ${formik.touched.email && formik.errors.email ? 'error' : ''}`}
+            />
             {formik.touched.email && formik.errors.email && (
-              <div className="error-message">{formik.errors.email}</div>
+              <div className="form-error">{formik.errors.email}</div>
             )}
+          </div>
 
-            <label htmlFor="password">Password</label>
-            <div className="input-group">
-              <FontAwesomeIcon icon={faLock} style={{ marginRight: "10px" }} />
-              <input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                {...formik.getFieldProps("password")}
-              />
-            </div>
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">
+              <FontAwesomeIcon icon={faLock} />
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              className={`form-input ${formik.touched.password && formik.errors.password ? 'error' : ''}`}
+            />
             {formik.touched.password && formik.errors.password && (
-              <div className="error-message">{formik.errors.password}</div>
+              <div className="form-error">{formik.errors.password}</div>
             )}
+          </div>
 
-            {/* <div className="role-selection">
-              <input
-                type="radio"
-                id="admin"
-                name="role"
-                value="admin"
-                checked={formik.values.role === "admin"}
-                onChange={formik.handleChange}
-              />
-              <label htmlFor="admin">Admin</label>
+          {loginError && (
+            <div className="alert alert-danger">
+              {loginError}
+            </div>
+          )}
 
-              <input
-                type="radio"
-                id="supervisor"
-                name="role"
-                value="supervisor"
-                checked={formik.values.role === "supervisor"}
-                onChange={formik.handleChange}
-              />
-              <label htmlFor="supervisor">Supervisor</label>
-            </div> */}
+          <button type="submit" className="btn btn-primary btn-lg w-full" disabled={isLoading}>
+            {isLoading ? 'Signing in...' : 'Sign In'}
+          </button>
+        </form>
 
-            {loginError && <div className="error-message">{loginError}</div>}
-
-            <button type="submit" className="login-button">
-              <strong>Login</strong>
-            </button>
-          </form>
+        <div className="login-footer">
+          <div className="login-divider">
+            <span>OR</span>
+          </div>
+          <button 
+            type="button" 
+            className="btn btn-outline w-full" 
+            onClick={handleDemoLogin}
+            disabled={isLoading}
+          >
+            {isLoading ? 'Signing in...' : 'Demo Login'}
+          </button>
         </div>
       </div>
     </div>
@@ -135,4 +155,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
