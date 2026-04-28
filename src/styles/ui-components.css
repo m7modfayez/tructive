@@ -271,6 +271,7 @@
 }
 
 .table tbody tr {
+  cursor: pointer;
   transition: var(--transition-colors);
 }
 
@@ -289,6 +290,39 @@
 
 .table tbody tr:nth-child(even):hover {
   background: var(--bg-secondary);
+}
+
+/* Table Row Hover Hint */
+.table tbody tr {
+  position: relative;
+}
+
+.table tbody tr:hover .table-hover-hint {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.table-hover-hint {
+  position: absolute;
+  right: var(--spacing-3);
+  top: 50%;
+  transform: translateX(10px);
+  color: var(--color-primary);
+  font-size: var(--font-xs);
+  font-weight: var(--font-medium);
+  opacity: 0;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  background: rgba(59, 130, 246, 0.1);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Prevent hint on action buttons column */
+.table tbody tr:hover td:last-child .table-hover-hint {
+  display: none;
 }
 
 /* ==================== MODAL ==================== */

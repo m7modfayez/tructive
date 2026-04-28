@@ -7,7 +7,17 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import Table from "../base-components/Table"
 
-const companiesHeaders = [ "Company ID", "Company Name", "Phone", "email", "Total Supervisors" , "Total Drivers", "Contract Date", "Actions"];
+const companiesHeaders = [ 
+    "Company ID", 
+    "Company Name", 
+    "Phone", 
+    "email", 
+    "Total Supervisors" , 
+    "Total Drivers", 
+    "Contract Date", 
+    "Actions",
+    "Hint"
+];
 
 const EditIcon = () => (
   <FaEdit size={18} className="edit-icon" />
@@ -231,6 +241,7 @@ function AdminCompaniesTable() {
             "Total Drivers": company.driversCount,
             "Contract Date": company.contractDate,
             "Actions": actions,
+            "Hint": <span className="table-hover-hint">Click to view details</span>,
             // Add company object for click handling
             _company: company
         };
