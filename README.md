@@ -1,15 +1,17 @@
 # Trucktive – Fleet Management Dashboard
 
-A modern, responsive fleet management system dashboard built with React and TypeScript. This application provides comprehensive tools for managing vehicle fleets, drivers, and operational data with an intuitive interface.
+A fleet management dashboard built with React and TypeScript that visualizes vehicle data collected from OBD-II devices installed in vehicles, helping monitor fleet performance and driver behavior.
 
 ## Features
 
-- **Fleet Monitoring Dashboard**: Real-time overview of fleet status and performance metrics
-- **Driver Management**: Complete driver profiles, ratings, and performance tracking
-- **Vehicle Management**: Track vehicle conditions, maintenance, and availability
-- **Data Visualization**: Interactive charts and analytics for operational insights
-- **Multi-Role Support**: Admin and Supervisor roles with tailored interfaces
-- **Responsive Design**: Optimized for desktop and laptop screens
+- **Fleet Monitoring Dashboard**: Overview of vehicle data and key metrics  
+- **Driver Tracking & Rating**: Monitor driver performance and ratings  
+- **Data Visualization**: Charts and insights for fleet analysis  
+- **Role-based dashboards**:
+  - System Admin: manages companies using the platform  
+  - Company Supervisor: manages drivers, vehicles, and monitors analytics  
+- **API Integration**: Displays data from external backend services  
+- **Responsive Design**: Optimized for desktop and laptop screens  
 
 ## Tech Stack
 
